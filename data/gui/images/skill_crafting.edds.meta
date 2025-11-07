@@ -1,0 +1,16 @@
+MetaFileClass {
+ Name "{4802270F88CCE678}ZenSkills/data/gui/images/skill_crafting.png"
+ Author "zen"
+ ChangeDate -782945480
+ Configurations {
+  PNGResourceClass PC {
+   SourceFile "skill_crafting.png"
+  }
+  PNGResourceClass XBOX_ONE : PC {
+  }
+  PNGResourceClass PS4 : PC {
+  }
+  PNGResourceClass LINUX : PC {
+  }
+ }
+}

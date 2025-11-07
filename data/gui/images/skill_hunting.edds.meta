@@ -1,0 +1,16 @@
+MetaFileClass {
+ Name "{A6E8CE36FA20536D}ZenSkills/data/gui/images/skill_hunting.png"
+ Author "zen"
+ ChangeDate -615173320
+ Configurations {
+  PNGResourceClass PC {
+   SourceFile "skill_hunting.png"
+  }
+  PNGResourceClass XBOX_ONE : PC {
+  }
+  PNGResourceClass PS4 : PC {
+  }
+  PNGResourceClass LINUX : PC {
+  }
+ }
+}

@@ -1,0 +1,203 @@
+FrameWidgetClass rootFrame {
+ clipchildren 1
+ ignorepointer 0
+ color 0.8824 0.8824 0.8824 1
+ size 1 1
+ hexactpos 0
+ vexactpos 0
+ hexactsize 0
+ vexactsize 0
+ priority 2
+ scriptclass "ZenSkillsGUI"
+ {
+  FrameWidgetClass WindowWidget {
+   ignorepointer 0
+   position 0 0
+   size 1 1
+   halign center_ref
+   valign center_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   priority 1
+   {
+    FrameWidgetClass BackPanelWidget {
+     visible 1
+     position 0 0
+     size 1.6 0.9
+     halign center_ref
+     valign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     fixaspect inside
+     priority 1
+     {
+      ImageWidgetClass TitleBackground {
+       visible 1
+       clipchildren 0
+       keepsafezone 0
+       color 0 0 0 0.9412
+       position 0 0.05
+       size 0.92 0.045
+       halign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       priority 1
+       draggable 0
+       image0 "set:dayz_gui image:inv_header_3"
+       mode blend
+       "src alpha" 1
+       "clamp mode" clamp
+       "stretch mode" stretch_w_h
+       {
+        TextWidgetClass TitleWidget {
+         position 0 0
+         size 1 1
+         halign center_ref
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         priority 1
+         style Normal
+         text "#STR_ZenSkills_Title"
+         font "gui/fonts/sdf_MetronBook24"
+         "text offset" 10 0
+         "exact text" 0
+         text_proportion 0.55
+         "text halign" center
+         "text valign" center
+        }
+       }
+      }
+      PanelWidgetClass SkillInfoPanelWidget {
+       visible 1
+       clipchildren 0
+       inheritalpha 1
+       color 0 0 0 0.8627
+       position 0 0.095
+       size 0.92 0.85
+       halign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       style DayZDefaultPanel
+       {
+        ImageWidgetClass SkillTreeBG {
+         ignorepointer 1
+         ignoregloballv 0
+         keepsafezone 0
+         position 0 0
+         size 1 1
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         imageTexture "{D219ED62B7BF55C8}ZenSkills/data/gui/images/skill_background_tree.edds"
+         mode additive
+         "src alpha" 1
+         "clamp mode" border
+         "stretch mode" fit_w_center
+         "flip u" 0
+         "flip v" 0
+         filter 1
+         nocache 0
+        }
+        PanelWidgetClass DescriptionPanel {
+         ignorepointer 1
+         color 0 0 0 0.9569
+         position 0 0
+         size 1 1
+         halign center_ref
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         style DayZDefaultPanel
+         {
+          TextWidgetClass DescTitle {
+           ignorepointer 1
+           color 0.749 0.6549 0.3725 1
+           position 0 0
+           size 0.95 0.1
+           halign center_ref
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           text "#STR_ZenSkills_Welcome"
+           "text halign" center
+           "text valign" center
+          }
+          MultilineTextWidgetClass DescWidget {
+           clipchildren 0
+           position 0 0.1
+           size 0.8 0.8
+           halign center_ref
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           priority 1
+           style None
+           text "#STR_ZenSkills_GUI_ModDescription"
+           "exact text" 1
+           "exact text size" 24
+           "size to text h" 0
+           "size to text v" 0
+           "text halign" center
+           "text valign" center
+           wrap 1
+           "condense whitespace" 1
+          }
+          ButtonWidgetClass OkButton {
+           clipchildren 1
+           color 0 0.502 0.1255 1
+           position 0 0.02
+           size 200 48
+           halign center_ref
+           valign bottom_ref
+           hexactpos 0
+           vexactpos 0
+           hexactsize 1
+           vexactsize 1
+           style DayZDefaultButton
+           text "OK"
+           text_proportion 0.5
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+  ImageWidgetClass vignette {
+   visible 1
+   ignorepointer 0
+   color 0 0 0 0.7843
+   position 0 0
+   size 1.6 0.9
+   halign center_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 0
+   fixaspect outside
+   imageTexture "{E6B3EF816E067499}Gui/textures/inventory_bgvignette.edds"
+   mode blend
+   "src alpha" 1
+   "clamp mode" clamp
+   "stretch mode" stretch_w_h
+   filter 0
+   nocache 1
+  }
+ }
+}

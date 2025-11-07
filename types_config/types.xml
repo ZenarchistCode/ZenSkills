@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<types>
+	<!-- ZenSkills -->
+	<type name="ZenSkills_Injector_ExpBoost">
+        <nominal>4</nominal>
+        <lifetime>28800</lifetime>
+        <restock>0</restock>
+        <min>2</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_cargo="0" count_in_hoarder="0" count_in_map="1" count_in_player="0" crafted="0" deloot="0"/>
+        <category name="tools"/>
+        <tag name="shelves"/>
+        <usage name="Medic"/>
+    </type>
+	<type name="ZenSkills_Injector_PerkReset">
+        <nominal>2</nominal>
+        <lifetime>28800</lifetime>
+        <restock>0</restock>
+        <min>1</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_cargo="0" count_in_hoarder="0" count_in_map="1" count_in_player="0" crafted="0" deloot="0"/>
+        <category name="tools"/>
+        <tag name="shelves"/>
+        <usage name="Medic"/>
+    </type>
+	<type name="ZenSkills_Book_Survival">
+		<nominal>1</nominal>
+        <lifetime>14400</lifetime>
+        <restock>0</restock>
+        <min>0</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_cargo="0" count_in_hoarder="0" count_in_map="1" count_in_player="0" crafted="0" deloot="0"/>
+        <category name="tools"/>
+		<usage name="Military"/>
+        <usage name="Police"/>
+        <usage name="Medic"/>
+        <usage name="Firefighter"/>
+        <usage name="Industrial"/>
+        <usage name="Farm"/>
+        <usage name="Coast"/>
+        <usage name="Town"/>
+        <usage name="Village"/>
+        <usage name="Hunting"/>
+        <usage name="Office"/>
+        <usage name="School"/>
+        <usage name="Prison"/>
+        <usage name="Lunapark"/>
+	</type>
+	<type name="ZenSkills_Book_Crafting">
+		<nominal>1</nominal>
+        <lifetime>14400</lifetime>
+        <restock>0</restock>
+        <min>0</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_cargo="0" count_in_hoarder="0" count_in_map="1" count_in_player="0" crafted="0" deloot="0"/>
+        <category name="tools"/>
+		<usage name="Military"/>
+        <usage name="Police"/>
+        <usage name="Medic"/>
+        <usage name="Firefighter"/>
+        <usage name="Industrial"/>
+        <usage name="Farm"/>
+        <usage name="Coast"/>
+        <usage name="Town"/>
+        <usage name="Village"/>
+        <usage name="Hunting"/>
+        <usage name="Office"/>
+        <usage name="School"/>
+        <usage name="Prison"/>
+        <usage name="Lunapark"/>
+	</type>
+	<type name="ZenSkills_Book_Hunting">
+		<nominal>1</nominal>
+        <lifetime>14400</lifetime>
+        <restock>0</restock>
+        <min>0</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_cargo="0" count_in_hoarder="0" count_in_map="1" count_in_player="0" crafted="0" deloot="0"/>
+        <category name="tools"/>
+		<usage name="Military"/>
+        <usage name="Police"/>
+        <usage name="Medic"/>
+        <usage name="Firefighter"/>
+        <usage name="Industrial"/>
+        <usage name="Farm"/>
+        <usage name="Coast"/>
+        <usage name="Town"/>
+        <usage name="Village"/>
+        <usage name="Hunting"/>
+        <usage name="Office"/>
+        <usage name="School"/>
+        <usage name="Prison"/>
+        <usage name="Lunapark"/>
+	</type>
+	<type name="ZenSkills_Book_Gathering">
+		<nominal>1</nominal>
+        <lifetime>14400</lifetime>
+        <restock>0</restock>
+        <min>0</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_cargo="0" count_in_hoarder="0" count_in_map="1" count_in_player="0" crafted="0" deloot="0"/>
+        <category name="tools"/>
+		<usage name="Military"/>
+        <usage name="Police"/>
+        <usage name="Medic"/>
+        <usage name="Firefighter"/>
+        <usage name="Industrial"/>
+        <usage name="Farm"/>
+        <usage name="Coast"/>
+        <usage name="Town"/>
+        <usage name="Village"/>
+        <usage name="Hunting"/>
+        <usage name="Office"/>
+        <usage name="School"/>
+        <usage name="Prison"/>
+        <usage name="Lunapark"/>
+	</type>
+</types>

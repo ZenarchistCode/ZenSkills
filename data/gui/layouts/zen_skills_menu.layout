@@ -1,0 +1,1778 @@
+FrameWidgetClass rootFrame {
+ clipchildren 1
+ ignorepointer 0
+ color 0.8824 0.8824 0.8824 1
+ size 1 1
+ hexactpos 0
+ vexactpos 0
+ hexactsize 0
+ vexactsize 0
+ priority 2
+ scriptclass "ZenSkillsGUI"
+ {
+  FrameWidgetClass WindowWidget {
+   ignorepointer 0
+   position 0 0
+   size 1 1
+   halign center_ref
+   valign center_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   priority 1
+   {
+    FrameWidgetClass BackPanelWidget {
+     visible 1
+     position 0 0
+     size 1.6 0.9
+     halign center_ref
+     valign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     fixaspect inside
+     priority 1
+     {
+      ItemPreviewWidgetClass PerkFrameWidgetPanel {
+       visible 1
+       position 0.2 0.095
+       size 0.6 0.85
+       halign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       priority 2
+       {
+        ItemPreviewWidgetClass PerkFrameWidget {
+         position -38.5 1
+         size 0.93 1
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         "force flip enable" 1
+         {
+          ImageWidgetClass SkillTreeBG {
+           visible 1
+           ignorepointer 1
+           ignoregloballv 0
+           keepsafezone 0
+           position 0 0
+           size 1 1
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+           imageTexture "{D219ED62B7BF55C8}ZenSkills/data/gui/images/skill_background_tree.edds"
+           mode additive
+           "src alpha" 1
+           "clamp mode" border
+           "stretch mode" fit_w_center
+           "flip u" 0
+           "flip v" 0
+           filter 1
+           nocache 0
+           {
+            TextWidgetClass PerkCountLabel {
+             clipchildren 0
+             ignorepointer 1
+             position 0.01 0
+             size 220 48
+             halign right_ref
+             hexactpos 0
+             vexactpos 0
+             hexactsize 1
+             vexactsize 1
+             text "Perks: 1/15"
+             text_proportion 0.9
+             "text halign" right
+             "text valign" center
+            }
+            TextWidgetClass SkillPointCountLabel {
+             clipchildren 0
+             ignorepointer 1
+             position 0.01 0.05
+             size 220 48
+             halign right_ref
+             hexactpos 0
+             vexactpos 0
+             hexactsize 1
+             vexactsize 1
+             text "Skill Points: 0"
+             text_proportion 0.9
+             "text halign" right
+             "text valign" center
+            }
+            TextWidgetClass ExpBoostLabel {
+             clipchildren 0
+             ignorepointer 1
+             color 0 1 0 1
+             position 0.01 0.1
+             size 220 48
+             halign right_ref
+             hexactpos 0
+             vexactpos 0
+             hexactsize 1
+             vexactsize 1
+             text "EXP Boost: 2x"
+             text_proportion 0.9
+             "text halign" right
+             "text valign" center
+            }
+            TextWidgetClass ExpBoostTimeLabel {
+             clipchildren 0
+             ignorepointer 1
+             color 0 1 0 1
+             position 0.01 0.15
+             size 220 48
+             halign right_ref
+             hexactpos 0
+             vexactpos 0
+             hexactsize 1
+             vexactsize 1
+             text "X minutes left"
+             text_proportion 0.9
+             "text halign" right
+             "text valign" center
+            }
+            ButtonWidgetClass SubmitButton {
+             clipchildren 1
+             color 0 0.502 0.1255 1
+             position 0.025 0.12
+             size 200 48
+             halign right_ref
+             valign bottom_ref
+             hexactpos 0
+             vexactpos 0
+             hexactsize 1
+             vexactsize 1
+             style DayZDefaultButton
+             text "#widget_unlock"
+             text_proportion 0.5
+            }
+            ButtonWidgetClass ResetButton {
+             clipchildren 1
+             color 0.5608 0.0706 0.0706 1
+             position 0.025 0.05
+             size 200 48
+             halign right_ref
+             valign bottom_ref
+             hexactpos 0
+             vexactpos 0
+             hexactsize 1
+             vexactsize 1
+             style DayZDefaultButton
+             text "#STR_ZenSkills_GUI_ResetPerks"
+             text_proportion 0.5
+            }
+            PanelWidgetClass DescriptionPanel {
+             ignorepointer 1
+             color 0 0 0 0.5882
+             position -0.12 0.02
+             size 0.65 0.2
+             halign center_ref
+             valign bottom_ref
+             hexactpos 0
+             vexactpos 0
+             hexactsize 0
+             vexactsize 0
+             style DayZDefaultPanel
+             {
+              TextWidgetClass PerkDescTitle {
+               ignorepointer 1
+               color 0.749 0.6549 0.3725 1
+               position 0 0.01
+               size 0.95 0.19
+               halign center_ref
+               hexactpos 0
+               vexactpos 0
+               hexactsize 0
+               vexactsize 0
+               text "Perk:"
+               "text halign" center
+               "text valign" center
+              }
+              MultilineTextWidgetClass SkillDescWidget {
+               clipchildren 0
+               position 0 0.2
+               size 0.95 0.75
+               halign center_ref
+               hexactpos 0
+               vexactpos 0
+               hexactsize 0
+               vexactsize 0
+               priority 1
+               style None
+               text "You have a %1 chance of getting safe food from predators. The item description will say it smells safe to eat if it is. You have a %1 chance of getting safe food from predators. The item description will say it smells safe to eat if it is. You have a %1 chance of getting safe food from predators. The item description will say it smells safe to eat if it is"
+               "exact text" 1
+               "exact text size" 24
+               "size to text h" 0
+               "size to text v" 0
+               "text halign" center
+               wrap 1
+               "condense whitespace" 1
+              }
+             }
+            }
+           }
+          }
+          ButtonWidgetClass PerkBtn1_1 {
+           visible 1
+           color 0.502 0 0 1
+           position -0.3 0.62
+           size 126 126
+           halign center_ref
+           hexactpos 0
+           vexactpos 0
+           hexactsize 1
+           vexactsize 1
+           style DayZDefaultButtonNoBorder
+           {
+            ImageWidgetClass PerkIcon1_1 {
+             visible 1
+             ignorepointer 1
+             position 0 3
+             size 120 120
+             halign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 1
+             vexactsize 1
+             imageTexture "{72BE488D209F90A0}ZenSkills/data/gui/images/icons/icon_skill_03_256x256_GS.edds"
+             "src alpha" 0
+             "clamp mode" border
+             "stretch mode" stretch_w_h
+             {
+              TextWidgetClass PerkLabel1_1 {
+               ignorepointer 1
+               position 0 0
+               size 0.25 0.2
+               halign right_ref
+               valign bottom_ref
+               hexactpos 0
+               vexactpos 0
+               hexactsize 0
+               vexactsize 0
+               text "1/3"
+               "text halign" right
+               "text valign" center
+              }
+             }
+            }
+           }
+          }
+          ButtonWidgetClass PerkBtn1_2 {
+           color 0.502 0 0 1
+           position 0 0.62
+           size 126 126
+           halign center_ref
+           hexactpos 0
+           vexactpos 0
+           hexactsize 1
+           vexactsize 1
+           style DayZDefaultButtonNoBorder
+           {
+            ImageWidgetClass PerkIcon1_2 {
+             visible 1
+             ignorepointer 1
+             position 0 3
+             size 120 120
+             halign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 1
+             vexactsize 1
+             imageTexture "{72BE488D209F90A0}ZenSkills/data/gui/images/icons/icon_skill_03_256x256_GS.edds"
+             "clamp mode" border
+             "stretch mode" stretch_w_h
+             {
+              TextWidgetClass PerkLabel1_2 {
+               ignorepointer 1
+               position 0 0
+               size 0.25 0.2
+               halign right_ref
+               valign bottom_ref
+               hexactpos 0
+               vexactpos 0
+               hexactsize 0
+               vexactsize 0
+               text "1/3"
+               "text halign" right
+               "text valign" center
+              }
+             }
+            }
+           }
+          }
+          ButtonWidgetClass PerkBtn1_3 {
+           color 0.502 0 0 1
+           position 0.3 0.62
+           size 126 126
+           halign center_ref
+           hexactpos 0
+           vexactpos 0
+           hexactsize 1
+           vexactsize 1
+           style DayZDefaultButtonNoBorder
+           {
+            ImageWidgetClass PerkIcon1_3 {
+             visible 1
+             ignorepointer 1
+             position 0 3
+             size 120 120
+             halign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 1
+             vexactsize 1
+             imageTexture "{72BE488D209F90A0}ZenSkills/data/gui/images/icons/icon_skill_03_256x256_GS.edds"
+             "clamp mode" border
+             "stretch mode" stretch_w_h
+             {
+              TextWidgetClass PerkLabel1_3 {
+               ignorepointer 1
+               position 0 0
+               size 0.25 0.2
+               halign right_ref
+               valign bottom_ref
+               hexactpos 0
+               vexactpos 0
+               hexactsize 0
+               vexactsize 0
+               text "1/3"
+               "text halign" right
+               "text valign" center
+              }
+             }
+            }
+           }
+          }
+          ButtonWidgetClass PerkBtn2_1 {
+           disabled 0
+           color 0.502 0 0 1
+           position -0.15 0.45
+           size 126 126
+           halign center_ref
+           hexactpos 0
+           vexactpos 0
+           hexactsize 1
+           vexactsize 1
+           style DayZDefaultButtonNoBorder
+           {
+            ImageWidgetClass PerkIcon2_1 {
+             visible 1
+             disabled 0
+             ignorepointer 1
+             position 0 3
+             size 120 120
+             halign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 1
+             vexactsize 1
+             imageTexture "{72BE488D209F90A0}ZenSkills/data/gui/images/icons/icon_skill_03_256x256_GS.edds"
+             "clamp mode" border
+             "stretch mode" stretch_w_h
+             {
+              TextWidgetClass PerkLabel2_1 {
+               ignorepointer 1
+               position 0 0
+               size 0.25 0.2
+               halign right_ref
+               valign bottom_ref
+               hexactpos 0
+               vexactpos 0
+               hexactsize 0
+               vexactsize 0
+               text "1/3"
+               "text halign" right
+               "text valign" center
+              }
+             }
+            }
+           }
+          }
+          ButtonWidgetClass PerkBtn2_2 {
+           disabled 0
+           color 0.502 0 0 1
+           position 0.15 0.45
+           size 126 126
+           halign center_ref
+           hexactpos 0
+           vexactpos 0
+           hexactsize 1
+           vexactsize 1
+           style DayZDefaultButtonNoBorder
+           {
+            ImageWidgetClass PerkIcon2_2 {
+             visible 1
+             ignorepointer 1
+             position 0 3
+             size 120 120
+             halign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 1
+             vexactsize 1
+             imageTexture "{72BE488D209F90A0}ZenSkills/data/gui/images/icons/icon_skill_03_256x256_GS.edds"
+             "clamp mode" border
+             "stretch mode" stretch_w_h
+             {
+              TextWidgetClass PerkLabel2_2 {
+               ignorepointer 1
+               position 0 0
+               size 0.25 0.2
+               halign right_ref
+               valign bottom_ref
+               hexactpos 0
+               vexactpos 0
+               hexactsize 0
+               vexactsize 0
+               text "1/3"
+               "text halign" right
+               "text valign" center
+              }
+             }
+            }
+           }
+          }
+          ButtonWidgetClass PerkBtn3_1 {
+           color 0.502 0 0 1
+           position -0.3 0.28
+           size 126 126
+           halign center_ref
+           hexactpos 0
+           vexactpos 0
+           hexactsize 1
+           vexactsize 1
+           style DayZDefaultButtonNoBorder
+           {
+            ImageWidgetClass PerkIcon3_1 {
+             visible 1
+             ignorepointer 1
+             position 0 3
+             size 120 120
+             halign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 1
+             vexactsize 1
+             imageTexture "{72BE488D209F90A0}ZenSkills/data/gui/images/icons/icon_skill_03_256x256_GS.edds"
+             "clamp mode" border
+             "stretch mode" stretch_w_h
+             {
+              TextWidgetClass PerkLabel3_1 {
+               ignorepointer 1
+               position 0 0
+               size 0.25 0.2
+               halign right_ref
+               valign bottom_ref
+               hexactpos 0
+               vexactpos 0
+               hexactsize 0
+               vexactsize 0
+               text "1/3"
+               "text halign" right
+               "text valign" center
+              }
+             }
+            }
+           }
+          }
+          ButtonWidgetClass PerkBtn3_2 {
+           color 0.502 0 0 1
+           position 0 0.28
+           size 126 126
+           halign center_ref
+           hexactpos 0
+           vexactpos 0
+           hexactsize 1
+           vexactsize 1
+           style DayZDefaultButtonNoBorder
+           {
+            ImageWidgetClass PerkIcon3_2 {
+             visible 1
+             ignorepointer 1
+             position 0 3
+             size 120 120
+             halign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 1
+             vexactsize 1
+             imageTexture "{72BE488D209F90A0}ZenSkills/data/gui/images/icons/icon_skill_03_256x256_GS.edds"
+             "clamp mode" border
+             "stretch mode" stretch_w_h
+             {
+              TextWidgetClass PerkLabel3_2 {
+               ignorepointer 1
+               position 0 0
+               size 0.25 0.2
+               halign right_ref
+               valign bottom_ref
+               hexactpos 0
+               vexactpos 0
+               hexactsize 0
+               vexactsize 0
+               text "1/3"
+               "text halign" right
+               "text valign" center
+              }
+             }
+            }
+           }
+          }
+          ButtonWidgetClass PerkBtn3_3 {
+           color 0.502 0 0 1
+           position 0.3 0.28
+           size 126 126
+           halign center_ref
+           hexactpos 0
+           vexactpos 0
+           hexactsize 1
+           vexactsize 1
+           style DayZDefaultButtonNoBorder
+           {
+            ImageWidgetClass PerkIcon3_3 {
+             visible 1
+             ignorepointer 1
+             position 0 3
+             size 120 120
+             halign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 1
+             vexactsize 1
+             imageTexture "{72BE488D209F90A0}ZenSkills/data/gui/images/icons/icon_skill_03_256x256_GS.edds"
+             "clamp mode" border
+             "stretch mode" stretch_w_h
+             {
+              TextWidgetClass PerkLabel3_3 {
+               ignorepointer 1
+               position 0 0
+               size 0.25 0.2
+               halign right_ref
+               valign bottom_ref
+               hexactpos 0
+               vexactpos 0
+               hexactsize 0
+               vexactsize 0
+               text "1/3"
+               "text halign" right
+               "text valign" center
+              }
+             }
+            }
+           }
+          }
+          ButtonWidgetClass PerkBtn4_1 {
+           color 0.502 0 0 1
+           position -0.15 0.11
+           size 126 126
+           halign center_ref
+           hexactpos 0
+           vexactpos 0
+           hexactsize 1
+           vexactsize 1
+           style DayZDefaultButtonNoBorder
+           {
+            ImageWidgetClass PerkIcon4_1 {
+             visible 1
+             ignorepointer 1
+             position 0 3
+             size 120 120
+             halign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 1
+             vexactsize 1
+             imageTexture "{72BE488D209F90A0}ZenSkills/data/gui/images/icons/icon_skill_03_256x256_GS.edds"
+             "src alpha" 0
+             "clamp mode" border
+             "stretch mode" stretch_w_h
+             {
+              TextWidgetClass PerkLabel4_1 {
+               ignorepointer 1
+               position 0 0
+               size 0.25 0.2
+               halign right_ref
+               valign bottom_ref
+               hexactpos 0
+               vexactpos 0
+               hexactsize 0
+               vexactsize 0
+               text "1/3"
+               "text halign" right
+               "text valign" center
+              }
+             }
+            }
+           }
+          }
+          ButtonWidgetClass PerkBtn4_2 {
+           color 0.502 0 0 1
+           position 0.15 0.11
+           size 126 126
+           halign center_ref
+           hexactpos 0
+           vexactpos 0
+           hexactsize 1
+           vexactsize 1
+           style DayZDefaultButtonNoBorder
+           {
+            ImageWidgetClass PerkIcon4_2 {
+             visible 1
+             ignorepointer 1
+             position 0 3
+             size 120 120
+             halign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 1
+             vexactsize 1
+             imageTexture "{72BE488D209F90A0}ZenSkills/data/gui/images/icons/icon_skill_03_256x256_GS.edds"
+             "clamp mode" border
+             "stretch mode" stretch_w_h
+             {
+              TextWidgetClass PerkLabel4_2 {
+               ignorepointer 1
+               position 0 0
+               size 0.25 0.2
+               halign right_ref
+               valign bottom_ref
+               hexactpos 0
+               vexactpos 0
+               hexactsize 0
+               vexactsize 0
+               text "1/3"
+               "text halign" right
+               "text valign" center
+              }
+             }
+            }
+           }
+          }
+         }
+        }
+       }
+      }
+      ImageWidgetClass TitleBackground {
+       visible 1
+       clipchildren 0
+       keepsafezone 0
+       color 0 0 0 0.9412
+       position 0 0.05
+       size 0.92 0.045
+       halign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       priority 1
+       draggable 0
+       image0 "set:dayz_gui image:inv_header_3"
+       mode blend
+       "src alpha" 1
+       "clamp mode" clamp
+       "stretch mode" stretch_w_h
+       {
+        TextWidgetClass TitleWidget {
+         position 0 0
+         size 1 1
+         halign center_ref
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         priority 1
+         style Normal
+         text "SURVIVAL SKILL TREE"
+         font "gui/fonts/sdf_MetronBook24"
+         "text offset" 10 0
+         "exact text" 0
+         text_proportion 0.55
+         "text halign" center
+         "text valign" center
+         {
+          ButtonWidgetClass CloseButton {
+           visible 1
+           disabled 0
+           clipchildren 1
+           inheritalpha 0
+           ignorepointer 0
+           keepsafezone 0
+           color 0.8824 0.8824 0.8824 0
+           position 0.01 0
+           size 0.5 0.5
+           halign right_ref
+           valign center_ref
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           fixaspect fixwidth
+           priority 1
+           userID 2
+           style Default
+           "no focus" 1
+           text_offset 1 1
+           text_halign center
+           "text color" 1 1 1 1
+           switch normal
+           {
+            ImageWidgetClass IconClose {
+             visible 1
+             ignorepointer 1
+             size 1 1
+             halign center_ref
+             valign center_ref
+             hexactpos 0
+             vexactpos 0
+             hexactsize 0
+             vexactsize 0
+             priority 1
+             image0 "set:dayz_gui image:icon_x"
+             mode additive
+             "src alpha" 1
+            }
+           }
+          }
+          ButtonWidgetClass InfoButton {
+           visible 1
+           disabled 0
+           clipchildren 1
+           inheritalpha 0
+           ignorepointer 0
+           keepsafezone 0
+           color 0.8824 0.8824 0.8824 0
+           position 0.01 0
+           size 0.5 0.5
+           valign center_ref
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           fixaspect fixwidth
+           priority 1
+           userID 2
+           style Default
+           "no focus" 1
+           text "i"
+           text_offset 1 1
+           text_halign center
+           "text color" 1 1 1 1
+           switch normal
+           {
+            TextWidgetClass IconInfo {
+             visible 1
+             ignorepointer 1
+             position 0 0
+             size 1 1
+             halign center_ref
+             valign center_ref
+             hexactpos 0
+             vexactpos 0
+             hexactsize 0
+             vexactsize 0
+             priority 1
+             text "?"
+             "text halign" center
+             "text valign" center
+            }
+           }
+          }
+         }
+        }
+       }
+      }
+      PanelWidgetClass SkillInfoPanelWidget {
+       visible 1
+       clipchildren 0
+       inheritalpha 1
+       color 0 0 0 0.8627
+       position 0 0.095
+       size 0.92 0.85
+       halign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       style DayZDefaultPanel
+       {
+        TextWidgetClass TextWidget_IconLabel {
+         clipchildren 0
+         ignorepointer 1
+         position 0.025 0.23
+         size 60 20
+         hexactpos 0
+         vexactpos 0
+         hexactsize 1
+         vexactsize 1
+         text "#STR_ZenSkills_GUI_Icon"
+         text_proportion 0.5
+        }
+        TextWidgetClass TextWidget_NameLabel {
+         clipchildren 1
+         ignorepointer 1
+         position 0.06 0.23
+         size 420 20
+         hexactpos 0
+         vexactpos 0
+         hexactsize 1
+         vexactsize 1
+         text "#STR_ZenSkills_GUI_PerkName"
+        }
+        TextWidgetClass TextWidget_LevelLabel {
+         disabled 0
+         clipchildren 1
+         ignorepointer 1
+         position 0.31 0.23
+         size 66 20
+         hexactpos 0
+         vexactpos 0
+         hexactsize 1
+         vexactsize 1
+         text "#STR_ZenSkills_GUI_Level"
+        }
+        TextWidgetClass TextWidget_TierLabel {
+         clipchildren 1
+         ignorepointer 1
+         position 0.36 0.23
+         size 48 20
+         hexactpos 0
+         vexactpos 0
+         hexactsize 1
+         vexactsize 1
+         text "#STR_ZenSkills_GUI_Tier"
+        }
+        ImageWidgetClass PerkLeftIcon1_1 {
+         ignorepointer 1
+         position 0.025 0.25828
+         size 48 48
+         hexactpos 0
+         vexactpos 0
+         hexactsize 1
+         vexactsize 1
+         "clamp mode" border
+         "stretch mode" stretch_w_h
+        }
+        ButtonWidgetClass PerkLeftButton1_1 {
+         clipchildren 1
+         ignorepointer 0
+         position 0.06 0.25828
+         size 420 48
+         hexactpos 0
+         vexactpos 0
+         hexactsize 1
+         vexactsize 1
+         text "Example Perk"
+         text_halign left
+        }
+        TextWidgetClass PerkLeftLevel1_1 {
+         ignorepointer 1
+         position 0.31 0.25828
+         size 66 48
+         hexactpos 0
+         vexactpos 0
+         hexactsize 1
+         vexactsize 1
+         style Normal
+         text "1/3"
+         "size to text h" 0
+         "size to text v" 1
+         "text valign" center
+        }
+        TextWidgetClass PerkLeftTier1_1 {
+         ignorepointer 1
+         position 0.36 0.25828
+         size 48 48
+         hexactpos 0
+         vexactpos 0
+         hexactsize 1
+         vexactsize 1
+         style Normal
+         text "1"
+         "size to text h" 0
+         "size to text v" 1
+         "text valign" center
+        }
+        ImageWidgetClass PerkLeftIcon1_2 {
+         ignorepointer 1
+         position 0.025 0.32828
+         size 48 48
+         hexactpos 0
+         vexactpos 0
+         hexactsize 1
+         vexactsize 1
+         "clamp mode" border
+         "stretch mode" stretch_w_h
+        }
+        ButtonWidgetClass PerkLeftButton1_2 {
+         clipchildren 1
+         ignorepointer 0
+         position 0.06 0.32828
+         size 420 48
+         hexactpos 0
+         vexactpos 0
+         hexactsize 1
+         vexactsize 1
+         text "Treasure Hunter"
+         text_halign left
+        }
+        TextWidgetClass PerkLeftLevel1_2 {
+         ignorepointer 1
+         position 0.31 0.32828
+         size 66 48
+         hexactpos 0
+         vexactpos 0
+         hexactsize 1
+         vexactsize 1
+         style Normal
+         text "1/3"
+         "size to text h" 0
+         "size to text v" 1
+         "text valign" center
+        }
+        TextWidgetClass PerkLeftTier1_2 {
+         ignorepointer 1
+         position 0.36 0.32828
+         size 48 48
+         hexactpos 0
+         vexactpos 0
+         hexactsize 1
+         vexactsize 1
+         style Normal
+         text "1"
+         "size to text h" 0
+         "size to text v" 1
+         "text valign" center
+        }
+        ImageWidgetClass PerkLeftIcon1_3 {
+         ignorepointer 1
+         position 0.025 0.39828
+         size 48 48
+         hexactpos 0
+         vexactpos 0
+         hexactsize 1
+         vexactsize 1
+         "clamp mode" border
+         "stretch mode" stretch_w_h
+        }
+        ButtonWidgetClass PerkLeftButton1_3 {
+         clipchildren 1
+         ignorepointer 0
+         position 0.06 0.39828
+         size 420 48
+         hexactpos 0
+         vexactpos 0
+         hexactsize 1
+         vexactsize 1
+         text "Extraction Knowledge"
+         text_halign left
+        }
+        TextWidgetClass PerkLeftLevel1_3 {
+         ignorepointer 1
+         position 0.31 0.39828
+         size 66 48
+         hexactpos 0
+         vexactpos 0
+         hexactsize 1
+         vexactsize 1
+         style Normal
+         text "1/3"
+         "size to text h" 0
+         "size to text v" 1
+         "text valign" center
+        }
+        TextWidgetClass PerkLeftTier1_3 {
+         ignorepointer 1
+         position 0.36 0.39828
+         size 48 48
+         hexactpos 0
+         vexactpos 0
+         hexactsize 1
+         vexactsize 1
+         style Normal
+         text "1"
+         "size to text h" 0
+         "size to text v" 1
+         "text valign" center
+        }
+        ImageWidgetClass PerkLeftIcon2_1 {
+         ignorepointer 1
+         position 0.025 0.46828
+         size 48 48
+         hexactpos 0
+         vexactpos 0
+         hexactsize 1
+         vexactsize 1
+         "clamp mode" border
+         "stretch mode" stretch_w_h
+        }
+        ButtonWidgetClass PerkLeftButton2_1 {
+         clipchildren 1
+         ignorepointer 0
+         position 0.06 0.46828
+         size 420 48
+         hexactpos 0
+         vexactpos 0
+         hexactsize 1
+         vexactsize 1
+         text "Extraction Knowledge"
+         text_halign left
+        }
+        TextWidgetClass PerkLeftLevel2_1 {
+         ignorepointer 1
+         position 0.31 0.46828
+         size 66 48
+         hexactpos 0
+         vexactpos 0
+         hexactsize 1
+         vexactsize 1
+         style Normal
+         text "1/3"
+         "size to text h" 0
+         "size to text v" 1
+         "text valign" center
+        }
+        TextWidgetClass PerkLeftTier2_1 {
+         ignorepointer 1
+         position 0.36 0.46828
+         size 48 48
+         hexactpos 0
+         vexactpos 0
+         hexactsize 1
+         vexactsize 1
+         style Normal
+         text "2"
+         "size to text h" 0
+         "size to text v" 1
+         "text valign" center
+        }
+        ImageWidgetClass PerkLeftIcon2_2 {
+         ignorepointer 1
+         position 0.025 0.53828
+         size 48 48
+         hexactpos 0
+         vexactpos 0
+         hexactsize 1
+         vexactsize 1
+         "clamp mode" border
+         "stretch mode" stretch_w_h
+        }
+        ButtonWidgetClass PerkLeftButton2_2 {
+         clipchildren 1
+         ignorepointer 0
+         position 0.06 0.53828
+         size 420 48
+         hexactpos 0
+         vexactpos 0
+         hexactsize 1
+         vexactsize 1
+         text "Extraction Knowledge"
+         text_halign left
+        }
+        TextWidgetClass PerkLeftLevel2_2 {
+         ignorepointer 1
+         position 0.31 0.53828
+         size 66 48
+         hexactpos 0
+         vexactpos 0
+         hexactsize 1
+         vexactsize 1
+         style Normal
+         text "1/3"
+         "size to text h" 0
+         "size to text v" 1
+         "text valign" center
+        }
+        TextWidgetClass PerkLeftTier2_2 {
+         ignorepointer 1
+         position 0.36 0.53828
+         size 48 48
+         hexactpos 0
+         vexactpos 0
+         hexactsize 1
+         vexactsize 1
+         style Normal
+         text "2"
+         "size to text h" 0
+         "size to text v" 1
+         "text valign" center
+        }
+        ImageWidgetClass PerkLeftIcon3_1 {
+         ignorepointer 1
+         position 0.025 0.60828
+         size 48 48
+         hexactpos 0
+         vexactpos 0
+         hexactsize 1
+         vexactsize 1
+         "clamp mode" border
+         "stretch mode" stretch_w_h
+        }
+        ButtonWidgetClass PerkLeftButton3_1 {
+         clipchildren 1
+         ignorepointer 0
+         position 0.06 0.60828
+         size 420 48
+         hexactpos 0
+         vexactpos 0
+         hexactsize 1
+         vexactsize 1
+         text "Extraction Knowledge"
+         text_halign left
+        }
+        TextWidgetClass PerkLeftLevel3_1 {
+         ignorepointer 1
+         position 0.31 0.60828
+         size 66 48
+         hexactpos 0
+         vexactpos 0
+         hexactsize 1
+         vexactsize 1
+         style Normal
+         text "1/3"
+         "size to text h" 0
+         "size to text v" 1
+         "text valign" center
+        }
+        TextWidgetClass PerkLeftTier3_1 {
+         ignorepointer 1
+         position 0.36 0.60828
+         size 48 48
+         hexactpos 0
+         vexactpos 0
+         hexactsize 1
+         vexactsize 1
+         style Normal
+         text "3"
+         "size to text h" 0
+         "size to text v" 1
+         "text valign" center
+        }
+        ImageWidgetClass PerkLeftIcon3_2 {
+         ignorepointer 1
+         position 0.025 0.67828
+         size 48 48
+         hexactpos 0
+         vexactpos 0
+         hexactsize 1
+         vexactsize 1
+         "clamp mode" border
+         "stretch mode" stretch_w_h
+        }
+        ButtonWidgetClass PerkLeftButton3_2 {
+         clipchildren 1
+         ignorepointer 0
+         position 0.06 0.67828
+         size 420 48
+         hexactpos 0
+         vexactpos 0
+         hexactsize 1
+         vexactsize 1
+         text "Extraction Knowledge"
+         text_halign left
+        }
+        TextWidgetClass PerkLeftLevel3_2 {
+         ignorepointer 1
+         position 0.31 0.67828
+         size 66 48
+         hexactpos 0
+         vexactpos 0
+         hexactsize 1
+         vexactsize 1
+         style Normal
+         text "1/3"
+         "size to text h" 0
+         "size to text v" 1
+         "text valign" center
+        }
+        TextWidgetClass PerkLeftTier3_2 {
+         ignorepointer 1
+         position 0.36 0.67828
+         size 48 48
+         hexactpos 0
+         vexactpos 0
+         hexactsize 1
+         vexactsize 1
+         style Normal
+         text "3"
+         "size to text h" 0
+         "size to text v" 1
+         "text valign" center
+        }
+        ImageWidgetClass PerkLeftIcon3_3 {
+         ignorepointer 1
+         position 0.025 0.74828
+         size 48 48
+         hexactpos 0
+         vexactpos 0
+         hexactsize 1
+         vexactsize 1
+         "clamp mode" border
+         "stretch mode" stretch_w_h
+        }
+        ButtonWidgetClass PerkLeftButton3_3 {
+         clipchildren 1
+         ignorepointer 0
+         position 0.06 0.74828
+         size 420 48
+         hexactpos 0
+         vexactpos 0
+         hexactsize 1
+         vexactsize 1
+         text "Extraction Knowledge"
+         text_halign left
+        }
+        TextWidgetClass PerkLeftLevel3_3 {
+         ignorepointer 1
+         position 0.31 0.74828
+         size 66 48
+         hexactpos 0
+         vexactpos 0
+         hexactsize 1
+         vexactsize 1
+         style Normal
+         text "1/3"
+         "size to text h" 0
+         "size to text v" 1
+         "text valign" center
+        }
+        TextWidgetClass PerkLeftTier3_3 {
+         ignorepointer 1
+         position 0.36 0.74828
+         size 48 48
+         hexactpos 0
+         vexactpos 0
+         hexactsize 1
+         vexactsize 1
+         style Normal
+         text "3"
+         "size to text h" 0
+         "size to text v" 1
+         "text valign" center
+        }
+        ImageWidgetClass PerkLeftIcon4_1 {
+         ignorepointer 1
+         position 0.025 0.81828
+         size 48 48
+         hexactpos 0
+         vexactpos 0
+         hexactsize 1
+         vexactsize 1
+         "clamp mode" border
+         "stretch mode" stretch_w_h
+        }
+        ButtonWidgetClass PerkLeftButton4_1 {
+         clipchildren 1
+         ignorepointer 0
+         position 0.06 0.81828
+         size 420 48
+         hexactpos 0
+         vexactpos 0
+         hexactsize 1
+         vexactsize 1
+         text "Extraction Knowledge"
+         text_halign left
+        }
+        TextWidgetClass PerkLeftLevel4_1 {
+         ignorepointer 1
+         position 0.31 0.81828
+         size 66 48
+         hexactpos 0
+         vexactpos 0
+         hexactsize 1
+         vexactsize 1
+         style Normal
+         text "1/3"
+         "size to text h" 0
+         "size to text v" 1
+         "text valign" center
+        }
+        TextWidgetClass PerkLeftTier4_1 {
+         ignorepointer 1
+         position 0.36 0.81828
+         size 48 48
+         hexactpos 0
+         vexactpos 0
+         hexactsize 1
+         vexactsize 1
+         style Normal
+         text "4"
+         "size to text h" 0
+         "size to text v" 1
+         "text valign" center
+        }
+        ImageWidgetClass PerkLeftIcon4_2 {
+         ignorepointer 1
+         position 0.025 0.88828
+         size 48 48
+         hexactpos 0
+         vexactpos 0
+         hexactsize 1
+         vexactsize 1
+         "clamp mode" border
+         "stretch mode" stretch_w_h
+        }
+        ButtonWidgetClass PerkLeftButton4_2 {
+         clipchildren 1
+         ignorepointer 0
+         position 0.06 0.88828
+         size 420 48
+         hexactpos 0
+         vexactpos 0
+         hexactsize 1
+         vexactsize 1
+         text "Extraction Knowledge"
+         text_halign left
+        }
+        TextWidgetClass PerkLeftLevel4_2 {
+         ignorepointer 1
+         position 0.31 0.88828
+         size 66 48
+         hexactpos 0
+         vexactpos 0
+         hexactsize 1
+         vexactsize 1
+         style Normal
+         text "1/3"
+         "size to text h" 0
+         "size to text v" 1
+         "text valign" center
+        }
+        TextWidgetClass PerkLeftTier4_2 {
+         ignorepointer 1
+         position 0.36 0.88828
+         size 48 48
+         hexactpos 0
+         vexactpos 0
+         hexactsize 1
+         vexactsize 1
+         style Normal
+         text "4"
+         "size to text h" 0
+         "size to text v" 1
+         "text valign" center
+        }
+        ButtonWidgetClass SurvivalButton {
+         clipchildren 0
+         color 0.2078 0.2078 0.2078 1
+         position 44.5 8
+         size 128 128
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         {
+          ImageWidgetClass SurvivalButtonImage {
+           clipchildren 0
+           inheritalpha 0
+           ignorepointer 1
+           position 0 0
+           size 1 1
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           scaled 1
+           imageTexture "{724074E599703F7F}ZenSkills/data/gui/images/skill_survival.edds"
+           mode blend
+           "src alpha" 1
+           "clamp mode" border
+           "stretch mode" stretch_w_h
+           nocache 0
+           "Transition width" 0
+           {
+            TextWidgetClass SurvivalLabel {
+             clipchildren 1
+             ignorepointer 1
+             position 0 0
+             size 1 0.25
+             halign center_ref
+             valign bottom_ref
+             hexactpos 0
+             vexactpos 0
+             hexactsize 0
+             vexactsize 0
+             text "#STR_ZenSkills_Name_Survival"
+             text_proportion 0.5
+             "text halign" center
+            }
+            TextWidgetClass SurvivalButtonPerks {
+             clipchildren 0
+             ignorepointer 1
+             size 48 48
+             halign right_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 1
+             vexactsize 1
+             text "+1"
+             text_proportion 0.5
+             "text halign" center
+             "text valign" center
+            }
+            ProgressBarWidgetClass SurvivalProgress {
+             ignorepointer 1
+             color 0 1 0.098 1
+             size 100 5
+             halign center_ref
+             valign bottom_ref
+             hexactpos 0
+             vexactpos 0
+             hexactsize 1
+             vexactsize 1
+             style Stamina
+            }
+           }
+          }
+         }
+        }
+        ButtonWidgetClass CraftingButton {
+         clipchildren 0
+         color 0.2078 0.2078 0.2078 1
+         position 204.50101 8
+         size 128 128
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         {
+          ImageWidgetClass CraftingButtonImage {
+           clipchildren 0
+           ignorepointer 1
+           position 0 0
+           size 1 1
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           imageTexture "{4802270F88CCE678}ZenSkills/data/gui/images/skill_crafting.edds"
+           mode blend
+           "src alpha" 1
+           "clamp mode" border
+           "stretch mode" stretch_w_h
+           nocache 0
+           {
+            TextWidgetClass CraftingLabel {
+             clipchildren 1
+             ignorepointer 1
+             position 0 0
+             size 1 0.25
+             halign center_ref
+             valign bottom_ref
+             hexactpos 0
+             vexactpos 0
+             hexactsize 0
+             vexactsize 0
+             text "#STR_ZenSkills_Name_Crafting"
+             text_proportion 0.5
+             "text halign" center
+            }
+            TextWidgetClass CraftingButtonPerks {
+             clipchildren 0
+             ignorepointer 1
+             size 48 48
+             halign right_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 1
+             vexactsize 1
+             text "+1"
+             text_proportion 0.5
+             "text halign" center
+             "text valign" center
+            }
+            ProgressBarWidgetClass CraftingProgress {
+             ignorepointer 1
+             color 0 1 0.098 1
+             size 100 5
+             halign center_ref
+             valign bottom_ref
+             hexactpos 0
+             vexactpos 0
+             hexactsize 1
+             vexactsize 1
+             style Stamina
+            }
+           }
+          }
+         }
+        }
+        ButtonWidgetClass HuntingButton {
+         clipchildren 0
+         color 0.2078 0.2078 0.2078 1
+         position 364.50101 8
+         size 128 128
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         {
+          ImageWidgetClass HuntingButtonImage {
+           clipchildren 0
+           ignorepointer 1
+           position 0 0
+           size 1 1
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           imageTexture "{A6E8CE36FA20536D}ZenSkills/data/gui/images/skill_hunting.edds"
+           mode blend
+           "src alpha" 1
+           "clamp mode" border
+           "stretch mode" stretch_w_h
+           nocache 0
+           {
+            TextWidgetClass HuntingLabel {
+             clipchildren 1
+             ignorepointer 1
+             position 0 0
+             size 1 0.25
+             halign center_ref
+             valign bottom_ref
+             hexactpos 0
+             vexactpos 0
+             hexactsize 0
+             vexactsize 0
+             text "#STR_ZenSkills_Name_Hunting"
+             text_proportion 0.5
+             "text halign" center
+            }
+            TextWidgetClass HuntingButtonPerks {
+             clipchildren 0
+             ignorepointer 1
+             size 48 48
+             halign right_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 1
+             vexactsize 1
+             text "+1"
+             text_proportion 0.5
+             "text halign" center
+             "text valign" center
+            }
+            ProgressBarWidgetClass HuntingProgress {
+             ignorepointer 1
+             color 0 1 0.098 1
+             size 100 5
+             halign center_ref
+             valign bottom_ref
+             hexactpos 0
+             vexactpos 0
+             hexactsize 1
+             vexactsize 1
+             style Stamina
+            }
+           }
+          }
+         }
+        }
+        ButtonWidgetClass GatheringButton {
+         clipchildren 0
+         color 0.2078 0.2078 0.2078 1
+         position 524.50098 8
+         size 128 128
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         {
+          ImageWidgetClass GatheringButtonImage {
+           clipchildren 0
+           ignorepointer 1
+           position 0 0
+           size 1 1
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           imageTexture "{48CFF1401F9E1C06}ZenSkills/data/gui/images/skill_gathering.edds"
+           mode blend
+           "src alpha" 1
+           "clamp mode" border
+           "stretch mode" stretch_w_h
+           nocache 0
+           {
+            TextWidgetClass GatheringLabel {
+             clipchildren 1
+             ignorepointer 1
+             position 0 0
+             size 1 0.25
+             halign center_ref
+             valign bottom_ref
+             hexactpos 0
+             vexactpos 0
+             hexactsize 0
+             vexactsize 0
+             text "#STR_ZenSkills_Name_Gathering"
+             text_proportion 0.5
+             "text halign" center
+            }
+            TextWidgetClass GatheringButtonPerks {
+             clipchildren 0
+             ignorepointer 1
+             size 48 48
+             halign right_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 1
+             vexactsize 1
+             text "+1"
+             text_proportion 0.5
+             "text halign" center
+             "text valign" center
+            }
+            ProgressBarWidgetClass GatheringProgress {
+             ignorepointer 1
+             color 0 1 0.098 1
+             size 100 5
+             halign center_ref
+             valign bottom_ref
+             hexactpos 0
+             vexactpos 0
+             hexactsize 1
+             vexactsize 1
+             style Stamina
+            }
+           }
+          }
+         }
+        }
+        CheckBoxWidgetClass ShowExpGainedCB {
+         ignorepointer 0
+         position 0.06 0.16
+         size 550 48
+         hexactpos 0
+         vexactpos 0
+         hexactsize 1
+         vexactsize 1
+         text " #STR_ZenSkills_GUI_ShowExp"
+         checked 0
+        }
+        ButtonWidgetClass HighscoresButton {
+         color 0.2078 0.2078 0.2078 1
+         position 0.025 0.16
+         size 48 48
+         hexactpos 0
+         vexactpos 0
+         hexactsize 1
+         vexactsize 1
+         {
+          ImageWidgetClass HighscoresImage {
+           ignorepointer 1
+           position 0 0
+           size 1 1
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           imageTexture "{87692E23CC08188D}ZenSkills/data/gui/images/highscores.edds"
+           mode blend
+           "src alpha" 1
+           "clamp mode" clamp
+           "stretch mode" stretch_w_h
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+  PanelWidgetClass ConfirmPanel {
+   visible 0
+   disabled 0
+   inheritalpha 0
+   ignorepointer 1
+   color 0.0745 0 0 1
+   position 0 0
+   size 0.5 0.25
+   halign center_ref
+   valign center_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   priority 1000
+   draggable 0
+   style DayZDefaultPanel
+   "no focus" 0
+   {
+    MultilineTextWidgetClass ConfirmLabel {
+     clipchildren 0
+     ignorepointer 1
+     position 0 0.05
+     size 0.9 0.35
+     halign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     text "#STR_ZenSkills_GUI_ConfirmPerkUnlock"
+     "exact text" 1
+     "text halign" center
+     "text valign" center
+     wrap 1
+    }
+    ButtonWidgetClass ConfirmButton {
+     color 0 0.502 0.1255 1
+     position 0.3 0.1
+     size 0.3 0.3
+     halign center_ref
+     valign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     style DayZDefaultButton
+     text "#main_menu_continue"
+     text_proportion 0.5
+    }
+    ButtonWidgetClass CancelButton {
+     color 0.5608 0.0706 0.0706 1
+     position -0.3 0.1
+     size 0.3 0.3
+     halign center_ref
+     valign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     style DayZDefaultButton
+     text "#menu_cancel"
+     text_proportion 0.5
+    }
+   }
+  }
+  ImageWidgetClass vignette {
+   visible 1
+   ignorepointer 0
+   color 0 0 0 0.7843
+   position 0 0
+   size 1.6 0.9
+   halign center_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 0
+   fixaspect outside
+   imageTexture "{E6B3EF816E067499}Gui/textures/inventory_bgvignette.edds"
+   mode blend
+   "src alpha" 1
+   "clamp mode" clamp
+   "stretch mode" stretch_w_h
+   filter 0
+   nocache 1
+  }
+ }
+}

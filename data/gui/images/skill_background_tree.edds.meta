@@ -1,0 +1,16 @@
+MetaFileClass {
+ Name "{D219ED62B7BF55C8}ZenMods/ZenSkills/data/gui/images/skill_background_tree.png"
+ Author "zen"
+ ChangeDate 1726739242
+ Configurations {
+  PNGResourceClass PC {
+   SourceFile "skill_background_tree.png"
+  }
+  PNGResourceClass XBOX_ONE : PC {
+  }
+  PNGResourceClass PS4 : PC {
+  }
+  PNGResourceClass LINUX : PC {
+  }
+ }
+}

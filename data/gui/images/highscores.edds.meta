@@ -1,0 +1,16 @@
+MetaFileClass {
+ Name "{87692E23CC08188D}ZenSkills/data/gui/images/highscores.edds"
+ Author "zen"
+ ChangeDate 7615288
+ Configurations {
+  PNGResourceClass PC {
+   SourceFile "highscores.png"
+  }
+  PNGResourceClass XBOX_ONE : PC {
+  }
+  PNGResourceClass PS4 : PC {
+  }
+  PNGResourceClass LINUX : PC {
+  }
+ }
+}

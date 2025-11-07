@@ -1,0 +1,16 @@
+MetaFileClass {
+ Name "{48CFF1401F9E1C06}ZenSkills/data/gui/images/skill_gathering.png"
+ Author "zen"
+ ChangeDate 1431647032
+ Configurations {
+  PNGResourceClass PC {
+   SourceFile "skill_gathering.png"
+  }
+  PNGResourceClass XBOX_ONE : PC {
+  }
+  PNGResourceClass PS4 : PC {
+  }
+  PNGResourceClass LINUX : PC {
+  }
+ }
+}

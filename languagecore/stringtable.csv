@@ -1,0 +1,434 @@
+"Language","original","english","czech","german","russian","polish","hungarian","italian","spanish","french","chinese","japanese","portuguese","chinesesimp",
+"STR_ZenSkills_Name_Survival","Survival","Survival","Přežití","Überleben","Выживание","Przetrwanie","Túlélés","Sopravvivenza","Supervivencia","Survie","生存","サバイバル","Sobrevivência","生存",
+"STR_ZenSkills_Desc_Survival","Your talent at survival skills unlocks several ways to live longer.","Your talent at survival skills unlocks several ways to live longer.","Vaše schopnost přežití odemyká několik způsobů, jak žít déle.","Deine Überlebensfähigkeiten eröffnen dir mehrere Wege, länger zu leben.","Ваши навыки выживания открывают несколько способов прожить дольше.","Twoje umiejętności przetrwania odblokowują kilka sposobów na dłuższe życie.","A túlélési képességeid számos módot nyitnak meg a hosszabb élethez.","Il tuo talento nelle abilità di sopravvivenza sblocca diversi modi per vivere più a lungo.","Tu talento en habilidades de supervivencia desbloquea varias formas de vivir más tiempo.","Vos talents de survie débloquent plusieurs façons de vivre plus longtemps.","你的生存技能让你解锁多种延长寿命的方法。","あなたのサバイバルスキルは、より長く生き延びるためのいくつかの方法を解放します。","Seu talento em habilidades de sobrevivência desbloqueia várias maneiras de viver mais tempo.","你的生存技能可以解锁多种延长寿命的方法。",
+"STR_ZenSkills_Perk_Survival_Name1","Survivalist","Survivalist","Přeživší","Überlebenskünstler","Выживальщик","Surwiwalowiec","Túlélő","Sopravvissuto","Superviviente","Survivaliste","生存者","サバイバリスト","Sobrevivente","生存者",
+"STR_ZenSkills_Perk_Survival_Name2","Bush Chef","Bush Chef","Kuchař v divočině","Buschkoch","Полевой повар","Kucharz polowy","Bozótfőző","Cuoco da campo","Cocinero de campo","Cuisinier de brousse","荒野の料理人","ブッシュシェフ","Cozinheiro do mato","野外厨师",
+"STR_ZenSkills_Perk_Survival_Name3","Light Footed","Light Footed","Lehkonožec","Leichtfüßig","Легконогий","Lekki krok","Könnyű lábú","Piede leggero","De pies ligeros","Pied léger","轻步者","身軽な","Pé leve","轻脚步",
+"STR_ZenSkills_Perk_Survival_Name4","Running Hot","Running Hot","Rozpálený","Heißläufer","Разогретый","Rozgrzany","Forró futó","Correndo caldo","Corriendo caliente","Chaud bouillant","火热奔跑","走り熱い","Correndo quente","火热奔跑",
+"STR_ZenSkills_Perk_Survival_Name5","High Calcium","High Calcium","Vysoký obsah vápníku","Hoher Kalziumgehalt","Высокий кальций","Wysoka zawartość wapnia","Magas kalcium","Alto contenuto di calcio","Alto calcio","Riche en calcium","高钙","高カルシウム","Alto cálcio","高钙",
+"STR_ZenSkills_Perk_Survival_Name6","Strong Hands","Strong Hands","Silné ruce","Starke Hände","Сильные руки","Silne ręce","Erős kezek","Mani forti","Manos fuertes","Mains fortes","强壮的双手","強い手","Mãos fortes","强壮的双手",
+"STR_ZenSkills_Perk_Survival_Name7","Fire Starter","Fire Starter","Rozdělávač ohně","Feuerstarter","Разведение огня","Rozpalanie ognia","Tűzgyújtó","Accendifuoco","Iniciador de fuego","Allume-feu","生火能手","火起こし名人","Acendedor de fogo","生火能手",
+"STR_ZenSkills_Perk_Survival_Name8","Good Threads","Good Threads","Dobré oblečení","Gute Klamotten","Хорошая одежда","Dobre ubrania","Jó cuccok","Bei vestiti","Buenas prendas","Bons fringues","好衣服","いい服","Boas roupas","好衣服",
+"STR_ZenSkills_Perk_Survival_Name9","Keep It Healthy","Keep It Healthy","Udržuj zdraví","Bleib gesund","Береги здоровье","Dbaj o zdrowie","Maradj egészséges","Mantieniti in salute","Mantente sano","Reste en bonne santé","保持健康","健康を保つ","Mantenha-se saudável","保持健康",
+"STR_ZenSkills_Perk_Survival_Name10","Efficient Metabolism","Efficient Metabolism","Efektivní metabolismus","Effizienter Stoffwechsel","Эффективный метаболизм","Wydajny metabolizm","Hatékony anyagcsere","Metabolismo efficiente","Metabolismo eficiente","Métabolisme efficace","高效代谢","効率的な代謝","Metabolismo eficiente","高效代谢",
+"STR_ZenSkills_Perk_Survival_Desc1","You gain %1 more experience from survival activities","You gain %1 more experience from survival activities","Získáš o %1 více zkušeností z činností přežití","Du erhältst %1 mehr Erfahrung durch Überlebensaktivitäten","Вы получаете на %1 больше опыта от действий по выживанию","Zyskujesz o %1 więcej doświadczenia z działań związanych z przetrwaniem","%1 több tapasztalatot szerzel a túlélési tevékenységekből","Ottieni %1 esperienza in più dalle attività di sopravvivenza","Ganas %1 más experiencia en actividades de supervivencia","Vous gagnez %1 d’expérience supplémentaire grâce aux activités de survie","你从生存活动中获得%1更多经验","生存活動から%1多くの経験を得る","Você ganha %1 mais experiência em atividades de sobrevivência","你从生存活动中获得%1更多经验",
+"STR_ZenSkills_Perk_Survival_Desc2","You can place %1  extra sticks to cook around a fire","You can place %1 extra sticks to cook around a fire","Můžeš přidat %1 klacků k vaření u ohně","Du kannst %1 zusätzliche Stöcke zum Kochen am Feuer platzieren","Вы можете положить %1 дополнительных палок для готовки у костра","Możesz dodać %1 dodatkowych patyków do gotowania przy ognisku","%1 extra botot rakhatsz a tűz köré főzéshez","Puoi mettere %1 bastoncini extra per cucinare intorno al fuoco","Puedes colocar %1 palos extra para cocinar alrededor de una fogata","Vous pouvez placer %1 bâtons supplémentaires pour cuisiner autour d’un feu","你可以在篝火旁多放%1根木棍来做饭","焚き火の周りに%1本余分に棒を置ける","Você pode colocar %1 gravetos extras para cozinhar ao redor da fogueira","你可以在篝火旁多放%1根木棍来做饭",
+"STR_ZenSkills_Perk_Survival_Desc3","Your shoes degrade %1 slower","Your shoes degrade %1 slower","Tvoje boty se opotřebovávají o %1 pomaleji","Deine Schuhe verschleißen %1 langsamer","Твоя обувь изнашивается на %1 медленнее","Twoje buty niszczą się o %1 wolniej","A cipőd %1 lassabban kopik","Le tue scarpe si consumano %1 più lentamente","Tus zapatos se desgastan un %1 más lento","Vos chaussures se dégradent %1 plus lentement","你的鞋子磨损速度降低%1","靴の劣化が%1遅い","Seus sapatos se desgastam %1 mais devagar","你的鞋子磨损速度降低%1",
+"STR_ZenSkills_Perk_Survival_Desc4","The heat buff lasts %1 longer","The heat buff lasts %1 longer","Bonus tepla trvá o %1 déle","Der Hitzebonus hält %1 länger an","Эффект тепла длится на %1 дольше","Premia ciepła trwa o %1 dłużej","A hőbónusz %1 tovább tart","Il bonus calore dura %1 più a lungo","El beneficio de calor dura %1 más","Le bonus de chaleur dure %1 plus longtemps","热量增益持续时间延长%1","熱バフが%1長く続く","O bônus de calor dura %1 mais","热量增益持续时间延长%1",
+"STR_ZenSkills_Perk_Survival_Desc5","Broken bones heal %1 faster","Broken bones heal %1 faster","Zlomeniny se hojí o %1 rychleji","Gebrochene Knochen heilen %1 schneller","Переломы заживают на %1 быстрее","Złamane kości goją się o %1 szybciej","A törött csontok %1 gyorsabban gyógyulnak","Le ossa rotte guariscono %1 più velocemente","Los huesos rotos sanan un %1 más rápido","Les os cassés guérissent %1 plus vite","骨折愈合速度提高%1","骨折が%1早く治る","Os ossos quebrados curam %1 mais rápido","骨折愈合速度提高%1",
+"STR_ZenSkills_Perk_Survival_Desc6","You can wring clothes out %1 faster","You can wring clothes out %1 faster","Můžeš vyždímat oblečení o %1 rychleji","Du kannst Kleidung %1 schneller auswringen","Ты можешь выжимать одежду на %1 быстрее","Możesz wyżymać ubrania o %1 szybciej","%1 gyorsabban tudod kicsavarni a ruhákat","Puoi strizzare i vestiti %1 più velocemente","Puedes escurrir la ropa un %1 más rápido","Vous pouvez essorer vos vêtements %1 plus vite","你可以把衣服拧干速度提高%1","服を%1早く絞れる","Você pode torcer as roupas %1 mais rápido","你可以把衣服拧干速度提高%1",
+"STR_ZenSkills_Perk_Survival_Desc7","You have a %1 chance to successfully light a fire with a hand drill kit","You have a %1 chance to successfully light a fire with a hand drill kit","Je tu %1 šance, že se ti podaří rozdělat oheň pomocí ručního vrtacího setu","Es besteht eine %1 Chance, dass du mit einem Handbohrer-Set erfolgreich ein Feuer entfachst","Есть %1 шанс, что вы успешно разожжёте огонь с помощью набора для ручного сверления","Masz %1 szansy na pomyślne rozpalenie ognia przy użyciu zestawu do ręcznego wiercenia","%1 esélyed van, hogy tűzfúró-készlettel sikeresen tüzet gyújts","C’è una %1 possibilità che tu riesca ad accendere un fuoco con un kit di trapano manuale","Hay un %1 de probabilidad de que enciendas con éxito un fuego con un kit de taladro manual","Il y a %1 de chances que vous parveniez à allumer un feu avec un kit de perceuse manuelle","有%1的几率使用手钻套件成功生火。","ハンドドリルキットで火を起こすことに%1の確率で成功する。","Há %1 de chance de acender uma fogueira com sucesso usando um kit de broca manual","有%1的几率使用手钻套件成功生火。",
+"STR_ZenSkills_Perk_Survival_Desc8","Your clothes are %1 more durable to damage caused by non-humans","Your clothes are %1 more durable to damage caused by non-humans","Tvoje oblečení je o %1 odolnější vůči poškození způsobenému ne-lidmi","Deine Kleidung ist %1 widerstandsfähiger gegen Schäden durch Nicht-Menschen","Твоя одежда на %1 более устойчива к повреждениям, вызванным нечеловеческими существами","Twoje ubrania są o %1 bardziej odporne na uszkodzenia od nieludzi","A ruháid %1 ellenállóbbak a nem emberek okozta károkkal szemben","I tuoi vestiti sono %1 più resistenti ai danni causati da non umani","Tu ropa es %1 más duradera contra daños causados por no humanos","Vos vêtements sont %1 plus résistants aux dégâts causés par des non-humains","你的衣服对非人类造成的伤害更耐用%1。","服は非人間によるダメージに%1強い。","Suas roupas são %1 mais duráveis contra danos causados por não-humanos","你的衣服对非人类造成的伤害更耐用%1。",
+"STR_ZenSkills_Perk_Survival_Desc9","You have a %1 increased immunity strength","You have a %1 increased immunity strength","Máš o %1 silnější imunitu","Du hast eine um %1 stärkere Immunität","У тебя на %1 сильнее иммунитет","Masz %1 silniejszą odporność","Az immunitásod %1 erősebb","Hai un’immunità più forte del %1","Tienes un %1 más de fuerza inmunitaria","Vous avez une immunité renforcée de %1","你拥有%1更强的免疫力。","免疫力が%1高い。","Você tem %1 mais força de imunidade","你拥有%1更强的免疫力。",
+"STR_ZenSkills_Perk_Survival_Desc10","You take %1 longer to get hungry and thirsty","You take %1 longer to get hungry and thirsty","Trvá ti o %1 déle, než dostaneš hlad a žízeň","Es dauert %1 länger, bis du hungrig und durstig wirst","Тебе требуется на %1 больше времени, чтобы проголодаться и захотеть пить","Zajmuje ci o %1 więcej czasu, aby zgłodnieć i odczuć pragnienie","%1 hosszabb ideig tart, míg éhes és szomjas leszel","Ci vuole il %1 in più per avere fame e sete","Tardas %1 más en tener hambre y sed","Vous mettez %1 plus de temps à avoir faim et soif","你需要更长%1时间才会感到饥饿和口渴。","空腹や喉の渇きを感じるまでに%1長くかかる。","Você demora %1 mais para sentir fome e sede","你需要更长%1时间才会感到饥饿和口渴。",
+"STR_ZenSkills_Perk_Crafting_Name1","Carpenter","Carpenter","Tesař","Zimmermann","Плотник","Cieśla","Asztalos","Falegname","Carpintero","Charpentier","木匠","大工","Carpinteiro","木匠",
+"STR_ZenSkills_Perk_Crafting_Name2","Stone Age","Stone Age","Doba kamenná","Steinzeit","Каменный век","Epoka kamienia","Kőkorszak","Età della pietra","Edad de piedra","Âge de pierre","石器时代","石器時代","Idade da Pedra","石器时代",
+"STR_ZenSkills_Perk_Crafting_Name3","More Rope","More Rope","Více provazů","Mehr Seile","Больше верёвок","Więcej lin","Több kötél","Più corde","Más cuerdas","Plus de cordes","更多绳子","もっとロープ","Mais cordas","更多绳子",
+"STR_ZenSkills_Perk_Crafting_Name4","Quick Hands","Quick Hands","Rychlé ruce","Schnelle Hände","Быстрые руки","Szybkie ręce","Gyors kezek","Mani veloci","Manos rápidas","Mains rapides","快手","素早い手","Mãos rápidas","快手",
+"STR_ZenSkills_Perk_Crafting_Name5","Good With Tools","Good With Tools","Dobrý s nástroji","Gut mit Werkzeugen","Умелый с инструментами","Dobry w narzędziach","Jó szerszámhasználó","Bravo con gli attrezzi","Bueno con las herramientas","Bon avec les outils","擅长工具","道具が得意","Bom com ferramentas","擅长工具",
+"STR_ZenSkills_Perk_Crafting_Name6","Blue Collar","Blue Collar","Dělník","Arbeiter","Рабочий","Robotnik","Munkás","Colletto blu","Obrero","Col bleu","蓝领","ブルーカラー","Operário","蓝领",
+"STR_ZenSkills_Perk_Crafting_Name7","Gifted Tailor","Gifted Tailor","Nadaný krejčí","Begabter Schneider","Одаренный портной","Utalentowany krawiec","Tehetséges szabó","Sarto dotato","Sastre talentoso","Tailleur doué","天才裁缝","才能ある仕立て屋","Alfaiate talentoso","天才裁缝",
+"STR_ZenSkills_Perk_Crafting_Name8","That's A Knife","That's A Knife","To je nůž","Das ist ein Messer","Вот это нож","To jest nóż","Ez aztán a kés","Questo sì che è un coltello","Eso sí es un cuchillo","Ça c’est un couteau","这才叫刀","これぞナイフ","Isso é que é faca","这才叫刀",
+"STR_ZenSkills_Perk_Crafting_Name9","Master Builder","Master Builder","Mistr stavitel","Baumeister","Мастер-строитель","Mistrz budowniczy","Mesterépítő","Maestro costruttore","Maestro constructor","Maître bâtisseur","建筑大师","建築マスター","Mestre construtor","建筑大师",
+"STR_ZenSkills_Perk_Crafting_Name10","Master Tailor","Master Tailor","Mistr krejčí","Meisterschneider","Мастер-портной","Mistrz krawiectwa","Mester szabó","Maestro sarto","Maestro sastre","Maître tailleur","裁缝大师","仕立てマスター","Mestre alfaiate","裁缝大师",
+"STR_ZenSkills_Name_Crafting","Crafting","Crafting","Řemesla","Handwerk","Ремесло","Rzemiosło","Barkácsolás","Artigianato","Artesanía","Artisanat","制作","クラフト","Artesanato","制作",
+"STR_ZenSkills_Desc_Crafting","Your talent at crafting enables you to achieve better results.","Your talent at crafting enables you to achieve better results.","Tvůj talent pro řemesla ti umožňuje dosahovat lepších výsledků.","Dein Talent fürs Handwerk ermöglicht dir bessere Ergebnisse.","Твой талант в ремесле позволяет добиваться лучших результатов.","Twój talent do rzemiosła pozwala ci osiągać lepsze wyniki.","A barkácsolási tehetséged jobb eredményeket tesz lehetővé.","Il tuo talento nel crafting ti consente di ottenere risultati migliori.","Tu talento en la artesanía te permite lograr mejores resultados.","Votre talent pour l’artisanat vous permet d’obtenir de meilleurs résultats.","你的制作天赋让你取得更好的成果。","クラフトの才能がより良い結果をもたらす。","Seu talento em artesanato permite obter melhores resultados.","你的制作天赋让你取得更好的成果。",
+"STR_ZenSkills_Perk_Crafting_Desc1","You gain %1 more experience from crafting & building activities","You gain %1 more experience from crafting & building activities","Získáš o %1 více zkušeností z řemeslných a stavebních činností","Du erhältst %1 mehr Erfahrung aus Handwerks- und Bauaktivitäten","Вы получаете на %1 больше опыта от крафта и строительства","Zyskujesz o %1 więcej doświadczenia z działań rzemieślniczych i budowlanych","%1 több tapasztalatot szerzel a barkács- és építési tevékenységekből","Ottieni %1 esperienza in più dalle attività di crafting e costruzione","Obtienes %1 más experiencia en actividades de artesanía y construcción","Vous gagnez %1 d’expérience supplémentaire grâce aux activités d’artisanat et de construction","你从制作和建造活动中获得%1更多经验。","クラフトと建築活動から%1多くの経験を得る。","Você ganha %1 mais experiência em atividades de artesanato e construção","你从制作和建造活动中获得%1更多经验。",
+"STR_ZenSkills_Perk_Crafting_Desc2","You have a %1 chance to craft an extra stone or bone knife","You have a %1 chance to craft an extra stone or bone knife","Máš %1 šanci vyrobit si navíc kamenný nebo kostěný nůž","Du hast eine %1 Chance, ein zusätzliches Stein- oder Knochmesser herzustellen","У тебя есть %1 шанс скрафтить дополнительный каменный или костяной нож","Masz %1 szansy, aby stworzyć dodatkowy kamienny lub kostny nóż","%1 esélyed van extra kő- vagy csontkést készíteni","Hai una %1 possibilità di creare un coltello di pietra o osso extra","Tienes un %1 de probabilidad de fabricar un cuchillo de piedra o hueso adicional","Vous avez %1 de chances de fabriquer un couteau en pierre ou en os supplémentaire","你有%1的几率多制作一把石刀或骨刀。","%1の確率で追加の石や骨のナイフを作れる。","Você tem %1 de chance de fabricar uma faca de pedra ou osso extra","你有%1的几率多制作一把石刀或骨刀。",
+"STR_ZenSkills_Perk_Crafting_Desc3","You have a %1 chance to craft an extra rope","You have a %1 chance to craft an extra rope","Máš %1 šanci vyrobit si navíc provaz","Du hast eine %1 Chance, ein zusätzliches Seil herzustellen","У тебя есть %1 шанс скрафтить дополнительную верёвку","Masz %1 szansy, aby stworzyć dodatkową linę","%1 esélyed van extra kötelet készíteni","Hai una %1 possibilità di creare una corda extra","Tienes un %1 de probabilidad de fabricar una cuerda adicional","Vous avez %1 de chances de fabriquer une corde supplémentaire","你有%1的几率多制作一根绳子。","%1の確率で追加のロープを作れる。","Você tem %1 de chance de fabricar uma corda extra","你有%1的几率多制作一根绳子。",
+"STR_ZenSkills_Perk_Crafting_Desc4","You craft things %1 faster","You craft things %1 faster","Vyrábíš věci o %1 rychleji","Du stellst Dinge %1 schneller her","Ты создаёшь вещи на %1 быстрее","Wytwarzasz rzeczy o %1 szybciej","%1 gyorsabban készítesz dolgokat","Crei oggetti %1 più velocemente","Fabricas cosas un %1 más rápido","Vous fabriquez des objets %1 plus vite","你制作物品的速度提高%1。","物を%1早く作れる。","Você fabrica coisas %1 mais rápido","你制作物品的速度提高%1。",
+"STR_ZenSkills_Perk_Crafting_Desc5","You have a %1 increased durability with tools","You have a %1 increased durability with tools","Nástroje mají o %1 vyšší trvanlivost","Deine Werkzeuge haben %1 mehr Haltbarkeit","Прочность инструментов увеличена на %1","Twoje narzędzia mają o %1 większą trwałość","Az eszközeid %1 tartósabbak","I tuoi strumenti hanno una durata aumentata del %1","Tus herramientas tienen un %1 más de durabilidad","Vos outils ont une durabilité augmentée de %1","你的工具耐久度提高%1。","道具の耐久力が%1上がる。","Suas ferramentas têm %1 mais durabilidade","你的工具耐久度提高%1。",
+"STR_ZenSkills_Perk_Crafting_Desc6","Blowtorches, tire, weapon, and electronic repair kits last %1 longer","Blowtorches, tire, weapon, and electronic repair kits last %1 longer","Autogeny, sady na opravy pneumatik, zbraní a elektroniky vydrží o %1 déle","Schweißbrenner, Reifen-, Waffen- und Elektronikreparatursets halten %1 länger","Горелки, наборы для ремонта шин, оружия и электроники служат на %1 дольше","Palniki, zestawy naprawcze opon, broni i elektroniki trwają o %1 dłużej","Lángvágók, gumi-, fegyver- és elektronikai javítókészletek %1 tovább bírják","Le torce, i kit di riparazione per pneumatici, armi ed elettronica durano %1 più a lungo","Sopletes y kits de reparación de neumáticos, armas y electrónicos duran un %1 más","Chalumeaux, kits de réparation de pneus, armes et électroniques durent %1 plus longtemps","喷灯、轮胎、武器和电子维修工具包的使用时间延长%1。","溶接機、タイヤ・武器・電子修理キットが%1長く持つ。","Maçaricos, kits de reparo de pneus, armas e eletrônicos duram %1 mais","喷灯、轮胎、武器和电子维修工具包的使用时间延长%1。",
+"STR_ZenSkills_Perk_Crafting_Desc7","Duct tape, sewing and leather kits last %1 longer","Duct tape, sewing and leather kits last %1 longer","Lepicí pásky, šicí a kožené sady vydrží o %1 déle","Klebeband, Näh- und Lederkits halten %1 länger","Скотч, наборы для шитья и кожи служат на %1 дольше","Taśma, zestawy do szycia i skóry trwają o %1 dłużej","Ragasztószalag, varró- és bőrkészletek %1 tovább tartanak","Nastro adesivo, kit da cucito e pelle durano %1 più a lungo","Cinta adhesiva, kits de costura y cuero duran un %1 más","Le ruban adhésif, les kits de couture et de cuir durent %1 plus longtemps","胶带、缝纫和皮革工具包的使用时间延长%1。","ダクトテープ、裁縫・革キットが%1長く持つ。","Fitas adesivas, kits de costura e couro duram %1 mais","胶带、缝纫和皮革工具包的使用时间延长%1。",
+"STR_ZenSkills_Perk_Crafting_Desc8","Sharpening stones and Epoxy last %1 longer","Sharpening stones and Epoxy last %1 longer","Brousky a epoxid vydrží o %1 déle","Schleifsteine und Epoxid halten %1 länger","Точильные камни и эпоксид служат на %1 дольше","Kamienie do ostrzenia i epoksyd trwają o %1 dłużej","Élezőkövek és epoxi %1 tovább bírják","Pietre per affilare ed epossidica durano %1 più a lungo","Piedras de afilar y epoxi duran un %1 más","Pierres à aiguiser et époxy durent %1 plus longtemps","磨刀石和环氧树脂的使用时间延长%1。","砥石とエポキシが%1長く持つ。","Pedras de amolar e epóxi duram %1 mais","磨刀石和环氧树脂的使用时间延长%1。",
+"STR_ZenSkills_Perk_Crafting_Desc9","You have a %1 chance to only use half your construction supplies when building","You have a %1 chance to only use half your construction supplies when building","Máš %1 šanci použít při stavbě jen polovinu materiálů","Du hast eine %1 Chance, nur die Hälfte deiner Baumaterialien zu verbrauchen","У тебя есть %1 шанс использовать только половину строительных материалов","Masz %1 szansy, że użyjesz tylko połowy materiałów budowlanych","%1 esélyed van, hogy csak az építőanyag felét használd","Hai una %1 possibilità di usare solo metà dei materiali da costruzione","Tienes un %1 de probabilidad de usar solo la mitad de los suministros de construcción","Vous avez %1 de chances de n’utiliser que la moitié de vos matériaux de construction","你有%1的几率在建造时只消耗一半建材。","建築時に建材を半分しか使わない確率が%1ある。","Você tem %1 de chance de usar apenas metade dos suprimentos de construção","你有%1的几率在建造时只消耗一半建材。",
+"STR_ZenSkills_Perk_Crafting_Desc10","You have a %1 chance of repairing damaged gear back to Pristine state","You have a %1 chance of repairing damaged gear back to Pristine state","Máš %1 šanci opravit poškozené vybavení zpět do stavu Pristine","Du hast eine %1 Chance, beschädigte Ausrüstung wieder in makellosen Zustand zu versetzen","У тебя есть %1 шанс починить повреждённое снаряжение до состояния Pristine","Masz %1 szansy, aby naprawić uszkodzony sprzęt do stanu idealnego","%1 esélyed van, hogy a sérült felszerelést Pristine állapotba javítsd","Hai una %1 possibilità di riparare l’equipaggiamento danneggiato allo stato Pristine","Tienes un %1 de probabilidad de reparar equipo dañado al estado Pristine","Vous avez %1 de chances de réparer l’équipement endommagé à l’état Pristine","你有%1的几率把损坏的装备修复到完美状态。","損傷した装備をプレスティン状態に修理できる確率が%1ある。","Você tem %1 de chance de reparar equipamentos danificados para o estado Pristine","你有%1的几率把损坏的装备修复到完美状态。",
+"STR_ZenSkills_Name_Hunting","Hunting","Hunting","Lov","Jagd","Охота","Łowiectwo","Vadászat","Caccia","Caza","Chasse","狩猎","狩猟","Caça","狩猎",
+"STR_ZenSkills_Desc_Hunting","Your honed instinct for hunting animals gives you the extra edge in the wilderness.","Your honed instinct for hunting animals gives you the extra edge in the wilderness.","Tvůj vytříbený instinkt pro lov ti dává v divočině výhodu.","Dein geschärfter Instinkt für die Jagd auf Tiere verschafft dir einen Vorteil in der Wildnis.","Твой отточенный инстинкт охоты на животных даёт тебе преимущество в дикой природе.","Twój wyostrzony instynkt łowiecki daje ci przewagę na łonie natury.","A vadászösztönöd előnyt ad a vadonban.","Il tuo istinto affinato per la caccia ti dà un vantaggio nella natura selvaggia.","Tu instinto perfeccionado para cazar animales te da una ventaja en la naturaleza salvaje.","Ton instinct affûté pour la chasse t’offre un avantage dans la nature.","你磨练出的狩猎本能让你在荒野中更有优势。","研ぎ澄まされた狩猟本能が自然界で優位に立たせる。","Seu instinto de caça aguçado lhe dá uma vantagem na natureza selvagem.","你磨练出的狩猎本能让你在荒野中更有优势。",
+"STR_ZenSkills_Perk_Hunting_Name1","Hunter","Hunter","Lovec","Jäger","Охотник","Myśliwy","Vadász","Cacciatore","Cazador","Chasseur","猎人","ハンター","Caçador","猎人",
+"STR_ZenSkills_Perk_Hunting_Name2","The Fisherman","The Fisherman","Rybář","Der Fischer","Рыбак","Rybak","Halász","Il pescatore","El pescador","Le pêcheur","渔夫","漁師","O Pescador","渔夫",
+"STR_ZenSkills_Perk_Hunting_Name3","Master Baiter","Master Baiter","Mistr návnad","Meisterköderer","Мастер наживки","Mistr przynęty","Csali mester","Maestro dell’esca","Maestro de cebos","Maître des appâts","钓饵大师","エサの達人","Mestre da isca","钓饵大师",
+"STR_ZenSkills_Perk_Hunting_Name4","Great Rod","Great Rod","Velký prut","Große Rute","Отличная удочка","Świetna wędka","Nagy bot","Grande canna","Gran caña","Grande canne","好钓竿","立派な釣竿","Grande vara","好钓竿",
+"STR_ZenSkills_Perk_Hunting_Name5","The Butcher","The Butcher","Řezník","Der Metzger","Мясник","Rzeźnik","Mészáros","Il macellaio","El carnicero","Le boucher","屠夫","肉屋","O Açougueiro","屠夫",
+"STR_ZenSkills_Perk_Hunting_Name6","The Tanner","The Tanner","Koželuh","Der Gerber","Кожевник","Garbarz","Tímár","Il conciatore","El curtidor","Le tanneur","制革工","なめし職人","O Curtidor","制革工",
+"STR_ZenSkills_Perk_Hunting_Name7","The Trapper","The Trapper","Pastiř","Der Fallensteller","Ловец","Łowca pułapek","Csapdázó","Il cacciatore di trappole","El trampero","Le trappeur","捕兽者","罠猟師","O Armadilheiro","捕兽者",
+"STR_ZenSkills_Perk_Hunting_Name8","Thin Skin","Thin Skin","Citlivka","Dünnhäutig","Тонкокожий","Cienkoskóry","Vékony bőrű","Pelle sottile","Piel fina","Peau fine","薄皮","薄皮","Pele fina","薄皮",
+"STR_ZenSkills_Perk_Hunting_Name9","Hungry Wolf","Hungry Wolf","Hladový vlk","Hungriger Wolf","Голодный волк","Głodny wilk","Éhes farkas","Lupo affamato","Lobo hambriento","Loup affamé","饥饿的狼","腹ぺこの狼","Lobo faminto","饥饿的狼",
+"STR_ZenSkills_Perk_Hunting_Name10","Animal Tracker","Animal Tracker","Stopař zvěře","Tierspurensucher","Следопыт","Tropiciel zwierząt","Állatkövető","Tracciatore di animali","Rastreador de animales","Traqueur d’animaux","动物追踪者","動物追跡者","Rastreador de animais","动物追踪者",
+"STR_ZenSkills_Perk_Hunting_Desc1","You gain %1 more experience from hunting activities","You gain %1 more experience from hunting activities","Získáš o %1 více zkušeností z lovu","Du erhältst %1 mehr Erfahrung durch Jagdaktivitäten","Вы получаете на %1 больше опыта от охоты","Zyskujesz o %1 więcej doświadczenia z działań łowieckich","%1 több tapasztalatot szerzel vadászati tevékenységekből","Ottieni %1 esperienza in più dalle attività di caccia","Obtienes %1 más experiencia en actividades de caza","Vous gagnez %1 d’expérience supplémentaire grâce à la chasse","你从狩猎活动中获得%1更多经验。","狩猟活動から%1多くの経験を得る。","Você ganha %1 mais experiência em atividades de caça","你从狩猎活动中获得%1更多经验。",
+"STR_ZenSkills_Perk_Hunting_Desc2","You have a %1 better chance at catching something while fishing","You have a %1 better chance at catching something while fishing","Máš o %1 vyšší šanci něco chytit při rybaření","Du hast eine um %1 bessere Chance, beim Angeln etwas zu fangen","У тебя на %1 больше шансов поймать что-то при рыбалке","Masz o %1 większą szansę na złapanie czegoś podczas łowienia ryb","%1 nagyobb esélyed van, hogy fogj valamit horgászat közben","Hai una %1 migliore possibilità di catturare qualcosa pescando","Tienes un %1 mejor probabilidad de atrapar algo al pescar","Vous avez %1 de meilleures chances d’attraper quelque chose en pêchant","钓鱼时捕到东西的几率提高%1。","釣りで何かを捕まえる確率が%1上がる。","Você tem %1 mais chance de pegar algo ao pescar","钓鱼时捕到东西的几率提高%1。",
+"STR_ZenSkills_Perk_Hunting_Desc3","You have a %1 better chance of not losing your fishing hook or worm when failing to catch a fish","You have a %1 better chance of not losing your fishing hook or worm when failing to catch a fish","Máš o %1 vyšší šanci nepřijít o háček nebo červa při neúspěšném lovu","Du hast eine um %1 bessere Chance, deinen Haken oder Wurm nicht zu verlieren, wenn du keinen Fisch fängst","У тебя на %1 больше шансов не потерять крючок или червя при неудачной рыбалке","Masz o %1 większą szansę, że nie stracisz haczyka ani robaka przy nieudanym połowie","%1 nagyobb esélyed van, hogy ne veszítsd el a horgot vagy a gilisztát, ha nem fogsz halat","Hai una %1 migliore possibilità di non perdere l’amo o l’esca quando fallisci una pesca","Tienes un %1 mejor probabilidad de no perder el anzuelo o gusano al fallar una pesca","Vous avez %1 de meilleures chances de ne pas perdre votre hameçon ou ver si vous échouez à attraper un poisson","没钓到鱼时不丢鱼钩或虫子的几率提高%1。","魚が釣れなかったときに針やエサを失わない確率が%1上がる。","Você tem %1 mais chance de não perder o anzol ou a isca ao falhar em pescar","没钓到鱼时不丢鱼钩或虫子的几率提高%1。",
+"STR_ZenSkills_Perk_Hunting_Desc4","Your fishing hooks have a %1 increase in durability","Your fishing hooks have a %1 increase in durability","Tvůj háček má o %1 vyšší trvanlivost","Deine Angelhaken haben %1 mehr Haltbarkeit","Прочность рыболовных крючков увеличена на %1","Twój haczyk ma o %1 większą trwałość","A horgaid %1 tartósabbak","I tuoi ami da pesca hanno una durata aumentata del %1","Tus anzuelos tienen un %1 más de durabilidad","Vos hameçons ont une durabilité augmentée de %1","你的鱼钩耐久度提高%1。","釣り針の耐久力が%1上がる。","Seus anzóis têm %1 mais durabilidade","你的鱼钩耐久度提高%1。",
+"STR_ZenSkills_Perk_Hunting_Desc5","You get %1 more meat quantity from animals","You get %1 more meat quantity from animals","Získáš o %1 více masa ze zvířat","Du erhältst %1 mehr Fleisch von Tieren","Ты получаешь на %1 больше мяса с животных","Dostajesz o %1 więcej mięsa ze zwierząt","%1 több húst kapsz az állatokból","Ottieni %1 carne in più dagli animali","Obtienes %1 más cantidad de carne de los animales","Vous obtenez %1 de viande en plus des animaux","你从动物身上获得的肉量增加%1。","動物から得られる肉の量が%1増える。","Você obtém %1 mais carne dos animais","你从动物身上获得的肉量增加%1。",
+"STR_ZenSkills_Perk_Hunting_Desc6","You have a %1 chance of getting an extra pristine pelt from skinned animals","You have a %1 chance of getting an extra pristine pelt from skinned animals","Máš %1 šanci získat zvířecí kůži navíc v dokonalém stavu","Du hast eine %1 Chance, ein zusätzliches makelloses Fell von gehäuteten Tieren zu erhalten","У тебя есть %1 шанс получить дополнительную шкуру в отличном состоянии с освежёванных животных","Masz %1 szansy, że otrzymasz dodatkową nienaruszoną skórę ze zdartych zwierząt","%1 esélyed van, hogy plusz hibátlan prémhez juss a megnyúzott állatokból","Hai una %1 possibilità di ottenere una pelle extra intatta dagli animali scuoiati","Tienes un %1 de probabilidad de obtener una piel extra prístina de animales despellejados","Vous avez %1 de chances d’obtenir une peau supplémentaire intacte d’animaux écorchés","你有%1的几率从剥皮的动物身上获得额外完美的毛皮。","動物を剥いだときに追加で無傷の毛皮を得る確率が%1ある。","Você tem %1 de chance de obter uma pele extra intacta de animais esfolados","你有%1的几率从剥皮的动物身上获得额外完美的毛皮。",
+"STR_ZenSkills_Perk_Hunting_Desc7","Your traps have a %1 better chance at catching animals","Your traps have a %1 better chance at catching animals","Tvé pasti mají o %1 vyšší šanci chytit zvíře","Deine Fallen haben eine um %1 bessere Chance, Tiere zu fangen","Твои ловушки имеют на %1 больше шансов поймать животных","Twoje pułapki mają o %1 większą szansę złapać zwierzę","A csapdáid %1 nagyobb eséllyel fognak állatokat","Le tue trappole hanno una %1 migliore possibilità di catturare animali","Tus trampas tienen un %1 mejor probabilidad de atrapar animales","Vos pièges ont %1 de meilleures chances d’attraper des animaux","你的陷阱捕捉动物的几率提高%1。","罠で動物を捕まえる確率が%1上がる。","Suas armadilhas têm %1 mais chance de pegar animais","你的陷阱捕捉动物的几率提高%1。",
+"STR_ZenSkills_Perk_Hunting_Desc8","You can skin animals %1 faster","You can skin animals %1 faster","Můžeš stáhnout zvířata o %1 rychleji","Du kannst Tiere %1 schneller häuten","Ты можешь снимать шкуру с животных на %1 быстрее","Możesz oskórować zwierzęta o %1 szybciej","%1 gyorsabban tudsz állatokat nyúzni","Puoi scuoiere gli animali %1 più velocemente","Puedes desollar animales un %1 más rápido","Vous pouvez dépecer les animaux %1 plus vite","你剥动物皮的速度提高%1。","動物の皮を%1早く剥げる。","Você pode esfolar animais %1 mais rápido","你剥动物皮的速度提高%1。",
+"STR_ZenSkills_Perk_Hunting_Desc9","You have a %1 chance of predator meat being safe to eat","You have a %1 chance of predator meat being safe to eat","Máš %1 šanci, že maso z predátorů bude bezpečné k jídlu","Du hast eine %1 Chance, dass Raubtierfleisch sicher zu essen ist","У тебя есть %1 шанс, что мясо хищников будет безопасным для еды","Masz %1 szansy, że mięso drapieżników będzie bezpieczne do jedzenia","%1 esélyed van arra, hogy a ragadozóhús biztonságosan fogyasztható legyen","Hai una %1 possibilità che la carne dei predatori sia sicura da mangiare","Tienes un %1 de probabilidad de que la carne de depredador sea segura para comer","Vous avez %1 de chances que la viande de prédateur soit sûre à manger","你有%1的几率掠食者的肉可以安全食用。","捕食者の肉が安全に食べられる確率が%1あります。","Você tem %1 de chance de que a carne de predador seja segura para comer","你有%1的几率掠食者的肉可以安全食用。",
+"STR_ZenSkills_Perk_Hunting_Desc10","You can track animals within %1 by holding your breath while aiming","You can track animals within %1 by holding your breath while aiming","Můžeš sledovat zvířata v okruhu %1 držením dechu při míření","Du kannst Tiere innerhalb von %1 verfolgen, indem du beim Zielen den Atem anhältst","Ты можешь отслеживать животных в радиусе %1, задержав дыхание во время прицеливания","Możesz śledzić zwierzęta w promieniu %1, wstrzymując oddech podczas celowania","Állatokat követhetsz %1-en belül, ha visszatartod a lélegzeted célzás közben","Puoi seguire gli animali entro %1 trattenendo il respiro mentre miri","Puedes rastrear animales dentro de %1 conteniendo la respiración al apuntar","Vous pouvez traquer les animaux dans un rayon de %1 en retenant votre souffle en visant","屏住呼吸瞄准时，你可以追踪%1范围内的动物。","息を止めて狙うと%1以内の動物を追跡できる。","Você pode rastrear animais dentro de %1 segurando a respiração enquanto mira","屏住呼吸瞄准时，你可以追踪%1范围内的动物。",
+"STR_ZenSkills_Name_Gathering","Gathering","Gathering","Sběr","Sammeln","Собирательство","Zbieranie","Gyűjtögetés","Raccolta","Recolección","Collecte","采集","採集","Coleta","采集",
+"STR_ZenSkills_Desc_Gathering","Your skills at farming and resource gathering give you a survival advantage.","Your skills at farming and resource gathering give you a survival advantage.","Tvé dovednosti v zemědělství a sběru zdrojů ti dávají výhodu v přežití.","Deine Fähigkeiten in Landwirtschaft und Ressourcensammlung geben dir einen Überlebensvorteil.","Твои навыки в сельском хозяйстве и добыче ресурсов дают тебе преимущество в выживании.","Twoje umiejętności w rolnictwie i zbieraniu zasobów dają ci przewagę w przetrwaniu.","A mezőgazdasági és gyűjtögető képességeid előnyt adnak a túlélésben.","Le tue abilità di coltivazione e raccolta ti danno un vantaggio nella sopravvivenza.","Tus habilidades en agricultura y recolección de recursos te dan una ventaja de supervivencia.","Vos compétences en agriculture et en collecte de ressources vous donnent un avantage de survie.","你的耕作和采集技能给你带来生存优势。","農業と資源収集のスキルが生存に有利になる。","Suas habilidades em agricultura e coleta de recursos lhe dão uma vantagem de sobrevivência.","你的耕作和采集技能给你带来生存优势。",
+"STR_ZenSkills_Perk_Gathering_Name1","Gatherer","Gatherer","Sběrač","Sammler","Собиратель","Zbieracz","Gyűjtögető","Raccoglitore","Recolector","Ramasseur","采集者","採集者","Coletor","采集者",
+"STR_ZenSkills_Perk_Gathering_Name2","Dr. Green Thumb","Dr. Green Thumb","Zahradník","Grüner Daumen","Зелёный палец","Zielony kciuk","Zöld ujj","Pollice verde","Pulgar verde","Pouce vert","园艺高手","園芸の才","Dedos verdes","园艺高手",
+"STR_ZenSkills_Perk_Gathering_Name3","Berry Well","Berry Well","Borůvkový mistr","Beerenmeister","Ягодный мастер","Jagodowy mistrz","Bogyómester","Maestro delle bacche","Maestro de bayas","Maître des baies","浆果达人","ベリー名人","Mestre das bagas","浆果达人",
+"STR_ZenSkills_Perk_Gathering_Name4","Extra Fruity","Extra Fruity","Ovocná bomba","Besonders fruchtig","Очень фруктовый","Ekstra owocowy","Extra gyümölcsös","Extra fruttato","Extra afrutado","Extra fruité","额外水果味","特別フルーティー","Extra frutado","额外水果味",
+"STR_ZenSkills_Perk_Gathering_Name5","Careful Hands","Careful Hands","Opatrné ruce","Sorgfältige Hände","Осторожные руки","Ostrożne ręce","Óvatos kezek","Mani attente","Manos cuidadosas","Mains soigneuses","小心的手","慎重な手","Mãos cuidadosas","小心的手",
+"STR_ZenSkills_Perk_Gathering_Name6","Nurture Over Nature","Nurture Over Nature","Péče nad přírodou","Pflege über Natur","Забота превыше природы","Pielęgnacja ponad naturę","Gondoskodás a természet felett","Cura sulla natura","Cuidado sobre la naturaleza","Le soin sur la nature","关怀胜过自然","自然より養育","Cuidado sobre a natureza","关怀胜过自然",
+"STR_ZenSkills_Perk_Gathering_Name7","Quarry","Quarry","Lom","Steinbruch","Карьер","Kamieniołom","Kőbánya","Cava","Cantera","Carrière","采石场","採石場","Pedreira","采石场",
+"STR_ZenSkills_Perk_Gathering_Name8","Fertile Soil","Fertile Soil","Úrodná půda","Fruchtbarer Boden","Плодородная почва","Żyzna gleba","Termékeny talaj","Suolo fertile","Suelo fértil","Sol fertile","肥沃的土壤","肥沃な土壌","Solo fértil","肥沃的土壤",
+"STR_ZenSkills_Perk_Gathering_Name9","The Woodworker","The Woodworker","Truhlář","Der Schreiner","Столяр","Stolarz","Asztalos","Il falegname","El carpintero","Le menuisier","木工","木工職人","Marceneiro","木工",
+"STR_ZenSkills_Perk_Gathering_Name10","The Lumberjack","The Lumberjack","Dřevorubec","Der Holzfäller","Лесоруб","Drwal","Favágó","Il boscaiolo","El leñador","Le bûcheron","伐木工","木こり","Lenhador","伐木工",
+"STR_ZenSkills_Perk_Gathering_Desc1","You gain %1 more experience from gathering activities","You gain %1 more experience from gathering activities","Získáš o %1 více zkušeností ze sběru","Du erhältst %1 mehr Erfahrung aus Sammelaktivitäten","Вы получаете на %1 больше опыта от собирательства","Zyskujesz o %1 więcej doświadczenia ze zbieractwa","%1 több tapasztalatot szerzel gyűjtögetésből","Ottieni %1 esperienza in più dalle attività di raccolta","Obtienes %1 más experiencia en actividades de recolección","Vous gagnez %1 d’expérience supplémentaire grâce à la collecte","你从采集活动中获得%1更多经验。","採集活動から%1多くの経験を得る。","Você ganha %1 mais experiência em atividades de coleta","你从采集活动中获得%1更多经验。",
+"STR_ZenSkills_Perk_Gathering_Desc2","You get an increased %1 yield on plant harvests","You get an increased %1 yield on plant harvests","Získáš o %1 více rostlinné sklizně","Du erhältst %1 mehr Ertrag bei der Pflanzenernte","Ты получаешь на %1 больше урожая растений","Dostajesz o %1 większy plon roślin","%1 több termést kapsz a növényekből","Ottieni un raccolto di piante aumentato del %1","Obtienes un %1 más de cosecha de plantas","Vous obtenez un rendement accru de %1 sur les récoltes de plantes","你在植物收获中获得%1更多产量。","植物収穫量が%1増える。","Você obtém %1 mais colheita de plantas","你在植物收获中获得%1更多产量。",
+"STR_ZenSkills_Perk_Gathering_Desc3","You have a %1 chance to get edible berries when cutting bushes","You have a %1 chance to get edible berries when cutting bushes","Máš %1 šanci získat jedlé bobule při kácení keřů","Du hast eine %1 Chance, beim Schneiden von Büschen essbare Beeren zu erhalten","У тебя есть %1 шанс получить съедобные ягоды при рубке кустов","Masz %1 szansy na zdobycie jadalnych jagód przy cięciu krzaków","%1 esélyed van, hogy ehető bogyót kapj bokrok vágásakor","Hai una %1 possibilità di ottenere bacche commestibili tagliando cespugli","Tienes un %1 de probabilidad de obtener bayas comestibles al cortar arbustos","Vous avez %1 de chances d’obtenir des baies comestibles en coupant des buissons","你有%1的几率在砍灌木时获得可食用浆果。","茂みを切るときに食用ベリーを得る確率が%1ある。","Você tem %1 de chance de obter bagas comestíveis ao cortar arbustos","你有%1的几率在砍灌木时获得可食用浆果。",
+"STR_ZenSkills_Perk_Gathering_Desc4","You have a %1 chance to get an extra fruit or mushroom when foraging","You have a %1 chance to get an extra fruit or mushroom when foraging","Máš %1 šanci získat navíc ovoce nebo houbu při sběru","Du hast eine %1 Chance, beim Sammeln eine zusätzliche Frucht oder Pilz zu bekommen","У тебя есть %1 шанс получить дополнительный фрукт или гриб при собирательстве","Masz %1 szansy na dodatkowy owoc lub grzyb przy zbieraniu","%1 esélyed van extra gyümölcsöt vagy gombát találni gyűjtögetés közben","Hai una %1 possibilità di ottenere un frutto o fungo extra durante la raccolta","Tienes un %1 de probabilidad de obtener una fruta o hongo extra al recolectar","Vous avez %1 de chances d’obtenir un fruit ou un champignon supplémentaire lors de la cueillette","你有%1的几率在采集时获得额外水果或蘑菇。","採集で追加の果物やキノコを得る確率が%1ある。","Você tem %1 de chance de obter uma fruta ou cogumelo extra ao coletar","你有%1的几率在采集时获得额外水果或蘑菇。",
+"STR_ZenSkills_Perk_Gathering_Desc5","You retain %1 more food from opening canned foods with rough tools","You retain %1 more food from opening canned foods with rough tools","Zachováš o %1 více jídla při otevírání konzerv hrubými nástroji","Du behältst %1 mehr Nahrung beim Öffnen von Konserven mit groben Werkzeugen","Ты сохраняешь на %1 больше еды при открытии консервов грубыми инструментами","Zachowujesz o %1 więcej jedzenia przy otwieraniu konserw prymitywnymi narzędziami","%1 több ételt őrzöl meg konzervnyitáskor durva eszközökkel","Conservi %1 più cibo aprendo scatolette con strumenti rozzi","Conservas un %1 más de comida al abrir latas con herramientas rudimentarias","Vous conservez %1 plus de nourriture en ouvrant des conserves avec des outils grossiers","用粗糙工具开启罐头时保留%1更多食物。","粗い道具で缶詰を開けると%1多く食料が残る。","Você retém %1 mais comida ao abrir enlatados com ferramentas rudes","用粗糙工具开启罐头时保留%1更多食物。",
+"STR_ZenSkills_Perk_Gathering_Desc6","Your plants have a %1 reduced grow time and chance to become infested","Your plants have a %1 reduced grow time and chance to become infested","Tvé rostliny mají o %1 kratší dobu růstu a menší šanci na napadení","Deine Pflanzen haben %1 weniger Wachstumszeit und geringere Befallschance","У твоих растений на %1 меньше время роста и шанс заразиться","Twoje rośliny mają o %1 krótszy czas wzrostu i mniejsze ryzyko chorób","A növényeid %1 gyorsabban nőnek és kisebb az esélyük a fertőzésre","Le tue piante hanno un tempo di crescita ridotto del %1 e meno probabilità di infestazione","Tus plantas tienen un %1 menos de tiempo de crecimiento y menos probabilidad de infestarse","Vos plantes ont un temps de croissance réduit de %1 et moins de risque d’infestation","你的植物生长时间缩短%1，感染几率降低。","植物の成長時間が%1短縮され、害虫被害の確率も減る。","Suas plantas têm %1 menos tempo de crescimento e menor chance de infestação","你的植物生长时间缩短%1，感染几率降低。",
+"STR_ZenSkills_Perk_Gathering_Desc7","You have a %1 chance to get an extra stone when mining","You have a %1 chance to get an extra stone when mining","Máš %1 šanci získat navíc kámen při těžbě","Du hast eine %1 Chance, beim Abbau einen zusätzlichen Stein zu erhalten","У тебя есть %1 шанс получить дополнительный камень при добыче","Masz %1 szansy na zdobycie dodatkowego kamienia podczas kopania","%1 esélyed van extra követ kapni bányászat közben","Hai una %1 possibilità di ottenere una pietra extra durante l’estrazione","Tienes un %1 de probabilidad de obtener una piedra extra al minar","Vous avez %1 de chances d’obtenir une pierre supplémentaire lors de l’extraction","你有%1的几率在采矿时获得额外石头。","採掘で追加の石を得る確率が%1ある。","Você tem %1 de chance de obter uma pedra extra ao minerar","你有%1的几率在采矿时获得额外石头。",
+"STR_ZenSkills_Perk_Gathering_Desc8","You use %1 less fertilizer and water on gardens","You use %1 less fertilizer and water on gardens","Používáš o %1 méně hnojiva a vody na zahradě","Du verwendest %1 weniger Dünger und Wasser im Garten","Ты используешь на %1 меньше удобрений и воды в огороде","Używasz o %1 mniej nawozu i wody w ogrodach","%1 kevesebb trágyát és vizet használsz a kertekben","Usi il %1 in meno di fertilizzante e acqua nei giardini","Usas un %1 menos de fertilizante y agua en los jardines","Vous utilisez %1 moins d’engrais et d’eau dans les jardins","你在花园里使用的肥料和水减少%1。","庭で肥料と水の使用量が%1減る。","Você usa %1 menos fertilizante e água nos jardins","你在花园里使用的肥料和水减少%1。",
+"STR_ZenSkills_Perk_Gathering_Desc9","You have a %1 chance to craft double the expected number of planks","You have a %1 chance to craft double the expected number of planks","Máš %1 šanci vyrobit dvojnásobek očekávaného počtu prken","Du hast eine %1 Chance, die doppelte erwartete Anzahl an Brettern herzustellen","У тебя есть %1 шанс скрафтить вдвое больше досок","Masz %1 szansy na stworzenie podwójnej liczby desek","%1 esélyed van kétszer annyi deszkát készíteni, mint várható","Hai una %1 possibilità di creare il doppio del numero previsto di assi","Tienes un %1 de probabilidad de fabricar el doble de las tablas esperadas","Vous avez %1 de chances de fabriquer le double du nombre prévu de planches","你有%1的几率制作双倍数量的木板。","板を期待数の2倍作れる確率が%1ある。","Você tem %1 de chance de fabricar o dobro da quantidade esperada de tábuas","你有%1的几率制作双倍数量的木板。",
+"STR_ZenSkills_Perk_Gathering_Desc10","You have a %1 chance to get an extra log from cutting down trees","You have a %1 chance to get an extra log from cutting down trees","Máš %1 šanci získat navíc kládu při kácení stromů","Du hast eine %1 Chance, beim Fällen von Bäumen einen zusätzlichen Stamm zu bekommen","У тебя есть %1 шанс получить дополнительное бревно при рубке деревьев","Masz %1 szansy na zdobycie dodatkowego kłody przy ścinaniu drzew","%1 esélyed van extra rönköt kapni favágás közben","Hai una %1 possibilità di ottenere un tronco extra abbattendo alberi","Tienes un %1 de probabilidad de obtener un tronco extra al talar árboles","Vous avez %1 de chances d’obtenir une bûche supplémentaire en abattant des arbres","你有%1的几率在砍伐树木时获得额外原木。","木を伐採するときに追加の丸太を得る確率が%1ある。","Você tem %1 de chance de obter um tronco extra ao cortar árvores","你有%1的几率在砍伐树木时获得额外原木。",
+"STR_ZenSkills_GUI_Icon","Icon","Icon","Ikona","Symbol","Иконка","Ikona","Ikon","Icona","Ícono","Icône","图标","アイコン","Ícone","图标",
+"STR_ZenSkills_GUI_PerkName","Name","Name","Název","Name","Имя","Nazwa","Név","Nome","Nombre","Nom","名称","名前","Nome","名称",
+"STR_ZenSkills_GUI_Level","Level","Level","Úroveň","Stufe","Уровень","Poziom","Szint","Livello","Nivel","Niveau","等级","レベル","Nível","等级",
+"STR_ZenSkills_GUI_Tier","Tier","Tier","Úroveň","Stufe","Уровень","Stopień","Szint","Livello","Nivel","Niveau","层级","ティア","Categoria","层级",
+"STR_ZenSkills_GUI_ShowExp","Show EXP Gained","Show EXP Gained","Zobrazit získané EXP","Zeige erhaltene EXP","Показать полученный опыт","Pokaż zdobyte EXP","Mutasd a megszerzett EXP-t","Mostra EXP guadagnata","Mostrar EXP ganada","Afficher EXP gagnée","显示获得的经验","獲得経験値を表示","Mostrar EXP ganha","显示获得的经验",
+"STR_ZenSkills_GUI_ResetPerks","Reset Perks","Reset Perks","Obnovit perky","Perks zurücksetzen","Сбросить умения","Zresetuj perki","Perkek visszaállítása","Reimposta perk","Restablecer perks","Réinitialiser perks","重置技能","パークをリセット","Redefinir perks","重置技能",
+"STR_ZenSkills_GUI_Perk","Perk","Perk","Perk","Perk","Перок","Perk","Perk","Perk","Perk","Perk","特权","特典","Perk","特权",
+"STR_ZenSkills_GUI_Perks","Perks","Perks","perky","Perks","Перки","perki","perkek","Perks","Perks","Perks","特权","特典","Perks","特权",
+"STR_ZenSkills_GUI_SkillPoints","Skill Points","Skill Points","Body dovedností","Fertigkeitspunkte","Очки навыков","Punkty umiejętności","Képességpontok","Punti abilità","Puntos de habilidad","Points de compétence","技能点数","スキルポイント","Pontos de habilidade","技能点数",
+"STR_ZenSkills_GUI_PointsToSpend","Skill points to spend","Skill points to spend","Body k utracení","Zu verteilende Fertigkeitspunkte","Очки навыков для распределения","Punkty umiejętności do wydania","Elköltendő képességpontok","Punti abilità da spendere","Puntos de habilidad para gastar","Points de compétence à dépenser","可用技能点","使えるスキルポイント","Pontos de habilidade para gastar","可用技能点",
+"STR_ZenSkills_PerkType_Percent","percent","percent","procento","Prozent","процент","procent","százalék","percentuale","por ciento","pour cent","百分比","パーセント","por cento","百分比",
+"STR_ZenSkills_GUI_NextLevelReward","Next level's reward","Next level's reward","Odměna za další úroveň","Belohnung der nächsten Stufe","Награда следующего уровня","Nagroda za następny poziom","Következő szint jutalma","Ricompensa del livello successivo","Recompensa del siguiente nivel","Récompense du niveau suivant","下一级奖励","次のレベルの報酬","Recompensa do próximo nível","下一级奖励",
+"STR_ZenSkills_GUI_CurrentReward","Current reward","Current reward","Aktuální odměna","Aktuelle Belohnung","Текущая награда","Aktualna nagroda","Jelenlegi jutalom","Ricompensa attuale","Recompensa actual","Récompense actuelle","当前奖励","現在の報酬","Recompensa atual","当前奖励",
+"STR_ZenSkills_GUI_MaxLevel","max level","max level","maximální úroveň","maximales Level","максимальный уровень","maksymalny poziom","max szint","livello massimo","nivel máximo","niveau maximum","最高等级","最大レベル","nível máximo","最高等级",
+"STR_ZenSkills_GUI_Skill","Skill","Skill","Dovednost","Fertigkeit","Навык","Umiejętność","Képesség","Abilità","Habilidad","Compétence","技能","スキル","Habilidade","技能",
+"STR_ZenSkills_GUI_NoSkillPoints","no skill points available","no skill points available","žádné dostupné body dovedností","keine Fertigkeitspunkte verfügbar","нет доступных очков навыков","brak dostępnych punktów umiejętności","nincsenek elérhető képességpontok","nessun punto abilità disponibile","no hay puntos de habilidad disponibles","aucun point de compétence disponible","无可用技能点","使用可能なスキルポイントなし","sem pontos de habilidade disponíveis","无可用技能点",
+"STR_ZenSkills_GUI_MissingTier","unlock %1 more perk(s) in Tier %2","unlock %1 more perk(s) in Tier %2","odemkni %1 více perk(ů) v úrovni %2","schalte %1 weitere Perk(s) in Stufe %2 frei","разблокируй ещё %1 перк(ов) на уровне %2","odblokuj %1 więcej perk(ów) w poziomie %2","nyiss meg %1 több perket a(z) %2. szinten","sblocca %1 altri perk al livello %2","desbloquea %1 más perk(s) en el nivel %2","débloquez %1 perk(s) supplémentaires au niveau %2","解锁%1个额外的技能在第%2层级","Tier %2でさらに%1のパークをアンロック","desbloqueie %1 perk(s) adicionais no nível %2","解锁%1个额外的技能在第%2层级",
+"STR_ZenSkills_GUI_NotEnoughPoints","You don't have enough skill points available to do that!","You don't have enough skill points available to do that!","Nemáš dostatek bodů dovedností k provedení této akce!","Du hast nicht genug Fertigkeitspunkte dafür!","У тебя недостаточно очков навыков, чтобы это сделать!","Nie masz wystarczającej liczby punktów umiejętności, aby to zrobić!","Nincs elég képességpontod ehhez!","Non hai abbastanza punti abilità per farlo!","No tienes suficientes puntos de habilidad para hacer eso!","Vous n’avez pas assez de points de compétence pour faire ça !","你没有足够的技能点来执行此操作！","スキルポイントが足りません！","Você não tem pontos de habilidade suficientes para fazer isso!","你没有足够的技能点来执行此操作！",
+"STR_ZenSkills_GUI_ResetPerksWarning","This will reset all your perks and you will lose %1 of your allocated perk EXP, refunding %2 perks and leaving you with %3 total useable perks points. Are you sure?","This will reset all your perks and you will lose %1 of your allocated perk EXP, refunding %2 perks and leaving you with %3 total useable perks points. Are you sure?","Toto resetuje všechny tvé perky a ztratíš %1 svého přiděleného EXP, vrátí ti %2 perků a zůstane ti %3 použitelných bodů. Jsi si jistý?","Dies setzt alle deine Perks zurück und du verlierst %1 deiner vergebenen EXP, erhältst %2 Perks zurück und hast %3 nutzbare Punkte. Bist du sicher?","Это сбросит все твои перки, ты потеряешь %1 своего выделенного EXP, вернётся %2 перков и останется %3 используемых очков. Ты уверен?","To zresetuje wszystkie twoje perki i stracisz %1 swojego przydzielonego EXP, odzyskasz %2 perków i zostanie ci %3 używalnych punktów. Jesteś pewien?","Ez visszaállítja az összes perket, elveszíted az elosztott EXP %1-át, visszakapsz %2 perket, és %3 felhasználható pontod marad. Biztos vagy benne?","Questo reimposterà tutti i tuoi perk e perderai il %1 della tua EXP assegnata, ti verranno rimborsati %2 perk e ti resteranno %3 punti utilizzabili. Sei sicuro?","Esto reiniciará todos tus perks y perderás el %1 de tu EXP asignada, recuperando %2 perks y quedándote con %3 puntos utilizables. ¿Estás seguro?","Cela réinitialisera tous vos perks et vous perdrez %1 de votre EXP attribuée, récupérerez %2 perks et il vous restera %3 points utilisables. Êtes-vous sûr ?","这将重置你所有的技能，你将失去%1已分配的技能经验，返还%2技能，并剩余%3可用技能点。确定吗？","これですべてのパークがリセットされ、割り当てたEXPの%1を失い、%2パークが返却され、合計%3の使用可能ポイントが残ります。本当に続けますか？","Isso redefinirá todos os seus perks e você perderá %1 de sua EXP alocada, reembolsando %2 perks e deixando você com %3 pontos utilizáveis. Tem certeza?","这将重置你所有的技能，你将失去%1已分配的技能经验，返还%2技能，并剩余%3可用技能点。确定吗？",
+"STR_ZenSkills_GUI_SafePredatorMeat","This piece smells safe to eat","This piece smells safe to eat","Tento kus voní bezpečně k jídlu.","Dieses Stück riecht sicher zum Essen.","Этот кусок пахнет безопасно для еды.","Ten kawałek pachnie bezpiecznie do jedzenia.","Ez a darab biztonságosnak tűnik.","Questo pezzo sembra sicuro da mangiare.","Este trozo huele seguro para comer.","Ce morceau semble sûr à manger.","这块肉闻起来可以安全食用。","この肉は食べても安全そうな匂いがする。","Este pedaço parece seguro para comer.","这块肉闻起来可以安全食用。",
+"STR_ZenSkills_GUI_ConfirmPerkUnlock","Are you sure you want to spend a point on this perk","Are you sure you want to spend a point on this perk","Jsi si jistý, že chceš utratit bod za tento perk?","Bist du sicher, dass du einen Punkt für diesen Perk ausgeben möchtest?","Ты уверен, что хочешь потратить очко на этот перк?","Czy na pewno chcesz wydać punkt na ten perk?","Biztos vagy benne, hogy pontot költesz erre a perkre?","Sei sicuro di voler spendere un punto per questo perk?","¿Seguro que quieres gastar un punto en este perk?","Êtes-vous sûr de vouloir dépenser un point pour ce perk ?","你确定要在这个技能上花费一点吗？","このパークにポイントを使ってもよろしいですか？","Você tem certeza de que deseja gastar um ponto neste perk?","你确定要在这个技能上花费一点吗？",
+"STR_ZenSkills_GUI_Nurture","Nurture","Nurture","Péče","Pflege","Забота","Pielęgnacja","Gondoskodás","Cura","Cuidado","Soin","关怀","養育","Cuidado","关怀",
+"STR_ZenSkills_GUI_ExpGained","EXP Gained","EXP Gained","Získané EXP","Erhaltene EXP","Получено ОП","Zdobyte EXP","Szerzett EXP","EXP Ottenuta","EXP Ganada","EXP Gagnée","获得经验","獲得EXP","EXP Ganha","获得经验",
+"STR_ZenSkills_GUI_Unlocked","You've unlocked","You've unlocked","Odemkl jsi","Du hast freigeschaltet","Вы открыли","Odblokowałeś","Feloldottad","Hai sbloccato","Has desbloqueado","Vous avez débloqué","你已解锁","アンロックしました","Você desbloqueou","你已解锁",
+"STR_ZenSkills_GUI_ExpBoost","EXP Boost","EXP Boost","Posílení EXP","EXP-Boost","Бонус ОП","Wzmocnienie EXP","EXP Növelés","Potenzia EXP","Impulso EXP","Boost EXP","经验加成","EXPブースト","Impulso EXP","经验加成",
+"STR_ZenSkills_GUI_MinutesLeft","minutes left","minutes left","zbývá minut","Minuten übrig","минут осталось","pozostało minut","hátralévő perc","minuti rimasti","minutos restantes","minutes restantes","剩余分钟","残り分","minutos restantes","剩余分钟",
+
+"STR_ZenSkills_Item_SkillBook","Skill Book","Skill Book","Kniha dovedností","Fertigkeitenbuch","Книга навыков","Księga umiejętności","Képességkönyv","Libro delle abilità","Libro de habilidades","Livre de compétences","技能书","スキルブック","Livro de habilidades","技能书",
+"STR_ZenSkills_Item_SkillBook_Desc","A book containing random information on how to improve one of my skills.","A book containing random information on how to improve one of my skills.","Kniha obsahující náhodné informace o zlepšení jedné z tvých dovedností.","Ein Buch mit zufälligen Informationen, wie man eine seiner Fertigkeiten verbessert.","Книга со случайной информацией о том, как улучшить один из навыков.","Księga zawierająca losowe informacje o tym, jak poprawić jedną z moich umiejętności.","Egy könyv, amely véletlenszerű információkat tartalmaz arról, hogyan javíts egy képességeden.","Un libro con informazioni casuali su come migliorare una delle mie abilità.","Un libro con información aleatoria sobre cómo mejorar una de mis habilidades.","Un livre contenant des informations aléatoires pour améliorer une de mes compétences.","一本包含随机信息的书，教你如何提升某项技能。","自分のスキルの1つを向上させる方法についてのランダムな情報が書かれた本。","Um livro com informações aleatórias sobre como melhorar uma das minhas habilidades.","一本包含随机信息的书，教你如何提升某项技能。",
+"STR_ZenSkills_Item_SurvivalBook","Survival Skill Book","Survival Skill Book","Kniha přežití","Überlebensbuch","Книга выживания","Księga przetrwania","Túlélési könyv","Libro di sopravvivenza","Libro de supervivencia","Livre de survie","生存技能书","サバイバルスキルブック","Livro de sobrevivência","生存技能书",
+"STR_ZenSkills_Item_SurvivalBook_Desc","A book containing information on how to be better at survival skills.","A book containing information on how to be better at survival skills.","Kniha obsahující informace o tom, jak být lepší v dovednostech přežití.","Ein Buch mit Informationen, wie man besser im Überleben wird.","Книга с информацией о том, как лучше выживать.","Księga zawierająca informacje o tym, jak lepiej radzić sobie w umiejętnościach przetrwania.","Egy könyv, amely információkat tartalmaz a túlélési képességek javításáról.","Un libro con informazioni su come migliorare le abilità di sopravvivenza.","Un libro con información sobre cómo mejorar en las habilidades de supervivencia.","Un livre contenant des informations pour améliorer vos compétences de survie.","一本包含生存技能提升方法的书。","生存スキルを高める方法について書かれた本。","Um livro com informações sobre como melhorar habilidades de sobrevivência.","一本包含生存技能提升方法的书。",
+"STR_ZenSkills_Item_CraftingBook","Crafting Skill Book","Crafting Skill Book","Kniha řemesel","Handwerksbuch","Книга ремесел","Księga rzemiosła","Barkácskönyv","Libro di artigianato","Libro de artesanía","Livre d’artisanat","制作技能书","クラフティングスキルブック","Livro de artesanato","制作技能书",
+"STR_ZenSkills_Item_CraftingBook_Desc","A book containing information on how to be better at crafting skills.","A book containing information on how to be better at crafting skills.","Kniha obsahující informace o tom, jak být lepší v řemeslných dovednostech.","Ein Buch mit Informationen, wie man besser im Handwerk wird.","Книга с информацией о том, как улучшить навыки ремесла.","Księga zawierająca informacje o tym, jak być lepszym w rzemiośle.","Egy könyv, amely információkat tartalmaz a barkácsolási képességek javításáról.","Un libro con informazioni su come migliorare le abilità artigianali.","Un libro con información sobre cómo mejorar las habilidades de artesanía.","Un livre contenant des informations pour améliorer vos compétences artisanales.","一本包含制作技能提升方法的书。","クラフトスキルを高める方法について書かれた本。","Um livro com informações sobre como melhorar habilidades de artesanato.","一本包含制作技能提升方法的书。",
+"STR_ZenSkills_Item_HuntingBook","Hunting Skill Book","Hunting Skill Book","Kniha lovu","Jagdhandbuch","Книга охоты","Księga łowiectwa","Vadászkönyv","Libro di caccia","Libro de caza","Livre de chasse","狩猎技能书","ハンティングスキルブック","Livro de caça","狩猎技能书",
+"STR_ZenSkills_Item_HuntingBook_Desc","A book containing information on how to be better at hunting skills.","A book containing information on how to be better at hunting skills.","Kniha obsahující informace o tom, jak být lepší v loveckých dovednostech.","Ein Buch mit Informationen, wie man besser jagen kann.","Книга с информацией о том, как улучшить охотничьи навыки.","Księga zawierająca informacje o tym, jak być lepszym w umiejętnościach łowieckich.","Egy könyv, amely információkat tartalmaz a vadászati képességek javításáról.","Un libro con informazioni su come migliorare le abilità di caccia.","Un libro con información sobre cómo mejorar las habilidades de caza.","Un livre contenant des informations pour améliorer vos compétences de chasse.","一本包含狩猎技能提升方法的书。","ハンティングスキルを高める方法について書かれた本。","Um livro com informações sobre como melhorar habilidades de caça.","一本包含狩猎技能提升方法的书。",
+"STR_ZenSkills_Item_GatheringBook","Gathering Skill Book","Gathering Skill Book","Kniha sběru","Sammelbuch","Книга собирательства","Księga zbieractwa","Gyűjtögető könyv","Libro di raccolta","Libro de recolección","Livre de collecte","采集技能书","ギャザリングスキルブック","Livro de coleta","采集技能书",
+"STR_ZenSkills_Item_GatheringBook_Desc","A book containing information on how to be better at gathering skills.","A book containing information on how to be better at gathering skills.","Kniha obsahující informace o tom, jak být lepší ve sběratelských dovednostech.","Ein Buch mit Informationen, wie man besser im Sammeln wird.","Книга с информацией о том, как улучшить навыки собирательства.","Księga zawierająca informacje o tym, jak być lepszym w zbieractwie.","Egy könyv, amely információkat tartalmaz a gyűjtögetési képességek javításáról.","Un libro con informazioni su come migliorare le abilità di raccolta.","Un libro con información sobre cómo mejorar las habilidades de recolección.","Un livre contenant des informations pour améliorer vos compétences de collecte.","一本包含采集技能提升方法的书。","ギャザリングスキルを高める方法について書かれた本。","Um livro com informações sobre como melhorar habilidades de coleta.","一本包含采集技能提升方法的书。",
+"STR_ZenSkills_Item_ExpBooster","EXP Booster","EXP Booster","Posilovač EXP","EXP-Verstärker","Усилитель ОП","Wzmacniacz EXP","EXP Növelő","Potenziante EXP","Potenciador de EXP","Boost EXP","经验增强剂","EXPブースター","Impulsionador de EXP","经验增强剂",
+"STR_ZenSkills_Item_ExpBooster_Desc","This injector heightens my focus. I'll gain %1 experience for %2 minutes in any skills I practice. These injectors can be stacked so that if multiple injectors are used, the boost lasts even longer.","This injector heightens my focus. I'll gain %1 experience for %2 minutes in any skills I practice. These injectors can be stacked so that if multiple injectors are used, the boost lasts even longer.","Tato injekce zvýší mou koncentraci. Získám o %1 více zkušeností po dobu %2 minut ve všech dovednostech, které procvičuji. Injekce lze skládat, takže při použití více vydrží posílení déle.","Diese Injektion schärft meinen Fokus. Ich erhalte %1 mehr Erfahrung für %2 Minuten in allen geübten Fertigkeiten. Mehrere Injektionen stapeln sich und verlängern die Wirkungsdauer.","Этот инъектор усиливает мою концентрацию. Я получаю на %1 больше опыта в течение %2 минут в любых навыках, которые практикую. Инъекторы можно складывать — эффект продлевается.","Ten zastrzyk zwiększa moją koncentrację. Zyskam %1 doświadczenia przez %2 minut we wszystkich umiejętnościach. Można używać wielu zastrzyków, by efekt trwał dłużej.","Ez az injektor fokozza a koncentrációmat. %1 több tapasztalatot szerzek %2 percig bármely képességben. Több injektor hatása összeadódik, így hosszabb ideig tart.","Questo iniettore aumenta la mia concentrazione. Guadagnerò %1 esperienza per %2 minuti in qualsiasi abilità pratico. Più iniettori si possono accumulare per una durata maggiore.","Este inyector agudiza mi concentración. Ganaré %1 experiencia durante %2 minutos en cualquier habilidad que practique. Pueden acumularse y durar más si se usan varios.","Cet injecteur aiguise ma concentration. Je gagnerai %1 d’expérience pendant %2 minutes dans toutes les compétences pratiquées. Les injecteurs peuvent s’empiler pour prolonger l’effet.","这个注射剂提升了我的专注力。在接下来的%2分钟里，我在练习任何技能时会获得%1的经验。这些注射剂可以叠加，使用多个时增益持续更久。","この注射で集中力が高まる。%2分間、練習するスキルのEXPを%1得られる。複数使用すれば効果時間がさらに延びる。","Este injetor aumenta meu foco. Ganharei %1 de experiência por %2 minutos em qualquer habilidade praticada. Vários injetores podem ser empilhados para prolongar o efeito.","这个注射剂提升了我的专注力。在接下来的%2分钟里，我在练习任何技能时会获得%1的经验。这些注射剂可以叠加，使用多个时增益持续更久。",
+"STR_ZenSkills_Item_PerkResetter","Perk Resetter","Perk Resetter","Resetovač perků","Perk-Resetter","Сброс перков","Reset perków","Perk Visszaállító","Resetta perk","Reiniciador de perks","Réinitialiseur de perks","特权重置器","パークリセッター","Redefinidor de perks","特权重置器",
+"STR_ZenSkills_Item_PerkResetter_Desc","Injecting this will wipe my memory of all my currently unlocked skill perks. The label says not to worry - I'll still keep all of my skill experience.","Injecting this will wipe my memory of all my currently unlocked skill perks. The label says not to worry - I'll still keep all of my skill experience.","Injekce mi vymaže paměť všech aktuálně odemčených perků. Štítek říká, že se nemusím bát – zkušenosti mi zůstanou.","Diese Injektion löscht mein Gedächtnis an alle derzeit freigeschalteten Perks. Laut Etikett keine Sorge – meine Erfahrung bleibt.","Эта инъекция сотрёт память обо всех открытых перках. На этикетке сказано: «Не волнуйтесь — опыт сохранится».","Ten zastrzyk wymaże moją pamięć o wszystkich odblokowanych perkach. Etykieta mówi, że nie muszę się martwić – doświadczenie pozostanie.","Ez az injekció törli az összes feloldott perkem emlékét. A címke szerint nem kell aggódni – a tapasztalatom megmarad.","Questa iniezione cancellerà la memoria di tutti i perk sbloccati. L’etichetta dice di non preoccuparsi – l’esperienza rimane.","Esta inyección borrará la memoria de todos mis perks desbloqueados. La etiqueta dice que no me preocupe – la experiencia se mantiene.","Cette injection effacera la mémoire de tous mes perks débloqués. L’étiquette dit de ne pas s’inquiéter – l’expérience reste.","注射后会抹去我已解锁的所有特权记忆。标签上写着不用担心——我的技能经验会保留。","これを注射すると、解除したパークの記憶が消える。だがラベルには心配無用とある – 経験値はそのままだ。","Esta injeção apagará a memória de todos os perks desbloqueados. O rótulo diz para não se preocupar – a experiência permanece.","注射后会抹去我已解锁的所有特权记忆。标签上写着不用担心——我的技能经验会保留。",
+"STR_ZenSkills_GUI_Refresh","Refresh","Refresh","Obnovit","Aktualisieren","Обновить","Odśwież","Frissítés","Aggiorna","Actualizar","Rafraîchir","刷新","更新","Atualizar","刷新",
+"STR_ZenSkills_GUI_Wait","Wait...","Wait...","Počkej...","Warte...","Подожди...","Czekaj...","Várj...","Aspetta...","Espera...","Attendez...","请稍候...","待機中...","Aguarde...","请稍候...",
+"STR_ZenSkills_GUI_TopPlayers","Only the top %1 players are listed for each skill.","Only the top %1 players are listed for each skill.","Pouze nejlepších %1 hráčů je uvedeno pro každou dovednost.","Nur die besten %1 Spieler werden für jede Fertigkeit aufgelistet.","Только топ-%1 игроков указаны для каждого навыка.","Tylko %1 najlepszych graczy jest wymienionych dla każdej umiejętności.","Csak a legjobb %1 játékos van felsorolva minden képességnél.","Solo i migliori %1 giocatori sono elencati per ogni abilità.","Solo los %1 mejores jugadores aparecen listados para cada habilidad.","Seuls les %1 meilleurs joueurs sont listés pour chaque compétence.","每项技能仅列出前%1名玩家。","各スキルごとに上位%1人のプレイヤーのみが表示される。","Apenas os %1 melhores jogadores são listados para cada habilidade.","每项技能仅列出前%1名玩家。",
+"STR_ZenSkills_GUI_PressKeySpend","Press %1 key to spend points.","Press %1 key to spend points.","Stiskni klávesu %1 pro utracení bodů.","Drücke die %1-Taste, um Punkte auszugeben.","Нажмите клавишу %1, чтобы потратить очки.","Naciśnij klawisz %1, aby wydać punkty.","Nyomd meg a(z) %1 gombot a pontok elköltéséhez.","Premi il tasto %1 per spendere punti.","Pulsa la tecla %1 para gastar puntos.","Appuyez sur la touche %1 pour dépenser des points.","按下%1键来花费点数。","%1キーを押してポイントを使う。","Pressione a tecla %1 para gastar pontos.","按下%1键来花费点数。",
+"STR_ZenSkills_GUI_OpenSkillsInput","Open Skill menu","Open Skill menu","Otevřít menu dovedností","Fertigkeitenmenü öffnen","Открыть меню навыков","Otwórz menu umiejętności","Képességmenü megnyitása","Apri il menu delle abilità","Abrir menú de habilidades","Ouvrir le menu des compétences","打开技能菜单","スキルメニューを開く","Abrir menu de habilidades","打开技能菜单",
+"STR_ZenSkills_GUI_UnsetKey","unset key","unset key","zrušit klávesu","Taste aufheben","сбросить клавишу","odwiąż klawisz","gomb törlése","annulla tasto","desasignar tecla","dissocier la touche","取消按键","キー解除","desvincular tecla","取消按键",
+"STR_ZenSkills_Title","ZENARCHIST'S SKILLS MOD","ZENARCHIST'S SKILLS MOD","Zenarchistův mod dovedností","Zenarchists Skill-Mod","Мод навыков от Zenarchist","Mod umiejętności Zenarchista","Zenarchist képességmodja","Mod abilità di Zenarchist","Mod de habilidades de Zenarchist","Mod de compétences de Zenarchist","ZENARCHIST 的技能模組","ZENARCHIST のスキルMOD","Mod de habilidades de Zenarchist","ZENARCHIST 的技能模组",
+"STR_ZenSkills_Welcome","Welcome, %1.","Welcome, %1.","Vítej, %1.","Willkommen, %1.","Добро пожаловать, %1.","Witaj, %1.","Üdv, %1.","Benvenuto, %1.","Bienvenido, %1.","Bienvenue, %1.","歡迎，%1。","ようこそ、%1。","Bem-vindo, %1.","欢迎，%1。",
+
+"STR_ZenSkills_GUI_ModDescription","This skills mod was created by Zenarchist (youtube.com/@Zenarchist)
+
+~
+It adds 40 skill perks to the game. These perks are designed to give minimal advantage in PvP, but may give you the extra edge in survival.
+
+~
+You gain experience by playing the game normally, but you might also find skill books and EXP boost injectors if the admin has set these to spawn.
+
+~
+Some actions may award more EXP based on certain modifiers, such as bonus EXP based on distance from animals killed, or time taken to complete the action etc.
+
+~
+There are also nerfs which may apply to reduce EXP gained if you repeat the same action too many times in a row, or spend too much time in the same area. This is to discourage players grinding skills in the safety of their base.
+
+~
+If you leave %1 turned on you will be notified when new perks are available. Rebind your skill menu key if it conflicts with other mods. You'll want to check it regularly.
+
+~
+When you die you will lose %2 of your total EXP. If you have used your EXP on perks then some may be deactivated and the remainder of the EXP will be refunded.
+
+~
+Good luck survivors!","This skills mod was created by Zenarchist (youtube.com/@Zenarchist)
+
+~
+It adds 40 skill perks to the game. These perks are designed to give minimal advantage in PvP, but may give you the extra edge in survival.
+
+~
+You gain experience by playing the game normally, but you might also find skill books and EXP boost injectors if the admin has set these to spawn.
+
+~
+Some actions may award more EXP based on certain modifiers, such as bonus EXP based on distance from animals killed, or time taken to complete the action etc.
+
+~
+There are also nerfs which may apply to reduce EXP gained if you repeat the same action too many times in a row, or spend too much time in the same area. This is to discourage players grinding skills in the safety of their base.
+
+~
+If you leave %1 turned on you will be notified when new perks are available. Rebind your skill menu key if it conflicts with other mods. You'll want to check it regularly.
+
+~
+When you die you will lose %2 of your total EXP. If you have used your EXP on perks then some may be deactivated and the remainder of the EXP will be refunded.
+
+~
+Good luck survivors!","Tento mod dovedností vytvořil Zenarchist (youtube.com/@Zenarchist)
+
+~
+Přidává do hry 40 perků. Tyto perky dávají jen minimální výhodu v PvP, ale mohou ti pomoci při přežití.
+
+~
+Zkušenosti získáváš hraním normálně, ale můžeš najít i knihy dovedností a injektory EXP, pokud je admin nastavil ke spawnu.
+
+~
+Některé akce mohou dávat více EXP podle určitých podmínek, např. vzdálenost při zabití zvířete nebo čas potřebný k dokončení akce.
+
+~
+Mohou se také uplatnit postihy, pokud opakuješ stejnou akci příliš často za sebou nebo trávíš moc času na jednom místě. To má zabránit grindění dovedností v bezpečí základny.
+
+~
+Pokud necháš %1 zapnuté, budeš upozorněn, když budou k dispozici nové perky. Přenastav si klávesu menu dovedností, pokud koliduje s jinými mody. Vyplatí se kontrolovat pravidelně.
+
+~
+Když zemřeš, ztratíš %2 všech svých EXP. Pokud jsi použil EXP na perky, některé se deaktivují a zbytek EXP se vrátí.
+
+~
+Hodně štěstí, přeživší!","Dieses Skill-Mod wurde von Zenarchist (youtube.com/@Zenarchist) erstellt
+
+~
+Es fügt dem Spiel 40 Perks hinzu. Diese geben kaum Vorteile im PvP, können dir aber beim Überleben helfen.
+
+~
+Du erhältst Erfahrung, indem du normal spielst, kannst aber auch Skill-Bücher und EXP-Injektoren finden, wenn der Admin deren Spawn aktiviert hat.
+
+~
+Manche Aktionen geben mehr EXP basierend auf Modifikatoren, z. B. Distanz zu erlegten Tieren oder benötigter Zeit.
+
+~
+Es gibt auch Abschwächungen: Wiederholst du dieselbe Aktion zu oft oder bleibst zu lange am selben Ort, bekommst du weniger EXP. Das soll verhindern, dass Spieler Skills nur in der Basis grinden.
+
+~
+Lässt du %1 an, wirst du benachrichtigt, wenn neue Perks verfügbar sind. Belege deine Skillmenü-Taste neu, falls es Konflikte mit anderen Mods gibt. Prüfe sie regelmäßig.
+
+~
+Wenn du stirbst, verlierst du %2 deiner gesamten EXP. Bereits genutzte EXP für Perks können manche deaktivieren, der Rest wird zurückerstattet.
+
+~
+Viel Glück, Überlebende!","Этот мод навыков был создан Zenarchist (youtube.com/@Zenarchist)
+
+~
+Он добавляет в игру 40 перков. Эти перки дают минимальное преимущество в PvP, но могут дать дополнительное преимущество в выживании.
+
+~
+Ты получаешь опыт, просто играя, но также можешь найти книги навыков и инъекторы EXP, если админ настроил их спавн.
+
+~
+Некоторые действия дают больше EXP в зависимости от условий, например, бонус за дистанцию при убийстве животных или время выполнения действия.
+
+~
+Также есть штрафы: если слишком часто повторять одно и то же или находиться слишком долго в одном месте, количество EXP снижается. Это нужно, чтобы игроки не качали навыки только в базе.
+
+~
+Если оставить %1 включенным, ты получишь уведомление о новых перках. Переназначь клавишу меню навыков, если она конфликтует с другими модами. Проверяй это регулярно.
+
+~
+Когда умрёшь, потеряешь %2 всего EXP. Если EXP были потрачены на перки, некоторые отключатся, а остаток вернётся.
+
+~
+Удачи, выжившие!","Ten mod umiejętności został stworzony przez Zenarchist (youtube.com/@Zenarchist)
+
+~
+Dodaje 40 perków do gry. Dają one minimalną przewagę w PvP, ale mogą pomóc w przetrwaniu.
+
+~
+Doświadczenie zdobywasz, grając normalnie, ale możesz też znaleźć księgi umiejętności i zastrzyki EXP, jeśli admin ustawił ich spawn.
+
+~
+Niektóre akcje mogą dawać więcej EXP w zależności od modyfikatorów, np. odległość od zabitego zwierzęcia lub czas wykonania.
+
+~
+Są też kary – jeśli powtarzasz tę samą akcję zbyt często lub zbyt długo przebywasz w tym samym miejscu, EXP będzie mniejsze. To zniechęca do farmienia w bazie.
+
+~
+Jeśli zostawisz %1 włączone, otrzymasz powiadomienie o nowych perkach. Zmień klawisz menu umiejętności, jeśli koliduje z innymi modami. Sprawdzaj go regularnie.
+
+~
+Gdy zginiesz, stracisz %2 całego EXP. Jeśli EXP zostało wydane na perki, część się dezaktywuje, a reszta wróci.
+
+~
+Powodzenia, ocalali!","Ezt a képesség modot Zenarchist készítette (youtube.com/@Zenarchist)
+
+~
+40 perkot ad a játékhoz. Ezek alig adnak előnyt PvP-ben, de túlélésnél számíthatnak.
+
+~
+Tapasztalatot szerezhetsz normál játék közben, de találhatsz képességkönyveket és EXP injektorokat is, ha az admin engedélyezte spawnolásukat.
+
+~
+Bizonyos akciók több EXP-t adhatnak bizonyos feltételek alapján, pl. az állat lelövésének távolsága vagy a végrehajtás ideje.
+
+~
+Léteznek büntetések is: ha ugyanazt a cselekvést túl sokszor ismétled vagy túl sokáig maradsz egy helyen, kevesebb EXP-t kapsz. Ez akadályozza a bázison belüli farmolást.
+
+~
+Ha a %1 bekapcsolva marad, értesítést kapsz az új perkökről. Állítsd át a skill menü gombot, ha ütközik más modokkal. Rendszeresen ellenőrizd.
+
+~
+Ha meghalsz, elveszíted az összes EXP %2-át. Ha perkekre költötted, néhány deaktiválódik, a maradék visszajár.
+
+~
+Sok szerencsét, túlélők!","Questa mod di abilità è stata creata da Zenarchist (youtube.com/@Zenarchist)
+
+~
+Aggiunge 40 perk al gioco. Questi perk danno un vantaggio minimo nel PvP, ma possono darti un aiuto extra nella sopravvivenza.
+
+~
+Ottieni esperienza giocando normalmente, ma puoi anche trovare libri delle abilità e iniettori EXP se l’admin ne ha impostato lo spawn.
+
+~
+Alcune azioni possono dare più EXP in base a modificatori, come la distanza dagli animali uccisi o il tempo impiegato.
+
+~
+Ci sono anche penalità se ripeti troppe volte la stessa azione o resti troppo a lungo nella stessa zona. Serve a scoraggiare il farming sicuro in base.
+
+~
+Se lasci %1 attivo riceverai una notifica quando nuovi perk saranno disponibili. Reimposta il tasto del menu abilità se entra in conflitto con altri mod. Controllalo regolarmente.
+
+~
+Quando muori perderai %2 di tutta la tua EXP. Se hai usato EXP per i perk, alcuni verranno disattivati e l’esperienza restante sarà rimborsata.
+
+~
+Buona fortuna, sopravvissuti!","Este mod de habilidades fue creado por Zenarchist (youtube.com/@Zenarchist)
+
+~
+Agrega 40 perks al juego. Estos perks dan mínima ventaja en PvP, pero pueden darte un extra en supervivencia.
+
+~
+Ganas experiencia jugando normalmente, pero también puedes encontrar libros de habilidades e inyectores de EXP si el admin los ha configurado.
+
+~
+Algunas acciones otorgan más EXP según modificadores, como la distancia a los animales cazados o el tiempo de realización.
+
+~
+También hay penalizaciones si repites demasiado la misma acción o pasas mucho tiempo en el mismo lugar. Esto evita que los jugadores farmeen en la base.
+
+~
+Si dejas %1 activado recibirás notificación cuando haya nuevos perks. Reconfigura la tecla del menú de habilidades si entra en conflicto con otros mods. Revísalo seguido.
+
+~
+Cuando mueras perderás %2 de toda tu EXP. Si gastaste EXP en perks, algunos se desactivarán y el resto se reembolsará.
+
+~
+¡Buena suerte, supervivientes!","Ce mod de compétences a été créé par Zenarchist (youtube.com/@Zenarchist)
+
+~
+Il ajoute 40 perks au jeu. Ces perks offrent peu d’avantages en PvP, mais peuvent vous donner un atout en survie.
+
+~
+Vous gagnez de l’expérience en jouant normalement, mais vous pouvez aussi trouver des livres de compétences et des injecteurs d’EXP si l’admin les a configurés.
+
+~
+Certaines actions peuvent donner plus d’EXP en fonction de modificateurs, comme la distance aux animaux tués ou le temps d’exécution.
+
+~
+Des pénalités peuvent aussi s’appliquer si vous répétez trop la même action ou restez trop longtemps au même endroit. Cela décourage le farm de compétences en base.
+
+~
+Si vous laissez %1 activé, vous serez averti quand de nouveaux perks seront disponibles. Reconfigurez votre touche de menu si elle entre en conflit avec d’autres mods. Vérifiez-le régulièrement.
+
+~
+Quand vous mourrez, vous perdrez %2 de votre EXP totale. Si vous avez utilisé votre EXP sur des perks, certains seront désactivés et le reste sera remboursé.
+
+~
+Bonne chance, survivants!","这个技能模组由 Zenarchist 制作 (youtube.com/@Zenarchist)
+
+~
+它为游戏添加了40个技能特权。这些特权在PvP中几乎没有优势，但在生存中可能给你额外帮助。
+
+~
+你通过正常游戏获得经验，但也可能找到技能书和经验增强注射剂，如果管理员已设置它们刷新。
+
+~
+某些行动可能会因修正而获得更多经验，例如击杀动物的距离或完成动作所花的时间。
+
+~
+如果你重复同一行为太多次，或长时间停留在同一区域，可能会获得更少经验。这是为了防止玩家在基地刷技能。
+
+~
+如果你保持%1开启，你将在有新特权可用时收到通知。如果技能菜单键与其他模组冲突，请重新绑定。记得定期检查。
+
+~
+当你死亡时，你将失去%2的总经验。如果你已将经验用于特权，一些会被禁用，剩余经验会返还。
+
+~
+祝你好运，幸存者!","このスキルMODはZenarchistによって作られました (youtube.com/@Zenarchist)
+
+~
+ゲームに40個のスキルパークを追加します。PvPでの利点は最小限ですが、生存での助けにはなります。
+
+~
+通常のプレイで経験値を得られますが、スキルブックやEXPインジェクターを見つけることもあります（管理者がスポーンを設定している場合）。
+
+~
+一部の行動は条件により追加EXPを得られる場合があります。例: 動物を倒した距離や行動にかかった時間。
+
+~
+同じ行動を何度も繰り返したり、同じ場所に長く留まると、獲得EXPが減少するペナルティがあります。これは拠点でのスキル稼ぎを防ぐためです。
+
+~
+%1をオンにしておくと、新しいパークが利用可能になったとき通知されます。スキルメニューキーが他のMODと競合する場合は再設定してください。定期的に確認しましょう。
+
+~
+死亡すると総EXPの%2を失います。EXPをパークに使っていた場合、いくつかは無効化され、残りは返還されます。
+
+~
+幸運を、サバイバー!","Este mod de habilidades foi criado por Zenarchist (youtube.com/@Zenarchist)
+
+~
+Adiciona 40 perks ao jogo. Esses perks dão pouca vantagem em PvP, mas podem ajudar na sobrevivência.
+
+~
+Você ganha experiência jogando normalmente, mas também pode encontrar livros de habilidades e injetores de EXP se o administrador configurar.
+
+~
+Algumas ações podem dar mais EXP com base em modificadores, como distância dos animais mortos ou tempo gasto.
+
+~
+Existem também penalidades: repetir a mesma ação muitas vezes ou permanecer muito tempo na mesma área reduz a EXP. Isso evita grindar em segurança na base.
+
+~
+Se deixar %1 ativado, você será notificado quando novos perks estiverem disponíveis. Reconfigure a tecla do menu de habilidades se houver conflito com outros mods. Verifique regularmente.
+
+~
+Quando você morrer, perderá %2 de toda a EXP. Se já tiver usado EXP em perks, alguns serão desativados e o restante devolvido.
+
+~
+Boa sorte, sobreviventes!","这个技能模组由 Zenarchist 制作 (youtube.com/@Zenarchist)
+
+~
+它为游戏添加了40个技能特权。这些特权在PvP中几乎没有优势，但在生存中可能给你额外帮助。
+
+~
+你通过正常游戏获得经验，但也可能找到技能书和经验增强注射剂，如果管理员已设置它们刷新。
+
+~
+某些行动可能会因修正而获得更多经验，例如击杀动物的距离或完成动作所花的时间。
+
+~
+如果你重复同一行为太多次，或长时间停留在同一区域，可能会获得更少经验。这是为了防止玩家在基地刷技能。
+
+~
+如果你保持%1开启，你将在有新特权可用时收到通知。如果技能菜单键与其他模组冲突，请重新绑定。记得定期检查。
+
+~
+当你死亡时，你将失去%2的总经验。如果你已将经验用于特权，一些会被禁用，剩余经验会返还。
+
+~
+祝你好运，幸存者!"
