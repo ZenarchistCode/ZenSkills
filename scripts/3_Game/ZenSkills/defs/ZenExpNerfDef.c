@@ -79,7 +79,7 @@ class ZenSkillsExpNerf
 		}
 		
 		// decay if outside window
-		if (now - streak.lastTick > GetZenSkillsEXP().ExpNerfConfig.NerfActionResetTimeMinutes)
+		if (now - streak.lastTick > GetZenSkillsEXP().ExpNerfConfig.NerfActionResetTimeMs)
 			streak.count = 0;
 
 		streak.count++;
