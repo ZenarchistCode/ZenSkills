@@ -67,10 +67,10 @@ class ZenSkillsEXP
 		//------------------------------------------------------------------------------------------------
 		ZenSkillsEXPDefHolder survival = new ZenSkillsEXPDefHolder();
 		survival.ExpDefs.Insert("ReadSkillBookSurvival", new ZenSkillsEXPDef(1500, false, false, false));
-		survival.ExpDefs.Insert("Stabbed_Zombie_Generic", new ZenSkillsEXPDef(10));
-		survival.ExpDefs.Insert("Killed_Zombie_Generic", new ZenSkillsEXPDef(1, true));
-		survival.ExpDefs.Insert("Killed_Entity_Generic", new ZenSkillsEXPDef(1, true));
-		survival.ExpDefs.Insert("Killed_Player", new ZenSkillsEXPDef(1, true));
+		survival.ExpDefs.Insert("Stabbed_Zombie_Generic", new ZenSkillsEXPDef(100));
+		survival.ExpDefs.Insert("Killed_Zombie_Generic", new ZenSkillsEXPDef(10, true));
+		survival.ExpDefs.Insert("Killed_Entity_Generic", new ZenSkillsEXPDef(10, true));
+		survival.ExpDefs.Insert("Killed_Player", new ZenSkillsEXPDef(100, true));
 		survival.ExpDefs.Insert("ActionBandageSelf", new ZenSkillsEXPDef(5));
 		survival.ExpDefs.Insert("ActionBandageTarget", new ZenSkillsEXPDef(10));
 		survival.ExpDefs.Insert("ActionCookOnStick", new ZenSkillsEXPDef(25));
@@ -89,7 +89,7 @@ class ZenSkillsEXP
 		//------------------------------------------------------------------------------------------------
 		ZenSkillsEXPDefHolder crafting = new ZenSkillsEXPDefHolder();
 		crafting.ExpDefs.Insert("ReadSkillBookCrafting", new ZenSkillsEXPDef(1500, false, false, false));
-		crafting.ExpDefs.Insert("GenericCrafting", new ZenSkillsEXPDef(1, true));
+		crafting.ExpDefs.Insert("GenericCrafting", new ZenSkillsEXPDef(10, true));
 		crafting.ExpDefs.Insert("ActionBuildPart", new ZenSkillsEXPDef(10));
 		crafting.ExpDefs.Insert("ActionRepairPart", new ZenSkillsEXPDef(10));
 		crafting.ExpDefs.Insert("ActionBuildShelter", new ZenSkillsEXPDef(25));
