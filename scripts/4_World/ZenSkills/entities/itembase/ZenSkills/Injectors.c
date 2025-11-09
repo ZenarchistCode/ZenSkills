@@ -69,7 +69,7 @@ class ZenSkills_Injector_PerkReset extends Inventory_Base
 	}
 }
 
-class ZenSkills_Injector_AdminDebugTool extends Inventory_Base
+class ZenSkills_Injector_AdminDebugTool_MaxEXP extends Inventory_Base
 {
 	override void SetActions()
 	{
@@ -83,10 +83,27 @@ class ZenSkills_Injector_AdminDebugTool extends Inventory_Base
 		if (!player || !player.GetIdentity())
 			return;
 
-		player.GiveShock(-100);
 		GetZenSkillsPlugin().AddEXP(player, "hunting", 99999999);
 		GetZenSkillsPlugin().AddEXP(player, "crafting", 99999999);
 		GetZenSkillsPlugin().AddEXP(player, "gathering", 99999999);
 		GetZenSkillsPlugin().AddEXP(player, "survival", 99999999);
+	}
+}
+
+class ZenSkills_Injector_AdminDebugTool_RemoveEXP extends Inventory_Base
+{
+	override void SetActions()
+	{
+		super.SetActions();
+		
+		AddAction(ActionInjectZenSkillsSelf);
+	}
+	
+	override void OnApply(PlayerBase player)
+	{
+		if (!player || !player.GetIdentity())
+			return;
+
+		GetZenSkillsPlugin().ApplyDeathExpPenalty(1, player);
 	}
 }

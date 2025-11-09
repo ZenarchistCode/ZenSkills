@@ -14,8 +14,9 @@ class ZenSkillsPlayerDB
 	string PlayerUID;
 	ref map<string, ref ZenSkill> Skills;
 	
-	void ZenSkillsPlayerDB()
+	void ZenSkillsPlayerDB(string playerID)
 	{
+		PlayerUID = playerID;
 		Skills = new map<string, ref ZenSkill>();
 	}
 
@@ -368,11 +369,25 @@ class ZenSkillsPlayerDB
 	// and refunds the overshoot back to unused EXP so the net loss equals the exact target.
 	void ApplyDeathExpPenalty(float percent01)
 	{
+		#ifdef ZENSKILLSDEBUG
+		ZenSkillsPrint("[ApplyDeathExpPenalty] Triggered");
+		#endif
+
 		if (PlayerUID == "")
+		{
+			#ifdef ZENSKILLSDEBUG
+			ZenSkillsPrint("[ApplyDeathExpPenalty] PlayerUID is blank");
+			#endif
 			return;
+		}
 		
 	    if (percent01 <= 0)
+		{
+			#ifdef ZENSKILLSDEBUG
+			ZenSkillsPrint("[ApplyDeathExpPenalty] percent01 is 0");
+			#endif
 	        return;
+		}
 	
 	    if (percent01 > 1)
 	        percent01 = 1;
@@ -552,6 +567,8 @@ class ZenSkillsPlayerDB
 			debugMsg = debugMsg + " postTotalEXP=" + postTotalExp;
 	        ZenSkillsPrint(debugMsg);
 	        #endif
+
+			Save(PlayerUID, PlayerName);
 	    }
 	}
 }

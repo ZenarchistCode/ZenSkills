@@ -69,8 +69,7 @@ modded class MissionServer
 			if (pb.GetZenSkillsDB() && expLostPercentage > 0)
 			{
 				Print("[ZenSkills] Player respawned: applying EXP loss of " + expLostPercentage.ToString() + "x to " + pb.GetIdentity().GetId());				
-				pb.GetZenSkillsDB().ApplyDeathExpPenalty(expLostPercentage);
-				pb.SaveZenSkillsDB();
+				GetZenSkillsPlugin().ApplyDeathExpPenalty(expLostPercentage, pb);
 				GetZenSkillsPlugin().ResyncToClientDB(pb.GetIdentity(), pb.GetZenSkillsDB());
 			}
 		}

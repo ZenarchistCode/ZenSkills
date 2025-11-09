@@ -116,6 +116,7 @@ class ZenSkillsHUD extends ZenSkillsHUDBase
 	// Intended to be called whenever a menu is opened or HUD is hidden (inventory, maps, admin tools, ~ key etc)
 	override void HideAll()
 	{
+		/*
 		if (m_ExpGainedFrame)
 		{
 			m_ExpGainedFrame.Show(false);
@@ -125,6 +126,7 @@ class ZenSkillsHUD extends ZenSkillsHUDBase
 		{
 			m_NewPerkFrame.Show(false);
 		}
+		*/
 	}
 
 	void SetExpGainedLabel(float progress, string text)

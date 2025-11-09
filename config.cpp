@@ -9,7 +9,9 @@ class CfgPatches
 		requiredAddons[] =
 		{
 			"DZ_Data",
-			"DZ_Scripts"
+			"DZ_Scripts",
+
+			"JM_CF_Scripts"
 		};
 	};
 };
@@ -429,10 +431,20 @@ class CfgVehicles
 		};
 	};
 	
-	class ZenSkills_Injector_AdminDebugTool: ZenSkills_Injector_Base
+	class ZenSkills_Injector_AdminDebugTool_MaxEXP: ZenSkills_Injector_Base
 	{
 		scope=2;
-		displayName="ADMIN TOOL - MAX EXP";
+		displayName="ADMIN TOOL - GIVE MAX EXP";
+		descriptionShort="NOT FOR GENERAL CONSUMPTION";
+		hiddenSelectionsTextures[]=
+		{
+			"ZenSkills\data\textures\injectors\injector_boost_co.paa"
+		};
+	};
+	class ZenSkills_Injector_AdminDebugTool_RemoveEXP: ZenSkills_Injector_Base
+	{
+		scope=2;
+		displayName="ADMIN TOOL - REMOVE ALL EXP";
 		descriptionShort="NOT FOR GENERAL CONSUMPTION";
 		hiddenSelectionsTextures[]=
 		{

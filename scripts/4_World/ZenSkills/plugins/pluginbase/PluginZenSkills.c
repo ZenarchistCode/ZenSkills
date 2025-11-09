@@ -117,7 +117,7 @@ class PluginZenSkills extends PluginBase
 		
 		ZenSkillsPrint("[ZenSkills] Loading skill DB for: " + uid + " - from file.");
 
-		skillsDB = new ZenSkillsPlayerDB();
+		skillsDB = new ZenSkillsPlayerDB(uid);
 		skillsDB.Load(uid);
 
 		SetSkillsDB(uid, skillsDB);
@@ -168,6 +168,30 @@ class PluginZenSkills extends PluginBase
 				}
 			}
 		}
+	}
+
+	void ApplyDeathExpPenalty(float percent01, PlayerBase player)
+	{
+		if (!player || !player.GetIdentity())
+			return;
+
+		PlayerIdentity id = player.GetIdentity();
+		string uid = id.GetId();
+
+		ApplyDeathExpPenalty(percent01, uid);
+		ResyncToClientDB(id, GetSkillsDB(uid));
+	}
+
+	void ApplyDeathExpPenalty(float percent01, string playerID)
+	{
+		ZenSkillsPlayerDB db = GetSkillsDB(playerID);
+		if (!db)
+		{
+			Error("[ApplyDeathExpPenalty] PlayerDB can not be found for id: " + playerID);
+			return;
+		}
+
+		db.ApplyDeathExpPenalty(percent01);
 	}
 	
 	void AddEXP_Action(PlayerBase player, string actionKey, float modifier = 1, bool forceRawEXP = false)
@@ -389,12 +413,12 @@ class PluginZenSkills extends PluginBase
 		db.Save(id.GetId(), id.GetName());
 	}
 	
-	void ResyncToClientDB(PlayerIdentity identity, ZenSkillsPlayerDB db)
+	void ResyncToClientDB(notnull PlayerIdentity identity, notnull ZenSkillsPlayerDB db)
 	{
 		GetRPCManager().SendRPC(ZenSkillConstants.RPC, ZenSkillConstants.RPC_ClientReceive_PerkReset, new Param1<ref ZenSkillsPlayerDB>(db), true, identity);
 	}
 
-	void SendLoginInitClientDB(PlayerIdentity identity, ZenSkillsPlayerDB db)
+	void SendLoginInitClientDB(notnull PlayerIdentity identity, notnull ZenSkillsPlayerDB db)
 	{
 		GetRPCManager().SendRPC(ZenSkillConstants.RPC, ZenSkillConstants.RPC_ClientReceive_ZenSkillsInit, new Param3<ref ZenSkillsSharedConfig, ref map<string, ref ZenSkillDef>, ref ZenSkillsPlayerDB>(GetZenSkillsConfig().SharedConfig, GetZenSkillsConfig().SkillDefs, db), true, identity);
 	}
@@ -452,7 +476,7 @@ class PluginZenSkills extends PluginBase
 		GetZenSkillsConfig().SharedConfig = data.param1;
 		map<string, ref ZenSkillDef> skillDefs = data.param2;
 		ZenSkillsPlayerDB receivedDB = data.param3;
-		ZenSkillsPlayerDB clientDB = new ZenSkillsPlayerDB();
+		ZenSkillsPlayerDB clientDB = new ZenSkillsPlayerDB(pb.GetIdentity().GetId());
 		
 		// Plugin starts before this is received from server, so set it for client now.
 		ZEN_SKILLS_DEBUG_ON = GetZenSkillsConfig().SharedConfig.DebugMode;
