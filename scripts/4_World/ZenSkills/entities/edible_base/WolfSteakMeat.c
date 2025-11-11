@@ -33,7 +33,7 @@ modded class WolfSteakMeat
 		
 		if (m_ZenSkillsNoSalmonella)
 		{
-			description = description + " #STR_ZenSkills_GUI_SafePredatorMeat.";
+			description = description + "<br/><br/><color rgba='97,215,124,255'>#STR_ZenSkills_GUI_SafePredatorMeat.</color>";
 		}
 		
         return description;

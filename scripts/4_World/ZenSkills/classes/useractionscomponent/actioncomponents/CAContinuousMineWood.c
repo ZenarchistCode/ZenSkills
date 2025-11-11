@@ -10,12 +10,9 @@ modded class CAContinuousMineWood : CAContinuousBase
 	
 	array<string> GetZenBerries()
 	{
-		static const array<string> berries = 
-		{
-        	"ZenSkills_SambucusBerry",
-        	"ZenSkills_CaninaBerry"
-        };
-		
+		array<string> berries = new array<string>;
+		berries.Insert("ZenSkills_SambucusBerry");
+		berries.Insert("ZenSkills_CaninaBerry");
 		return berries;
 	}
 

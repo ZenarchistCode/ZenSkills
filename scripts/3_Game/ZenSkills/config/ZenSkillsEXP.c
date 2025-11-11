@@ -67,8 +67,8 @@ class ZenSkillsEXP
 		//------------------------------------------------------------------------------------------------
 		ZenSkillsEXPDefHolder survival = new ZenSkillsEXPDefHolder();
 		survival.ExpDefs.Insert("ReadSkillBookSurvival", new ZenSkillsEXPDef(1500, false, false, false));
-		survival.ExpDefs.Insert("Stabbed_Zombie_Generic", new ZenSkillsEXPDef(100));
-		survival.ExpDefs.Insert("Killed_Zombie_Generic", new ZenSkillsEXPDef(10, true));
+		survival.ExpDefs.Insert("Stabbed_Zombie_Generic", new ZenSkillsEXPDef(25));
+		survival.ExpDefs.Insert("Killed_Zombie_Generic", new ZenSkillsEXPDef(5, true));
 		survival.ExpDefs.Insert("Killed_Entity_Generic", new ZenSkillsEXPDef(10, true));
 		survival.ExpDefs.Insert("Killed_Player", new ZenSkillsEXPDef(100, true));
 		survival.ExpDefs.Insert("ActionBandageSelf", new ZenSkillsEXPDef(5));

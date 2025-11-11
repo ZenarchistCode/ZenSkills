@@ -547,6 +547,9 @@ class PluginZenSkills extends PluginBase
 
 		ZenSkillsPlayerDB receivedDB = data.param1;
 		ZenSkillsPlayerDB clientDB = GetSkillsDB();
+
+		if (!clientDB)
+			return;
 		
 		#ifdef ZENSKILLSDEBUG
 		ZenSkillsPrint("------ PRINTING PLAYER SKILLS: FULL UPDATE ------");
