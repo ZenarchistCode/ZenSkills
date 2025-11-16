@@ -1,8 +1,5 @@
-// CAContinuousMineWood: material-aware bonus framework
-modded class CAContinuousMineWood : CAContinuousBase
+modded class CAContinuousMineWood extends CAContinuousBase
 {
-    // ---------------- configuration hooks ----------------
-
     protected string GetZenSkillKey(string material = "")
     {
         return "gathering";
@@ -31,7 +28,7 @@ modded class CAContinuousMineWood : CAContinuousBase
             return ZenPerks.GATHERING_EXTRA_LOGS;
 
         // Sticks -> berries
-        if (material == "WoodenStick")
+        if (material.Contains("WoodenStick"))
             return ZenPerks.GATHERING_BERRIES;
 
         return "";
@@ -41,10 +38,10 @@ modded class CAContinuousMineWood : CAContinuousBase
     // Return "" to skip. Default: same resource except sticks -> random berry.
     protected string ZenGetBonusDropTypeForMaterial(ActionData action_data, string material)
     {
-        if (material == "" ) 
+        if (material == "") 
 			return "";
 
-        if (material == "WoodenStick")
+        if (material.Contains("WoodenStick"))
         {
             // random berry
             return GetZenBerries().GetRandomElement();
@@ -66,8 +63,6 @@ modded class CAContinuousMineWood : CAContinuousBase
         return true;
     }
 
-    // ---------------- vanilla overrides ----------------
-
     override void Setup(ActionData action_data)
     {
         super.Setup(action_data);
@@ -79,7 +74,6 @@ modded class CAContinuousMineWood : CAContinuousBase
 
     override void CreatePrimaryItems(ActionData action_data)
 	{
-		// 1) Vanilla outputs first
 		super.CreatePrimaryItems(action_data);
 		
 		ZenCreateExtraItems(action_data);	
@@ -89,8 +83,10 @@ modded class CAContinuousMineWood : CAContinuousBase
 	{
 		if (!GetGame().IsDedicatedServer())
 			return;
+
 		if (!action_data || !action_data.m_Player)
 			return;
+
 		if (!m_MaterialAndQuantityMap || m_MaterialAndQuantityMap.Count() == 0)
 			return;
 	
