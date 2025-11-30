@@ -24,7 +24,7 @@ modded class PlayerBase
 	// Override this for mods that change player name in other ways (eg. Syberia Project)
 	string GetZenSkillsName()
 	{
-		return GetIdentity().GetName();
+		return GetCachedName();
 	}
 
 	ZenSkillsPlayerDB GetZenSkillsDB()

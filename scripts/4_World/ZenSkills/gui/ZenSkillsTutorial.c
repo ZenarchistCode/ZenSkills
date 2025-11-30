@@ -27,7 +27,7 @@ class ZenSkillsTutorial extends UIScriptedMenu
 		}
 		
 		string titleText = Widget.TranslateString("#STR_ZenSkills_Welcome");
-		titleText = string.Format(titleText, pb.GetIdentity().GetName());
+		titleText = string.Format(titleText, pb.GetCachedName());
 		
 		int expLossPercent = (int)Math.Round(GetZenSkillsConfig().SharedConfig.PercentOfExpLostOnDeath * 100);
 		

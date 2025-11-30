@@ -82,6 +82,7 @@ class ZenSkillsEXP
 		survival.ExpDefs.Insert("DisinfectItem", new ZenSkillsEXPDef(10));
 		survival.ExpDefs.Insert("HandDrillKitSuccess", new ZenSkillsEXPDef(25));
 		survival.ExpDefs.Insert("ActionTestBloodSelf", new ZenSkillsEXPDef(25));
+		survival.ExpDefs.Insert("Cooking", new ZenSkillsEXPDef(5));
 		ExpDefs.Insert("survival", survival);
 
 		//------------------------------------------------------------------------------------------------

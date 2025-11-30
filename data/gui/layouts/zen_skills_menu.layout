@@ -82,7 +82,7 @@ FrameWidgetClass rootFrame {
              clipchildren 0
              ignorepointer 1
              position 0.01 0
-             size 220 48
+             size 280 48
              halign right_ref
              hexactpos 0
              vexactpos 0
@@ -97,7 +97,7 @@ FrameWidgetClass rootFrame {
              clipchildren 0
              ignorepointer 1
              position 0.01 0.05
-             size 220 48
+             size 280 48
              halign right_ref
              hexactpos 0
              vexactpos 0
@@ -113,7 +113,7 @@ FrameWidgetClass rootFrame {
              ignorepointer 1
              color 0 1 0 1
              position 0.01 0.1
-             size 220 48
+             size 280 48
              halign right_ref
              hexactpos 0
              vexactpos 0
@@ -129,7 +129,7 @@ FrameWidgetClass rootFrame {
              ignorepointer 1
              color 0 1 0 1
              position 0.01 0.15
-             size 220 48
+             size 280 48
              halign right_ref
              hexactpos 0
              vexactpos 0
@@ -804,7 +804,7 @@ FrameWidgetClass rootFrame {
        vexactsize 0
        style DayZDefaultPanel
        {
-        TextWidgetClass TextWidget_IconLabel {
+        MultilineTextWidgetClass TextWidget_IconLabel {
          clipchildren 0
          ignorepointer 1
          position 0.025 0.23
@@ -815,8 +815,9 @@ FrameWidgetClass rootFrame {
          vexactsize 1
          text "#STR_ZenSkills_GUI_Icon"
          text_proportion 0.5
+         wrap 1
         }
-        TextWidgetClass TextWidget_NameLabel {
+        MultilineTextWidgetClass TextWidget_NameLabel {
          clipchildren 1
          ignorepointer 1
          position 0.06 0.23
@@ -826,8 +827,9 @@ FrameWidgetClass rootFrame {
          hexactsize 1
          vexactsize 1
          text "#STR_ZenSkills_GUI_PerkName"
+         wrap 1
         }
-        TextWidgetClass TextWidget_LevelLabel {
+        MultilineTextWidgetClass TextWidget_LevelLabel {
          disabled 0
          clipchildren 1
          ignorepointer 1
@@ -838,8 +840,9 @@ FrameWidgetClass rootFrame {
          hexactsize 1
          vexactsize 1
          text "#STR_ZenSkills_GUI_Level"
+         wrap 1
         }
-        TextWidgetClass TextWidget_TierLabel {
+        MultilineTextWidgetClass TextWidget_TierLabel {
          clipchildren 1
          ignorepointer 1
          position 0.36 0.23
@@ -849,6 +852,7 @@ FrameWidgetClass rootFrame {
          hexactsize 1
          vexactsize 1
          text "#STR_ZenSkills_GUI_Tier"
+         wrap 1
         }
         ImageWidgetClass PerkLeftIcon1_1 {
          ignorepointer 1
@@ -874,6 +878,7 @@ FrameWidgetClass rootFrame {
          text_halign left
         }
         TextWidgetClass PerkLeftLevel1_1 {
+         clipchildren 1
          ignorepointer 1
          position 0.31 0.25828
          size 66 48
@@ -925,6 +930,7 @@ FrameWidgetClass rootFrame {
          text_halign left
         }
         TextWidgetClass PerkLeftLevel1_2 {
+         clipchildren 1
          ignorepointer 1
          position 0.31 0.32828
          size 66 48
@@ -976,6 +982,7 @@ FrameWidgetClass rootFrame {
          text_halign left
         }
         TextWidgetClass PerkLeftLevel1_3 {
+         clipchildren 1
          ignorepointer 1
          position 0.31 0.39828
          size 66 48
@@ -1027,6 +1034,7 @@ FrameWidgetClass rootFrame {
          text_halign left
         }
         TextWidgetClass PerkLeftLevel2_1 {
+         clipchildren 1
          ignorepointer 1
          position 0.31 0.46828
          size 66 48
@@ -1078,6 +1086,7 @@ FrameWidgetClass rootFrame {
          text_halign left
         }
         TextWidgetClass PerkLeftLevel2_2 {
+         clipchildren 1
          ignorepointer 1
          position 0.31 0.53828
          size 66 48
@@ -1389,7 +1398,7 @@ FrameWidgetClass rootFrame {
            nocache 0
            "Transition width" 0
            {
-            TextWidgetClass SurvivalLabel {
+            MultilineTextWidgetClass SurvivalLabel {
              clipchildren 1
              ignorepointer 1
              position 0 0
@@ -1403,6 +1412,7 @@ FrameWidgetClass rootFrame {
              text "#STR_ZenSkills_Name_Survival"
              text_proportion 0.5
              "text halign" center
+             wrap 1
             }
             TextWidgetClass SurvivalButtonPerks {
              clipchildren 0
@@ -1460,7 +1470,7 @@ FrameWidgetClass rootFrame {
            "stretch mode" stretch_w_h
            nocache 0
            {
-            TextWidgetClass CraftingLabel {
+            MultilineTextWidgetClass CraftingLabel {
              clipchildren 1
              ignorepointer 1
              position 0 0
@@ -1474,6 +1484,7 @@ FrameWidgetClass rootFrame {
              text "#STR_ZenSkills_Name_Crafting"
              text_proportion 0.5
              "text halign" center
+             wrap 1
             }
             TextWidgetClass CraftingButtonPerks {
              clipchildren 0
@@ -1531,7 +1542,7 @@ FrameWidgetClass rootFrame {
            "stretch mode" stretch_w_h
            nocache 0
            {
-            TextWidgetClass HuntingLabel {
+            MultilineTextWidgetClass HuntingLabel {
              clipchildren 1
              ignorepointer 1
              position 0 0
@@ -1545,6 +1556,7 @@ FrameWidgetClass rootFrame {
              text "#STR_ZenSkills_Name_Hunting"
              text_proportion 0.5
              "text halign" center
+             wrap 1
             }
             TextWidgetClass HuntingButtonPerks {
              clipchildren 0
@@ -1602,7 +1614,7 @@ FrameWidgetClass rootFrame {
            "stretch mode" stretch_w_h
            nocache 0
            {
-            TextWidgetClass GatheringLabel {
+            MultilineTextWidgetClass GatheringLabel {
              clipchildren 1
              ignorepointer 1
              position 0 0
@@ -1616,6 +1628,7 @@ FrameWidgetClass rootFrame {
              text "#STR_ZenSkills_Name_Gathering"
              text_proportion 0.5
              "text halign" center
+             wrap 1
             }
             TextWidgetClass GatheringButtonPerks {
              clipchildren 0

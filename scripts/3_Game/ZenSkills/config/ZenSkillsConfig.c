@@ -159,6 +159,8 @@ class ZenSkillsServerConfig
 	float BaseHandDrillKitSuccess = 0.4;	// Base % chance 0-1 of hand drill kit succeeding to light a fire if NO perk is enabled
 	bool EnableAnalytics = true;			// Enable the analytics JSON file to track xp gained per session on average (helps tune skill xp)
 	bool EnableDatabaseCache = true;		// Enable the database cache - I recommend leaving this on unless you have a large number of players coming & going
+	int ShareExpRange = 0;					// If a player is within X meters of another player, they get also get EXP for the main player's actions (from watching them)
+	float ShareExpMulti = 0.5;				// EXP share multiplier (50% awarded by default)
 	bool I_AM_USING_MAPLINK = false;		// Only turn this on if you are using my MapLink compatibility .pbo (found in extras folder of the ZenSkills mod)
 }
 

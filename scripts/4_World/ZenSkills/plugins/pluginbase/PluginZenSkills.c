@@ -255,7 +255,7 @@ class PluginZenSkills extends PluginBase
 	    if (player.IsAI())
 	        return;
 	    #endif
-	
+		
 	    string uid = player.GetIdentity().GetId();
 	
 	    ZenSkill skill = GetSkillsDB(uid).Skills.Get(skillKey);
@@ -344,7 +344,7 @@ class PluginZenSkills extends PluginBase
 	    // Apply xp
 	    skill.EXP += finalAwardEXP;
 	
-	    if (actionKey != "" && GetZenSkillsEXP().ExpNerfConfig.EnableExpNerf)
+	    if (actionKey != "" && GetZenSkillsEXP().ExpNerfConfig.EnableExpNerf && !dontApplyNerf)
 	    {
 	        UpdateExpNerf(uid, player.GetPosition(), actionKey);
 	    }
@@ -352,6 +352,31 @@ class PluginZenSkills extends PluginBase
 		if (GetZenSkillsAnalyticsPlugin())
 		{
 			GetZenSkillsAnalyticsPlugin().OnExpAdded(skillKey, finalAwardEXP, uid, actionKey);
+		}
+		
+		// Share EXP with nearby players within X meters
+		if (GetZenSkillsConfig().ServerConfig.ShareExpRange > 0 && !actionKey.Contains("ReadSkillBook") && !actionKey.Contains("ExpansionQuest_"))
+		{
+			// Divide by 
+			float shareEXP = origEXP * GetZenSkillsConfig().ServerConfig.ShareExpMulti;
+			array<Man> playersOnline = new array<Man>;
+			g_Game.GetPlayers(playersOnline);
+			
+			foreach (Man manOnline : playersOnline)
+			{
+				PlayerBase pbOnline = PlayerBase.Cast(manOnline);
+				if (!pbOnline || !pbOnline.GetIdentity())
+					continue;
+				
+				if (vector.Distance(pbOnline.GetPosition(), player.GetPosition()) < GetZenSkillsConfig().ServerConfig.ShareExpRange)
+				{
+					AddEXP(pbOnline, skillKey, shareEXP, actionKey, true, true);
+					
+					#ifdef ZENSKILLSDEBUG 
+					ZenSkillsPrint("Shared EXP: " + skillKey + " exp=" + shareEXP);
+					#endif
+				}
+			}
 		}
 		
 		#ifdef ZENSKILLSDEBUG 
@@ -410,7 +435,14 @@ class PluginZenSkills extends PluginBase
 
 	void SavePlayerDB(notnull ZenSkillsPlayerDB db, notnull PlayerIdentity id)
 	{
-		db.Save(id.GetId(), id.GetName());
+		string playerName = id.GetName();
+		PlayerBase pb = PlayerBase.Cast(id.GetPlayer());
+		if (pb)
+		{
+			playerName = pb.GetCachedName();
+		}
+		
+		db.Save(id.GetId(), playerName);
 	}
 	
 	void ResyncToClientDB(notnull PlayerIdentity identity, notnull ZenSkillsPlayerDB db)
@@ -624,7 +656,8 @@ class PluginZenSkills extends PluginBase
 			ZenSkillsHUD skillHUD = ZenSkillsHUD.Cast(hud.GetZenSkillsHUD());
 			string skillString = "#STR_ZenSkills_Name_" + ZenSkillFunctions.FirstLetterUppercase(selectedSkill);
 			
-			skillHUD.SetExpGainedLabel(skill.ProgressToNextPerk(), skillString + " #STR_ZenSkills_GUI_ExpGained: +" + difference);
+			skillHUD.SetExpGainedStack(selectedSkill, difference, skill.ProgressToNextPerk());
+			//skillHUD.SetExpGainedLabel(skill.ProgressToNextPerk(), skillString + " #STR_ZenSkills_GUI_ExpGained: +" + difference);
 			
 			int perkCount = Math.Floor(skill.EXP / skill.GetDef().EXP_Per_Perk);
 			
@@ -771,7 +804,7 @@ class PluginZenSkills extends PluginBase
 		
 		if (!db.CanUnlockPerk(selectedSkill, selectedPerk))
 		{
-			NotificationSystem.SendNotificationToPlayerIdentityExtended(sender, 10, "SKILLS", "You requested to unlock skill=" + selectedSkill + " perk=" + selectedPerk);
+			//NotificationSystem.SendNotificationToPlayerIdentityExtended(sender, 10, "SKILLS", "You requested to unlock skill=" + selectedSkill + " perk=" + selectedPerk);
 			return;
 		}
 		

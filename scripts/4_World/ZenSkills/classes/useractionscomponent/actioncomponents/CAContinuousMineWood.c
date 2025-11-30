@@ -122,10 +122,13 @@ modded class CAContinuousMineWood extends CAContinuousBase
 			string dropType = ZenGetBonusDropTypeForMaterial(action_data, mat);
 			if (dropType == "")
 				continue;
+
+			int qty = 1;
 	
 			if (dropType == mat)
 			{
 				ItemBase mined = m_MinedItem[i];
+
 				if (mined)
 				{
 					if (mined.HasQuantity())
@@ -134,7 +137,13 @@ modded class CAContinuousMineWood extends CAContinuousBase
 						{
 							ItemBase extraA = ItemBase.Cast(GetGame().CreateObjectEx(dropType, action_data.m_Player.GetPosition(), ECE_PLACE_ON_SURFACE));
 							if (extraA && extraA.HasQuantity())
-								extraA.SetQuantity(1, false);
+							{
+								qty = 1;
+								if (extraA.CanDecay())
+									qty = extraA.GetQuantityMax();
+
+								extraA.SetQuantity(qty, false);
+							}
 						}
 						else
 						{
@@ -144,18 +153,30 @@ modded class CAContinuousMineWood extends CAContinuousBase
 					else
 					{
 						ItemBase extraB = ItemBase.Cast(GetGame().CreateObjectEx(dropType, action_data.m_Player.GetPosition(), ECE_PLACE_ON_SURFACE));
+
+						qty = 1;
+						if (extraB.CanDecay())
+							qty = extraB.GetQuantityMax();
+
+						extraA.SetQuantity(qty, false);
 					}
 				}
 				else
 				{
 					ItemBase extraC = ItemBase.Cast(GetGame().CreateObjectEx(dropType, action_data.m_Player.GetPosition(), ECE_PLACE_ON_SURFACE));
 					if (extraC && extraC.HasQuantity())
+					{
+						qty = 1;
+						if (extraC.CanDecay())
+							qty = extraC.GetQuantityMax();
+
 						extraC.SetQuantity(1, false);
+					}
 				}
 			}
 			else
 			{
-				int qty = ZenGetBonusDropQuantity(dropType, mat);
+				qty = ZenGetBonusDropQuantity(dropType, mat);
 				if (qty < 1)
 					qty = 1;
 	
@@ -166,7 +187,12 @@ modded class CAContinuousMineWood extends CAContinuousBase
 				{
 					ItemBase ib = ItemBase.Cast(spawned);
 					if (ib && ib.HasQuantity())
+					{
+						if (ib.CanDecay())
+							qty = ib.GetQuantityMax();
+
 						ib.SetQuantity(qty, false);
+					}
 	
 					spawned.SetLifetimeMax(900);
 					spawned.SetLifetime(900);

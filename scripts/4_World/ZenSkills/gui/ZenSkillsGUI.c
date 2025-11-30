@@ -67,11 +67,11 @@ class ZenSkillsGUI extends UIScriptedMenu
 
 	override Widget Init()
 	{
-	    layoutRoot = GetGame().GetWorkspace().CreateWidgets(LAYOUT_FILE);
+	    layoutRoot = g_Game.GetWorkspace().CreateWidgets(LAYOUT_FILE);
 
 		if (!ZenSkillsPlayerDB.RECEIVED_DATA)
 		{
-			GetGame().GetCallQueue(CALL_CATEGORY_GUI).CallLater(Close, 10);
+			g_Game.GetCallQueue(CALL_CATEGORY_GUI).CallLater(Close, 10);
 			return layoutRoot;
 		}
 	
@@ -117,7 +117,7 @@ class ZenSkillsGUI extends UIScriptedMenu
 		
 		if (!db || !db.Skills)
 		{
-			GetGame().GetCallQueue(CALL_CATEGORY_GUI).CallLater(Close, 10);
+			g_Game.GetCallQueue(CALL_CATEGORY_GUI).CallLater(Close, 10);
 			return layoutRoot;
 		}
 
@@ -218,7 +218,7 @@ class ZenSkillsGUI extends UIScriptedMenu
 		
 		if (m_ZenSkillsExpBoostActive)
 		{
-			int secsPassed = (GetGame().GetTime() - m_ZenSkillsExpReceivedTimestamp) / 1000;
+			int secsPassed = (g_Game.GetTime() - m_ZenSkillsExpReceivedTimestamp) / 1000;
 			int secsLeft = m_ZenSkillsExpBoostLeftSecs - secsPassed;
 			int minutes = Math.Ceil(secsLeft / 60);
 			m_SkillExpBoostLabel.SetText("#STR_ZenSkills_GUI_ExpBoost " + GetZenSkillsConfig().SharedConfig.EXP_InjectorBoostMulti + "x");
@@ -229,7 +229,7 @@ class ZenSkillsGUI extends UIScriptedMenu
 	
 	void ShowTutorial()
 	{
-		UIManager ui = GetGame().GetUIManager();
+		UIManager ui = g_Game.GetUIManager();
 		if (!ui) 
 			return;
 		
@@ -274,7 +274,7 @@ class ZenSkillsGUI extends UIScriptedMenu
 	{
 		super.OnHide();
 		
-		if (!GetGame())
+		if (!g_Game)
 			return;
 
 		ZenSkillFunctions.SetPlayerControl(true);
@@ -399,7 +399,7 @@ class ZenSkillsGUI extends UIScriptedMenu
 		
 		// Couldn't get OnDoubleClick() to work..
 		bool doubleClick = false;
-		int doubleClickTime = GetGame().GetTime() - m_LastClickTime;
+		int doubleClickTime = g_Game.GetTime() - m_LastClickTime;
 
 		if (doubleClickTime < 200)
 		{
@@ -410,7 +410,7 @@ class ZenSkillsGUI extends UIScriptedMenu
 			m_LastClickWidget = name;
 		}
 		
-		m_LastClickTime = GetGame().GetTime();
+		m_LastClickTime = g_Game.GetTime();
 
 		if (name == "closebutton")
 		{
@@ -481,7 +481,7 @@ class ZenSkillsGUI extends UIScriptedMenu
 		ZenSkillsPrint("Open highscores");
 		#endif
 		
-		UIManager ui = GetGame().GetUIManager();
+		UIManager ui = g_Game.GetUIManager();
 		if (!ui) 
 			return;
 	
@@ -962,10 +962,10 @@ class ZenSkillsGUI extends UIScriptedMenu
 	{
 		super.Update(timeslice);
 		
-		if (!GetGame())
+		if (!g_Game)
 			return;
 		
-		PlayerBase player = PlayerBase.Cast(GetGame().GetPlayer());
+		PlayerBase player = PlayerBase.Cast(g_Game.GetPlayer());
 		if (!player || !player.IsAlive() || player.IsUnconscious())
 		{
 			#ifdef ZENSKILLSDEBUG 
@@ -986,7 +986,10 @@ class ZenSkillsGUI extends UIScriptedMenu
 	}
 	
 	void PlaySoundGUI(string sound = "ZenSkillsGUI_Click_SoundSet")
-	{		
+	{
+		if (!g_Game)
+			return;
+
 		if (m_Sound)
 		{
 			m_Sound.Stop();	
@@ -997,7 +1000,7 @@ class ZenSkillsGUI extends UIScriptedMenu
 		SoundObject soundObject				= soundBuilder.BuildSoundObject();
 		
 		soundObject.SetKind(WaveKind.WAVEUI);
-		m_Sound = GetGame().GetSoundScene().Play2D(soundObject, soundBuilder);
+		m_Sound = g_Game.GetSoundScene().Play2D(soundObject, soundBuilder);
 			
 		if (m_Sound)
 		{
@@ -1015,7 +1018,7 @@ class ZenSkillsGUI extends UIScriptedMenu
 
 	private void DebugMsg(string msg)
 	{
-		GetGame().GetMission().OnEvent(ChatMessageEventTypeID, new ChatMessageEventParams(CCDirect, "", msg, ""));
+		g_Game.GetMission().OnEvent(ChatMessageEventTypeID, new ChatMessageEventParams(CCDirect, "", msg, ""));
 	}
 	
 	void ValidateWidgets(map<string, ref ImageWidget> widgetList)

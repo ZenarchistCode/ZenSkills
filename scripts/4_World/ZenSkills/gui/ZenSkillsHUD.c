@@ -1,15 +1,15 @@
 class ZenSkillsNotification extends Managed
 {
 	int m_Type;               // ZEN_NOTIF_EXP / ZEN_NOTIF_PERK
-	float m_Progress;         // EXP only
-	string m_Text;            // text for both
+	float m_Progress;         // EXP only (absolute progress to show)
+	string m_Text;            // display text (used for PERK; EXP text is built from stacks)
 	string m_SkillKey;        // PERK only
 	int m_PerkCount;          // PERK only
 }
 
 class ZenFadeTrack extends Managed
 {
-	Widget 	m_Widget;
+	ref Widget 	m_Widget;
 	float 	m_StartAlpha;
 	float 	m_TargetA;
 	int   	m_DurationMs;
@@ -39,6 +39,15 @@ class ZenFadeTrack extends Managed
 	}
 }
 
+// Internal stack entry for EXP (skill-based, stringtable-safe)
+class ZenExpStack extends Managed
+{
+	string SkillKey;     // e.g. "survival"
+	string LabelPrefix;  // "#STR_ZenSkills_Name_Survival #STR_ZenSkills_GUI_ExpGained: +"
+	int    Total;        // accumulated EXP for this toast
+	float  Progress;     // latest absolute progress for bar
+}
+
 class ZenSkillsHUD extends ZenSkillsHUDBase
 {
 	static const string LAYOUT_FILE = "ZenSkills/data/gui/layouts/zen_skills_hud";
@@ -52,8 +61,14 @@ class ZenSkillsHUD extends ZenSkillsHUDBase
 	static const int ZEN_NOTIF_EXP  = 0;
 	static const int ZEN_NOTIF_PERK = 1;
 
-	ref array<ref ZenSkillsNotification> m_ZenQueue_EXP;
+	// PERK still uses these
 	ref array<ref ZenSkillsNotification> m_ZenQueue_Notify;
+
+	// EXP stacking state (skill-based – no parsing)
+	ref map<string, ref ZenExpStack> m_ExpStacks;     // queued stacks by skill
+	ref array<string>                m_ExpOrder;      // queued keys in arrival order
+	ref ZenExpStack                  m_ExpActive;     // currently visible stack
+
 	bool m_ZenIsDisplayingEXP;
 	bool m_ZenIsDisplayingNotify;
 	bool m_ExpIsFading;
@@ -107,62 +122,82 @@ class ZenSkillsHUD extends ZenSkillsHUDBase
 		m_ExpGainedBar.Show(false);
 		m_ExpGainedLabel.Show(false);
 
-		m_ZenQueue_EXP = new array<ref ZenSkillsNotification>();
-		m_ZenQueue_Notify = new array<ref ZenSkillsNotification>();
-		m_ZenIsDisplayingEXP = false;
-		m_ZenIsDisplayingNotify = false;
+		m_ZenQueue_Notify      = new array<ref ZenSkillsNotification>();
+		m_ZenIsDisplayingEXP   = false;
+		m_ZenIsDisplayingNotify= false;
+
+		m_ExpStacks = new map<string, ref ZenExpStack>();
+		m_ExpOrder  = new array<string>();
+		m_ExpActive = null;
 	}
 
 	// Intended to be called whenever a menu is opened or HUD is hidden (inventory, maps, admin tools, ~ key etc)
 	override void HideAll()
 	{
-		/*
-		if (m_ExpGainedFrame)
-		{
-			m_ExpGainedFrame.Show(false);
-		}
-
-		if (m_NewPerkFrame)
-		{
-			m_NewPerkFrame.Show(false);
-		}
-		*/
+		// keep as-is if you need it later
 	}
 
-	void SetExpGainedLabel(float progress, string text)
+	// =========================
+	// EXP (skill-key based API)
+	// =========================
+
+	// Call this from PluginZenSkills with: (selectedSkill, difference, skill.ProgressToNextPerk())
+	void SetExpGainedStack(string skillKey, int addAmount, float progress)
 	{
 		if (!GetZenSkillsClientConfig().ShowEXP) 
 			return;
-		
-		text.ToUpper();
-	
-		ZenSkillsNotification n = new ZenSkillsNotification();
-		n.m_Type = ZEN_NOTIF_EXP;
-		n.m_Progress = progress;
-		n.m_Text = text;
-		m_ZenQueue_EXP.Insert(n);
-	
-		// If current EXP is fading, cancel the fade so we switch at once (no wait for fade).
+
+		if (skillKey == "")
+			return;
+
+		// cancel any fade if we are about to extend current toast
 		if (m_ExpIsFading)
 		{
 			GetGame().GetCallQueue(CALL_CATEGORY_GUI).Remove(StartFadeDelayedExp);
 			GetGame().GetCallQueue(CALL_CATEGORY_GUI).Remove(ZenOnCurrentFinishedEXP);
 			StopFadeExp();
-			
-			// we already passed the slot end; show next immediately
-			if (m_ZenIsDisplayingEXP)
-			{
-				ZenSkillsNotification next = m_ZenQueue_EXP.Get(0);
-				m_ZenQueue_EXP.RemoveOrdered(0);
-				ZenShowExp(next);
-				return;
-			}
 		}
-	
-		if (!m_ZenIsDisplayingEXP) 
+
+		// Same skill currently showing -> stack, update widgets, reset timer
+		if (m_ZenIsDisplayingEXP && m_ExpActive && m_ExpActive.SkillKey == skillKey)
+		{
+			m_ExpActive.Total   = m_ExpActive.Total + addAmount;
+			m_ExpActive.Progress = progress;
+			ZS_UpdateActiveExpWidgets();
+			ZS_ResetExpSlotTimer();
+			return;
+		}
+
+		// Otherwise merge into queued stack for this skill
+		ZenExpStack st = m_ExpStacks.Get(skillKey);
+		if (!st)
+		{
+			st = new ZenExpStack();
+			st.SkillKey    = skillKey;
+			st.Total       = addAmount;
+			st.Progress    = progress;
+			st.LabelPrefix = ZS_BuildLabelPrefix(skillKey); // stringtable-safe
+			m_ExpStacks.Insert(skillKey, st);
+			m_ExpOrder.Insert(skillKey);
+		}
+		else
+		{
+			st.Total    = st.Total + addAmount;
+			st.Progress = progress; // latest absolute progress wins
+		}
+
+		// If nothing is visible, start cycle
+		if (!m_ZenIsDisplayingEXP)
 			ZenTryDisplayNextEXP();
 	}
-	
+
+	// NOTE: Prefer SetExpGainedStack(skillKey, amount, progress).
+	void SetExpGainedLabel(float progress, string text)
+	{
+		Error("DEPRECATED! Use SetExpGainedStack instead!");
+		SetExpGainedStack(text, ZS_ParseLastSignedNumber(text), progress);
+	}
+
 	void SetPerkUnlockedLabel(string skillKey, int perkCount, string text)
 	{
 		if (!GetZenSkillsClientConfig().ShowEXP) 
@@ -202,12 +237,15 @@ class ZenSkillsHUD extends ZenSkillsHUDBase
 		if (!m_ZenIsDisplayingNotify) 
 			ZenTryDisplayNextNotify();
 	}
-	
+
+	// =========================
+	// Fade / GUI helpers
+	// =========================
+
 	void StartFadeDelayedExp()
 	{
 		m_ExpIsFading = true;
 	
-		// build trackers from current alpha -> 0
 		m_ExpFaders.Clear();
 		ref ZenFadeTrack t1 = new ZenFadeTrack();
 		ref ZenFadeTrack t2 = new ZenFadeTrack();
@@ -218,7 +256,6 @@ class ZenSkillsHUD extends ZenSkillsHUDBase
 		m_ExpFaders.Insert(t1);
 		m_ExpFaders.Insert(t2);
 	
-		// start ticking
 		GetGame().GetCallQueue(CALL_CATEGORY_GUI).Remove(ExpFadeTick);
 		GetGame().GetCallQueue(CALL_CATEGORY_GUI).CallLater(ExpFadeTick, ZEN_FADE_TICK_MS, true);
 	}
@@ -228,7 +265,7 @@ class ZenSkillsHUD extends ZenSkillsHUDBase
 		m_ExpIsFading = false;
 		GetGame().GetCallQueue(CALL_CATEGORY_GUI).Remove(ExpFadeTick);
 	}
-	
+
 	void StartFadeDelayedPerk()
 	{
 		m_PerkIsFading = true;
@@ -242,7 +279,7 @@ class ZenSkillsHUD extends ZenSkillsHUDBase
 		p1.Setup(m_NewPerkPanel, m_NewPerkPanel.GetAlpha(), 0.0, ZEN_FADE_TIME_MS);
 		p2.Setup(m_NewPerkIcon,  m_NewPerkIcon.GetAlpha(),  0.0, ZEN_FADE_TIME_MS);
 		p3.Setup(m_NewPerkLabel, m_NewPerkLabel.GetAlpha(), 0.0, ZEN_FADE_TIME_MS);
-		p4.Setup(m_NewPerkHint, m_NewPerkHint.GetAlpha(),	0.0, ZEN_FADE_TIME_MS);
+		p4.Setup(m_NewPerkHint,  m_NewPerkHint.GetAlpha(),	0.0, ZEN_FADE_TIME_MS);
 	
 		m_PerkFaders.Insert(p1);
 		m_PerkFaders.Insert(p2);
@@ -283,33 +320,152 @@ class ZenSkillsHUD extends ZenSkillsHUDBase
 
 	void HideIcon()
 	{
-		if (m_ExpGainedFrame)
-		{
-			m_ExpGainedFrame.Show(false);
-		}
-
-		if (m_NewPerkFrame)
-		{
-			m_NewPerkFrame.Show(false);
-		}
+		if (m_ExpGainedFrame) m_ExpGainedFrame.Show(false);
+		if (m_NewPerkFrame)   m_NewPerkFrame.Show(false);
 	}
 	
+	// =========================
+	// EXP: show / advance
+	// =========================
+
 	protected void ZenTryDisplayNextEXP()
 	{
 		if (m_ZenIsDisplayingEXP)
 			return;
 		
-		if (!m_ZenQueue_EXP || m_ZenQueue_EXP.Count() == 0)
+		if (!m_ExpOrder || m_ExpOrder.Count() == 0)
 			return;
 
-		ZenSkillsNotification n = m_ZenQueue_EXP.Get(0);
-		m_ZenQueue_EXP.RemoveOrdered(0);
-		m_ZenIsDisplayingEXP = true;
+		string key = m_ExpOrder.Get(0);
+		m_ExpOrder.RemoveOrdered(0);
 
+		m_ExpActive = m_ExpStacks.Get(key);
+		m_ExpStacks.Remove(key);
+
+		m_ZenIsDisplayingEXP = true;
 		StopFadeExp();
-		ZenShowExp(n);
+		ZenShowExp(m_ExpActive);
 	}
-	
+
+	protected void ZenShowExp(ZenExpStack st)
+	{
+		if (!st)
+			return;
+
+		m_ExpGainedFrame.Show(true);
+		m_ExpGainedLabel.Show(true);
+		m_ExpGainedBar.Show(true);
+
+		m_ExpGainedLabel.SetAlpha(1);
+		m_ExpGainedBar.SetAlpha(EXP_BAR_INIT_ALPHA);
+
+		string label = st.LabelPrefix + st.Total; // e.g. "#STR... #STR...: +" + 30
+		m_ExpGainedLabel.SetText(label);
+		m_ExpGainedBar.SetCurrent(st.Progress);
+
+		GetGame().GetCallQueue(CALL_CATEGORY_GUI).Remove(StartFadeDelayedExp);
+		GetGame().GetCallQueue(CALL_CATEGORY_GUI).Remove(ZenOnCurrentFinishedEXP);
+		GetGame().GetCallQueue(CALL_CATEGORY_GUI).Remove(ZenOnSlotEndEXP);
+		GetGame().GetCallQueue(CALL_CATEGORY_GUI).CallLater(ZenOnSlotEndEXP, ZEN_NOTIFY_DISPLAY_MS, false);
+	}
+
+	protected void ZenOnSlotEndEXP()
+	{
+		// show next coalesced entry if any
+		if (m_ExpOrder && m_ExpOrder.Count() > 0)
+		{
+			StopFadeExp();
+
+			string key = m_ExpOrder.Get(0);
+			m_ExpOrder.RemoveOrdered(0);
+
+			m_ExpActive = m_ExpStacks.Get(key);
+			m_ExpStacks.Remove(key);
+
+			ZenShowExp(m_ExpActive);
+			return;
+		}
+
+		// nothing pending: fade current
+		StartFadeDelayedExp();
+		GetGame().GetCallQueue(CALL_CATEGORY_GUI).CallLater(ZenOnCurrentFinishedEXP, ZEN_FADE_TIME_MS, false);
+	}
+
+	protected void ZenOnCurrentFinishedEXP()
+	{
+		m_ExpIsFading = false;
+		m_ZenIsDisplayingEXP = false;
+
+		m_ExpActive = null;
+
+		if (m_ExpGainedFrame) m_ExpGainedFrame.Show(false);
+		if (m_ExpGainedLabel) m_ExpGainedLabel.Show(false);
+		if (m_ExpGainedBar)   m_ExpGainedBar.Show(false);
+
+		ZenTryDisplayNextEXP();
+	}
+
+	// Update the visible toast after stacking more of the same skill
+	protected void ZS_UpdateActiveExpWidgets()
+	{
+		if (!m_ExpActive)
+			return;
+
+		string label = m_ExpActive.LabelPrefix + m_ExpActive.Total;
+		m_ExpGainedLabel.SetText(label);
+		m_ExpGainedBar.SetCurrent(m_ExpActive.Progress);
+
+		m_ExpGainedFrame.Show(true);
+		m_ExpGainedLabel.Show(true);
+		m_ExpGainedBar.Show(true);
+		m_ExpGainedLabel.SetAlpha(1);
+		m_ExpGainedBar.SetAlpha(EXP_BAR_INIT_ALPHA);
+	}
+
+	protected void ZS_ResetExpSlotTimer()
+	{
+		GetGame().GetCallQueue(CALL_CATEGORY_GUI).Remove(ZenOnSlotEndEXP);
+		GetGame().GetCallQueue(CALL_CATEGORY_GUI).CallLater(ZenOnSlotEndEXP, ZEN_NOTIFY_DISPLAY_MS, false);
+	}
+
+	// Build "#STR_ZenSkills_Name_<Skill> #STR_ZenSkills_GUI_ExpGained: +"
+	protected string ZS_BuildLabelPrefix(string skillKey)
+	{
+		string cap = ZenSkillFunctions.FirstLetterUppercase(skillKey);
+		string skillString = "#STR_ZenSkills_Name_" + cap;
+		string prefix = skillString + " #STR_ZenSkills_GUI_ExpGained: +";
+		return prefix;
+	}
+
+	// Legacy helper to extract a trailing "+N" from a text (used only by legacy SetExpGainedLabel)
+	protected int ZS_ParseLastSignedNumber(string text)
+	{
+		if (!text || text.Length() == 0)
+			return 0;
+
+		// find last '+' or '-' in the string
+		int posPlus = text.LastIndexOf("+");
+		int posMinus = text.LastIndexOf("-");
+		int pos = -1;
+		if (posPlus >= 0 && posMinus >= 0)
+		{
+			if (posPlus > posMinus) pos = posPlus;
+			else pos = posMinus;
+		}
+		else if (posPlus >= 0) pos = posPlus;
+		else if (posMinus >= 0) pos = posMinus;
+
+		if (pos < 0)
+			return 0;
+
+		string numStr = text.Substring(pos + 1, text.Length() - (pos + 1));
+		return numStr.ToInt();
+	}
+
+	// =========================
+	// PERK: show / advance
+	// =========================
+
 	protected void ZenTryDisplayNextNotify()
 	{
 		if (m_ZenIsDisplayingNotify)
@@ -326,23 +482,6 @@ class ZenSkillsHUD extends ZenSkillsHUDBase
 		ZenShowPerk(n);
 	}
 
-	protected void ZenShowExp(ZenSkillsNotification n)
-	{
-		m_ExpGainedFrame.Show(true);
-		m_ExpGainedLabel.SetText(n.m_Text);
-		m_ExpGainedLabel.Show(true);
-		m_ExpGainedLabel.SetAlpha(1);
-		m_ExpGainedBar.SetCurrent(n.m_Progress);
-		m_ExpGainedBar.Show(true);
-		m_ExpGainedBar.SetAlpha(EXP_BAR_INIT_ALPHA);
-	
-		GetGame().GetCallQueue(CALL_CATEGORY_GUI).Remove(StartFadeDelayedExp);
-		GetGame().GetCallQueue(CALL_CATEGORY_GUI).Remove(ZenOnCurrentFinishedEXP);
-		GetGame().GetCallQueue(CALL_CATEGORY_GUI).Remove(ZenOnSlotEndEXP);
-		
-		GetGame().GetCallQueue(CALL_CATEGORY_GUI).CallLater(ZenOnSlotEndEXP, ZEN_NOTIFY_DISPLAY_MS, false);
-	}
-	
 	protected void ZenShowPerk(ZenSkillsNotification n)
 	{
 		PlaySoundGUI();
@@ -364,21 +503,6 @@ class ZenSkillsHUD extends ZenSkillsHUDBase
 		GetGame().GetCallQueue(CALL_CATEGORY_GUI).CallLater(ZenOnSlotEndNotify, ZEN_NOTIFY_DISPLAY_MS, false);
 	}
 	
-	protected void ZenOnSlotEndEXP()
-	{
-		if (m_ZenQueue_EXP && m_ZenQueue_EXP.Count() > 0)
-		{
-			StopFadeExp();
-			ZenSkillsNotification n = m_ZenQueue_EXP.Get(0);
-			m_ZenQueue_EXP.RemoveOrdered(0);
-			ZenShowExp(n);
-			return;
-		}
-	
-		StartFadeDelayedExp();
-		GetGame().GetCallQueue(CALL_CATEGORY_GUI).CallLater(ZenOnCurrentFinishedEXP, ZEN_FADE_TIME_MS, false);
-	}
-	
 	protected void ZenOnSlotEndNotify()
 	{
 		if (m_ZenQueue_Notify && m_ZenQueue_Notify.Count() > 0)
@@ -394,16 +518,6 @@ class ZenSkillsHUD extends ZenSkillsHUDBase
 		GetGame().GetCallQueue(CALL_CATEGORY_GUI).CallLater(ZenOnCurrentFinishedNotify, ZEN_FADE_TIME_MS, false);
 	}
 
-	protected void ZenOnCurrentFinishedEXP()
-	{
-		m_ExpIsFading = false;
-		m_ZenIsDisplayingEXP = false;
-		if (m_ExpGainedFrame) m_ExpGainedFrame.Show(false);
-		if (m_ExpGainedLabel) m_ExpGainedLabel.Show(false);
-		if (m_ExpGainedBar)   m_ExpGainedBar.Show(false);
-		ZenTryDisplayNextEXP();
-	}
-	
 	protected void ZenOnCurrentFinishedNotify()
 	{
 		m_PerkIsFading = false;
@@ -416,6 +530,10 @@ class ZenSkillsHUD extends ZenSkillsHUDBase
 		ZenTryDisplayNextNotify();
 	}
 	
+	// =========================
+	// Fade ticks
+	// =========================
+
 	void ExpFadeTick()
 	{
 		bool allDone = true;
