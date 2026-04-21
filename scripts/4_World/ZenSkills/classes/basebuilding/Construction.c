@@ -57,26 +57,26 @@ modded class Construction
         string mainPart = GetConstructionPart(partName).GetMainPartName();
         string cfgPath = "cfgVehicles" + " " + GetParent().GetType() + " " + "Construction" + " " + mainPart + " " + partName + " " + "Materials";
 		
-        if (!GetGame().ConfigIsExisting(cfgPath)) 
+        if (!g_Game.ConfigIsExisting(cfgPath)) 
 			return;
 
-        int childCount = GetGame().ConfigGetChildrenCount(cfgPath);
+        int childCount = g_Game.ConfigGetChildrenCount(cfgPath);
         for (int i = 0; i < childCount; i++)
         {
             string childName;
-            GetGame().ConfigGetChildName(cfgPath, i, childName);
+            g_Game.ConfigGetChildName(cfgPath, i, childName);
 
             string path;
             string slotName;
 
             path = cfgPath + " " + childName + " " + "slot_name";
-            GetGame().ConfigGetText(path, slotName);
+            g_Game.ConfigGetText(path, slotName);
 
             path = cfgPath + " " + childName + " " + "quantity";
-            float qtyConfig = GetGame().ConfigGetFloat(path);
+            float qtyConfig = g_Game.ConfigGetFloat(path);
 
             path = cfgPath + " " + childName + " " + "lockable";
-            bool lockable = GetGame().ConfigGetInt(path);
+            bool lockable = g_Game.ConfigGetInt(path);
 
             ItemBase att = ItemBase.Cast(GetParent().FindAttachmentBySlotName(slotName));
 
@@ -182,7 +182,7 @@ modded class Construction
                 if (!spawned)
                 {
                     vector pos = GetParent().GetPosition();
-                    spawned = EntityAI.Cast(GetGame().CreateObject(itemTypeUsed, pos));
+                    spawned = EntityAI.Cast(g_Game.CreateObject(itemTypeUsed, pos));
                 }
 
                 ItemBase newStack = ItemBase.Cast(spawned);

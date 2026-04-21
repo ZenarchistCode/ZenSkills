@@ -19,9 +19,9 @@ class ZenSkills_Book_Random extends ItemBase
 	{
 		super.EEInit();
 
-		if (GetGame().IsDedicatedServer())
+		if (g_Game.IsDedicatedServer())
         {
-			GetGame().GetCallQueue(CALL_CATEGORY_GAMEPLAY).CallLater(ZenShapeshifterMorph, 1000, false);
+			g_Game.GetCallQueue(CALL_CATEGORY_GAMEPLAY).CallLater(ZenShapeshifterMorph, 1000, false);
         }
 	}
 

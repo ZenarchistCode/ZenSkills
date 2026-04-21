@@ -103,7 +103,7 @@ class ZenSkillsHUD extends ZenSkillsHUDBase
 
 	void ZenSkillsHUD()
 	{
-		m_LayoutRoot			= GetGame().GetWorkspace().CreateWidgets(GetSkillLayoutFile());
+		m_LayoutRoot			= g_Game.GetWorkspace().CreateWidgets(GetSkillLayoutFile());
 		m_ExpGainedFrame		= m_LayoutRoot.FindAnyWidget("ExpBarFrame");
 		m_NewPerkFrame			= m_LayoutRoot.FindAnyWidget("LevelUpPanel");
 
@@ -153,8 +153,8 @@ class ZenSkillsHUD extends ZenSkillsHUDBase
 		// cancel any fade if we are about to extend current toast
 		if (m_ExpIsFading)
 		{
-			GetGame().GetCallQueue(CALL_CATEGORY_GUI).Remove(StartFadeDelayedExp);
-			GetGame().GetCallQueue(CALL_CATEGORY_GUI).Remove(ZenOnCurrentFinishedEXP);
+			g_Game.GetCallQueue(CALL_CATEGORY_GUI).Remove(StartFadeDelayedExp);
+			g_Game.GetCallQueue(CALL_CATEGORY_GUI).Remove(ZenOnCurrentFinishedEXP);
 			StopFadeExp();
 		}
 
@@ -221,8 +221,8 @@ class ZenSkillsHUD extends ZenSkillsHUDBase
 	
 		if (m_PerkIsFading)
 		{
-			GetGame().GetCallQueue(CALL_CATEGORY_GUI).Remove(StartFadeDelayedPerk);
-			GetGame().GetCallQueue(CALL_CATEGORY_GUI).Remove(ZenOnCurrentFinishedNotify);
+			g_Game.GetCallQueue(CALL_CATEGORY_GUI).Remove(StartFadeDelayedPerk);
+			g_Game.GetCallQueue(CALL_CATEGORY_GUI).Remove(ZenOnCurrentFinishedNotify);
 			StopFadePerk();
 			
 			if (m_ZenIsDisplayingNotify)
@@ -256,14 +256,14 @@ class ZenSkillsHUD extends ZenSkillsHUDBase
 		m_ExpFaders.Insert(t1);
 		m_ExpFaders.Insert(t2);
 	
-		GetGame().GetCallQueue(CALL_CATEGORY_GUI).Remove(ExpFadeTick);
-		GetGame().GetCallQueue(CALL_CATEGORY_GUI).CallLater(ExpFadeTick, ZEN_FADE_TICK_MS, true);
+		g_Game.GetCallQueue(CALL_CATEGORY_GUI).Remove(ExpFadeTick);
+		g_Game.GetCallQueue(CALL_CATEGORY_GUI).CallLater(ExpFadeTick, ZEN_FADE_TICK_MS, true);
 	}
 	
 	void StopFadeExp()
 	{
 		m_ExpIsFading = false;
-		GetGame().GetCallQueue(CALL_CATEGORY_GUI).Remove(ExpFadeTick);
+		g_Game.GetCallQueue(CALL_CATEGORY_GUI).Remove(ExpFadeTick);
 	}
 
 	void StartFadeDelayedPerk()
@@ -286,14 +286,14 @@ class ZenSkillsHUD extends ZenSkillsHUDBase
 		m_PerkFaders.Insert(p3);
 		m_PerkFaders.Insert(p4);
 	
-		GetGame().GetCallQueue(CALL_CATEGORY_GUI).Remove(PerkFadeTick);
-		GetGame().GetCallQueue(CALL_CATEGORY_GUI).CallLater(PerkFadeTick, ZEN_FADE_TICK_MS, true);
+		g_Game.GetCallQueue(CALL_CATEGORY_GUI).Remove(PerkFadeTick);
+		g_Game.GetCallQueue(CALL_CATEGORY_GUI).CallLater(PerkFadeTick, ZEN_FADE_TICK_MS, true);
 	}
 	
 	void StopFadePerk()
 	{
 		m_PerkIsFading = false;
-		GetGame().GetCallQueue(CALL_CATEGORY_GUI).Remove(PerkFadeTick);
+		g_Game.GetCallQueue(CALL_CATEGORY_GUI).Remove(PerkFadeTick);
 	}
 
 	void PlaySoundGUI(string sound = "ZenSkillsGUI_PerkNotify_SoundSet")
@@ -308,7 +308,7 @@ class ZenSkillsHUD extends ZenSkillsHUDBase
 		SoundObject soundObject				= soundBuilder.BuildSoundObject();
 
 		soundObject.SetKind(WaveKind.WAVEUI);
-		m_Sound = GetGame().GetSoundScene().Play2D(soundObject, soundBuilder);
+		m_Sound = g_Game.GetSoundScene().Play2D(soundObject, soundBuilder);
 
 		if (m_Sound)
 		{
@@ -363,10 +363,10 @@ class ZenSkillsHUD extends ZenSkillsHUDBase
 		m_ExpGainedLabel.SetText(label);
 		m_ExpGainedBar.SetCurrent(st.Progress);
 
-		GetGame().GetCallQueue(CALL_CATEGORY_GUI).Remove(StartFadeDelayedExp);
-		GetGame().GetCallQueue(CALL_CATEGORY_GUI).Remove(ZenOnCurrentFinishedEXP);
-		GetGame().GetCallQueue(CALL_CATEGORY_GUI).Remove(ZenOnSlotEndEXP);
-		GetGame().GetCallQueue(CALL_CATEGORY_GUI).CallLater(ZenOnSlotEndEXP, ZEN_NOTIFY_DISPLAY_MS, false);
+		g_Game.GetCallQueue(CALL_CATEGORY_GUI).Remove(StartFadeDelayedExp);
+		g_Game.GetCallQueue(CALL_CATEGORY_GUI).Remove(ZenOnCurrentFinishedEXP);
+		g_Game.GetCallQueue(CALL_CATEGORY_GUI).Remove(ZenOnSlotEndEXP);
+		g_Game.GetCallQueue(CALL_CATEGORY_GUI).CallLater(ZenOnSlotEndEXP, ZEN_NOTIFY_DISPLAY_MS, false);
 	}
 
 	protected void ZenOnSlotEndEXP()
@@ -388,7 +388,7 @@ class ZenSkillsHUD extends ZenSkillsHUDBase
 
 		// nothing pending: fade current
 		StartFadeDelayedExp();
-		GetGame().GetCallQueue(CALL_CATEGORY_GUI).CallLater(ZenOnCurrentFinishedEXP, ZEN_FADE_TIME_MS, false);
+		g_Game.GetCallQueue(CALL_CATEGORY_GUI).CallLater(ZenOnCurrentFinishedEXP, ZEN_FADE_TIME_MS, false);
 	}
 
 	protected void ZenOnCurrentFinishedEXP()
@@ -424,8 +424,8 @@ class ZenSkillsHUD extends ZenSkillsHUDBase
 
 	protected void ZS_ResetExpSlotTimer()
 	{
-		GetGame().GetCallQueue(CALL_CATEGORY_GUI).Remove(ZenOnSlotEndEXP);
-		GetGame().GetCallQueue(CALL_CATEGORY_GUI).CallLater(ZenOnSlotEndEXP, ZEN_NOTIFY_DISPLAY_MS, false);
+		g_Game.GetCallQueue(CALL_CATEGORY_GUI).Remove(ZenOnSlotEndEXP);
+		g_Game.GetCallQueue(CALL_CATEGORY_GUI).CallLater(ZenOnSlotEndEXP, ZEN_NOTIFY_DISPLAY_MS, false);
 	}
 
 	// Build "#STR_ZenSkills_Name_<Skill> #STR_ZenSkills_GUI_ExpGained: +"
@@ -497,10 +497,10 @@ class ZenSkillsHUD extends ZenSkillsHUDBase
 		m_NewPerkLabel.SetAlpha(1);
 		m_NewPerkHint.SetAlpha(1);
 	
-		GetGame().GetCallQueue(CALL_CATEGORY_GUI).Remove(StartFadeDelayedPerk);
-		GetGame().GetCallQueue(CALL_CATEGORY_GUI).Remove(ZenOnCurrentFinishedNotify);
-		GetGame().GetCallQueue(CALL_CATEGORY_GUI).Remove(ZenOnSlotEndNotify);
-		GetGame().GetCallQueue(CALL_CATEGORY_GUI).CallLater(ZenOnSlotEndNotify, ZEN_NOTIFY_DISPLAY_MS, false);
+		g_Game.GetCallQueue(CALL_CATEGORY_GUI).Remove(StartFadeDelayedPerk);
+		g_Game.GetCallQueue(CALL_CATEGORY_GUI).Remove(ZenOnCurrentFinishedNotify);
+		g_Game.GetCallQueue(CALL_CATEGORY_GUI).Remove(ZenOnSlotEndNotify);
+		g_Game.GetCallQueue(CALL_CATEGORY_GUI).CallLater(ZenOnSlotEndNotify, ZEN_NOTIFY_DISPLAY_MS, false);
 	}
 	
 	protected void ZenOnSlotEndNotify()
@@ -515,7 +515,7 @@ class ZenSkillsHUD extends ZenSkillsHUDBase
 		}
 	
 		StartFadeDelayedPerk();
-		GetGame().GetCallQueue(CALL_CATEGORY_GUI).CallLater(ZenOnCurrentFinishedNotify, ZEN_FADE_TIME_MS, false);
+		g_Game.GetCallQueue(CALL_CATEGORY_GUI).CallLater(ZenOnCurrentFinishedNotify, ZEN_FADE_TIME_MS, false);
 	}
 
 	protected void ZenOnCurrentFinishedNotify()

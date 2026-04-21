@@ -104,7 +104,7 @@ modded class CatchingContextFishingRodAction
 	
 	override protected void TryDamageItems()
 	{
-		if (!GetGame().IsDedicatedServer())
+		if (!g_Game.IsDedicatedServer())
 		{
 			super.TryDamageItems();
 			return;

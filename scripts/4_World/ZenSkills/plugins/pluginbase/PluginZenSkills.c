@@ -13,7 +13,7 @@ class PluginZenSkills extends PluginBase
 		RegisterRPCs();
 		
 		// Only server 
-		if (GetGame().IsDedicatedServer())
+		if (g_Game.IsDedicatedServer())
 		{
 			if (GetZenSkillsEXP().ExpNerfConfig.EnableExpNerf)
 			{
@@ -82,7 +82,7 @@ class PluginZenSkills extends PluginBase
 		if (uid == "")
 		{
 			#ifndef SERVER
-			PlayerBase pb = PlayerBase.Cast(GetGame().GetPlayer());
+			PlayerBase pb = PlayerBase.Cast(g_Game.GetPlayer());
 			if (pb && pb.GetIdentity())
 			{
 				uid = pb.GetIdentity().GetId();
@@ -105,7 +105,7 @@ class PluginZenSkills extends PluginBase
 	
 	ZenSkillsPlayerDB LoadZenSkillsDB(string uid)
 	{
-		if (GetGame().IsClient())
+		if (g_Game.IsClient())
 			return null;
 		
 		ZenSkillsPlayerDB skillsDB = GetSkillsDB(uid);
@@ -182,7 +182,7 @@ class PluginZenSkills extends PluginBase
 		ResyncToClientDB(id, GetSkillsDB(uid));
 	}
 
-	void ApplyDeathExpPenalty(float percent01, string playerID)
+	void ApplyDeathExpPenalty(float percent01, string playerID, bool saveToDisk = true)
 	{
 		ZenSkillsPlayerDB db = GetSkillsDB(playerID);
 		if (!db)
@@ -191,7 +191,7 @@ class PluginZenSkills extends PluginBase
 			return;
 		}
 
-		db.ApplyDeathExpPenalty(percent01);
+		db.ApplyDeathExpPenalty(percent01, saveToDisk);
 	}
 	
 	void AddEXP_Action(PlayerBase player, string actionKey, float modifier = 1, bool forceRawEXP = false)
@@ -355,7 +355,7 @@ class PluginZenSkills extends PluginBase
 		}
 		
 		// Share EXP with nearby players within X meters
-		if (GetZenSkillsConfig().ServerConfig.ShareExpRange > 0 && !actionKey.Contains("ReadSkillBook") && !actionKey.Contains("ExpansionQuest_"))
+		if (GetZenSkillsConfig().ServerConfig.ShareExpRange > 0 && !actionKey.Contains("ReadSkillBook") && !actionKey.Contains("ExpansionQuest_") && !actionKey.Contains("Killed_Player"))
 		{
 			// Divide by 
 			float shareEXP = origEXP * GetZenSkillsConfig().ServerConfig.ShareExpMulti;
@@ -365,7 +365,7 @@ class PluginZenSkills extends PluginBase
 			foreach (Man manOnline : playersOnline)
 			{
 				PlayerBase pbOnline = PlayerBase.Cast(manOnline);
-				if (!pbOnline || !pbOnline.GetIdentity())
+				if (!pbOnline || !pbOnline.GetIdentity() || !pbOnline.IsAlive() || pbOnline.IsUnconscious())
 					continue;
 				
 				if (vector.Distance(pbOnline.GetPosition(), player.GetPosition()) < GetZenSkillsConfig().ServerConfig.ShareExpRange)
@@ -474,13 +474,13 @@ class PluginZenSkills extends PluginBase
 	
 	void UpdateClientGUI(int soundID)
 	{
-		if (!GetGame().IsClient())
+		if (!g_Game.IsClient())
 			return;
 		
-		if (!GetGame().GetUIManager().GetMenu())
+		if (!g_Game.GetUIManager().GetMenu())
 			return;
 		
-		ZenSkillsGUI gui = ZenSkillsGUI.Cast(GetGame().GetUIManager().GetMenu());
+		ZenSkillsGUI gui = ZenSkillsGUI.Cast(g_Game.GetUIManager().GetMenu());
 		if (gui)
 		{
 			gui.ForceUpdateFromServer(soundID);
@@ -501,7 +501,7 @@ class PluginZenSkills extends PluginBase
             return;
         }
 
-		PlayerBase pb = PlayerBase.Cast(GetGame().GetPlayer());
+		PlayerBase pb = PlayerBase.Cast(g_Game.GetPlayer());
 		if (!pb || !pb.GetIdentity())
 			return;
 		
@@ -573,7 +573,7 @@ class PluginZenSkills extends PluginBase
             return;
         }
 
-		PlayerBase pb = PlayerBase.Cast(GetGame().GetPlayer());
+		PlayerBase pb = PlayerBase.Cast(g_Game.GetPlayer());
 		if (!pb || !pb.GetIdentity())
 			return;
 
@@ -649,7 +649,7 @@ class PluginZenSkills extends PluginBase
 		ZenSkillsPrint(selectedSkill + " EXP Gained: " + difference);
 		#endif
 		
-		Hud hud = GetGame().GetMission().GetHud();
+		Hud hud = g_Game.GetMission().GetHud();
 
 		if (hud && hud.GetZenSkillsHUD())
 		{
@@ -769,7 +769,7 @@ class PluginZenSkills extends PluginBase
 		ZenSkillsPrint("Received " + GetZenSkillsHighscoresDB().Highscores.Count() + " total highscores entries.");
 		#endif
 		
-		ZenSkillsHighscores gui = ZenSkillsHighscores.Cast(GetGame().GetUIManager().GetMenu());
+		ZenSkillsHighscores gui = ZenSkillsHighscores.Cast(g_Game.GetUIManager().GetMenu());
 		if (gui)
 		{
 			gui.ForceUpdateFromServer();

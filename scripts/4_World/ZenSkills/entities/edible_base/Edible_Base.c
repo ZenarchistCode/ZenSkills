@@ -2,8 +2,36 @@ modded class Edible_Base
 {
 	void SetZenSkillsNoSalmonella(bool b);
 	
+	protected bool m_ZenSkillsTriggerDust;
 	protected bool m_ZenSkillsRewardedEXP;
 	protected PlayerBase m_ZenSkillsLastPlayerChef;
+	
+	void TriggerZenParticleDust()
+	{
+		// Delay particle send because items spawn @ 0 0 0 coords.
+		g_Game.GetCallQueue(CALL_CATEGORY_SYSTEM).CallLater(TriggerZenParticleDustSync, 30);
+	}
+	
+	void TriggerZenParticleDustSync()
+	{		
+		m_ZenSkillsTriggerDust = true;
+		SetSynchDirty();
+	}
+	
+	void Edible_Base()
+	{
+		RegisterNetSyncVariableBoolSignal("m_ZenSkillsTriggerDust");
+	}
+	
+	override void OnVariablesSynchronized()
+	{
+		super.OnVariablesSynchronized();
+		
+		if (m_ZenSkillsTriggerDust)
+		{
+			ParticleManager.GetInstance().PlayInWorld(ParticleList.IMPACT_DISTANT_DUST, GetPosition());
+		}
+	}
 	
 	override void EEItemLocationChanged(notnull InventoryLocation oldLoc, notnull InventoryLocation newLoc)
 	{
@@ -50,7 +78,7 @@ modded class Edible_Base
 		ZenSkillsPrint("[ZenSkills] Food " + GetType() + " :: HandleZenSkillsFoodChange :: stageNew=" + stageNew);
 		#endif
 		
-		if (!m_ZenSkillsLastPlayerChef || !m_ZenSkillsLastPlayerChef.GetIdentity() || !GetGame().IsDedicatedServer() || m_ZenSkillsRewardedEXP) 
+		if (!m_ZenSkillsLastPlayerChef || !m_ZenSkillsLastPlayerChef.GetIdentity() || !g_Game.IsDedicatedServer() || m_ZenSkillsRewardedEXP) 
 			return;
 
 		bool becameEdible = (stageOld == FoodStageType.RAW) && (stageNew == FoodStageType.BAKED || stageNew == FoodStageType.BOILED || stageNew == FoodStageType.DRIED);

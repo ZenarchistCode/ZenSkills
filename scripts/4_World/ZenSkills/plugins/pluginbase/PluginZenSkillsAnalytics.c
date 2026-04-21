@@ -84,7 +84,7 @@ class PluginZenSkillsAnalytics extends PluginBase
 		Print("[PluginZenSkillsAnalytics] :: OnInit.");
 		#endif
 
-		if (!GetGame().IsDedicatedServer())
+		if (!g_Game.IsDedicatedServer())
 			return;
 
 		m_SessionTotals = new map<string, int>();
@@ -102,7 +102,7 @@ class PluginZenSkillsAnalytics extends PluginBase
 	// Preferred: supply playerUID and actionKey so we can compute per-action stats.
 	void OnExpAdded(string skillKey, int exp, string playerUID, string actionKey)
 	{
-		if (!GetGame().IsDedicatedServer()) return;
+		if (!g_Game.IsDedicatedServer()) return;
 		if (exp <= 0) return;
 		if (skillKey == "") return;
 	
@@ -146,7 +146,7 @@ class PluginZenSkillsAnalytics extends PluginBase
 	// Call this in your periodic autosave/checkpoint.
 	void Checkpoint()
 	{
-		if (!GetGame().IsDedicatedServer())
+		if (!g_Game.IsDedicatedServer())
 			return;
 
 		ApplyDeltasToMaster(); // updates OpenSessionApplied and OpenSessionDistinctPlayers from in-memory
@@ -161,7 +161,7 @@ class PluginZenSkillsAnalytics extends PluginBase
 	// Folds open-session data into global aggregates.
 	void FinalizeSession()
 	{
-		if (!GetGame().IsDedicatedServer())
+		if (!g_Game.IsDedicatedServer())
 			return;
 
 		if (m_OpenSessionId == "")
@@ -343,7 +343,7 @@ class PluginZenSkillsAnalytics extends PluginBase
 	// ---------------- Convenience getters (admin UI / debugging) ----------------
 	int GetAverageExpPerSession(string skillKey)
 	{
-		if (!GetGame().IsDedicatedServer())
+		if (!g_Game.IsDedicatedServer())
 			return 0;
 
 		LoadMaster();
@@ -357,7 +357,7 @@ class PluginZenSkillsAnalytics extends PluginBase
 
 	float GetWeightedAvgPerPlayer(string skillKey)
 	{
-		if (!GetGame().IsDedicatedServer())
+		if (!g_Game.IsDedicatedServer())
 			return 0.0;
 
 		LoadMaster();
@@ -371,7 +371,7 @@ class PluginZenSkillsAnalytics extends PluginBase
 
 	float GetMeanOfSessionMeansPerPlayer(string skillKey)
 	{
-		if (!GetGame().IsDedicatedServer())
+		if (!g_Game.IsDedicatedServer())
 			return 0.0;
 
 		LoadMaster();
@@ -385,7 +385,7 @@ class PluginZenSkillsAnalytics extends PluginBase
 
 	int GetSessionsCount()
 	{
-		if (!GetGame().IsDedicatedServer())
+		if (!g_Game.IsDedicatedServer())
 			return 0;
 
 		LoadMaster();
@@ -394,7 +394,7 @@ class PluginZenSkillsAnalytics extends PluginBase
 	
 	int GetAverageExpPerSessionForAction(string actionKey)
 	{
-		if (!GetGame().IsDedicatedServer()) return 0;
+		if (!g_Game.IsDedicatedServer()) return 0;
 		LoadMaster();
 		ZenAnalyticsActionRow row = m_Master.PerAction.Get(actionKey);
 		if (row) return row.AvgExp;
@@ -403,7 +403,7 @@ class PluginZenSkillsAnalytics extends PluginBase
 	
 	float GetWeightedAvgPerPlayerForAction(string actionKey)
 	{
-		if (!GetGame().IsDedicatedServer()) return 0.0;
+		if (!g_Game.IsDedicatedServer()) return 0.0;
 		LoadMaster();
 		ZenAnalyticsActionRow row = m_Master.PerAction.Get(actionKey);
 		if (row) return row.WeightedAvgPerPlayer;
@@ -412,7 +412,7 @@ class PluginZenSkillsAnalytics extends PluginBase
 	
 	float GetMeanOfSessionMeansPerPlayerForAction(string actionKey)
 	{
-		if (!GetGame().IsDedicatedServer()) return 0.0;
+		if (!g_Game.IsDedicatedServer()) return 0.0;
 		LoadMaster();
 		ZenAnalyticsActionRow row = m_Master.PerAction.Get(actionKey);
 		if (row) return row.MeanOfSessionMeans;
@@ -480,7 +480,7 @@ class PluginZenSkillsAnalytics extends PluginBase
 
 	protected void SaveMaster()
 	{
-		m_Master.LastUpdateTick = GetGame().GetTime();
+		m_Master.LastUpdateTick = g_Game.GetTime();
 		JsonFileLoader<ZenAnalyticsMasterDB>.JsonSaveFile(MasterPath(), m_Master);
 	}
 
@@ -554,8 +554,8 @@ class PluginZenSkillsAnalytics extends PluginBase
 		int day;
 		int hour;
 		int minute;
-		GetGame().GetWorld().GetDate(year, month, day, hour, minute);
-		int tick = GetGame().GetTime();
+		g_Game.GetWorld().GetDate(year, month, day, hour, minute);
+		int tick = g_Game.GetTime();
 
 		string sy = year.ToStringLen(4);
 		string sm = month.ToStringLen(2);

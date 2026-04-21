@@ -1,5 +1,5 @@
 /*
-	(c) 2025 | ZenSkills | Zenarchist
+	(c) 2026 | ZenSkills | Zenarchist
 */
 
 class CfgPatches
@@ -10,8 +10,7 @@ class CfgPatches
 		{
 			"DZ_Data",
 			"DZ_Scripts",
-
-			"JM_CF_Scripts"
+			"ZenModCore"
 		};
 	};
 };
@@ -23,6 +22,10 @@ class CfgMods
 		author = "Zenarchist";
 		type = "mod";
 		inputs = "ZenSkills/data/inputs.xml";
+		defines[] = 
+		{
+			//"ZENSKILLSDEBUG"
+		};
 		class defs
 		{
 			class imageSets
@@ -405,6 +408,7 @@ class CfgVehicles
 		itemSize[]={1,2};
 		weight=60;
 		soundImpactType="plastic";
+		medicalItem=1;
 		hiddenSelections[]=
 		{
 			"zbytek"
@@ -512,7 +516,7 @@ class CfgSoundSets
 		{
 			"ZenSkills_Click_SoundShader"
 		};
-		volumeFactor = 0.25;
+		volumeFactor = 0.1;
 	};
 	class ZenSkillsGUI_PerkUnlocked_SoundSet : ZenSkillsGUIBase_SoundSet
 	{
@@ -520,7 +524,7 @@ class CfgSoundSets
 		{
 			"ZenSkills_PerkUnlocked_SoundShader"
 		};
-		volumeFactor = 0.5;
+		volumeFactor = 0.25;
 	};
 	class ZenSkillsGUI_PerkUnlockedMax_SoundSet : ZenSkillsGUIBase_SoundSet
 	{
@@ -528,7 +532,7 @@ class CfgSoundSets
 		{
 			"ZenSkills_PerkUnlockedMax_SoundShader"
 		};
-		volumeFactor = 0.5;
+		volumeFactor = 0.25;
 	};
 	class ZenSkillsGUI_PerkNotify_SoundSet : ZenSkillsGUIBase_SoundSet
 	{
@@ -536,7 +540,7 @@ class CfgSoundSets
 		{
 			"ZenSkills_PerkNotify_SoundShader"
 		};
-		volumeFactor = 0.5;
+		volumeFactor = 0.25;
 	};
 	class ZenSkillsGUI_PerkReset_SoundSet : ZenSkillsGUIBase_SoundSet
 	{
@@ -544,6 +548,6 @@ class CfgSoundSets
 		{
 			"ZenSkills_PerkReset_SoundShader"
 		};
-		volumeFactor = 0.5;
+		volumeFactor = 0.25;
 	};
 };

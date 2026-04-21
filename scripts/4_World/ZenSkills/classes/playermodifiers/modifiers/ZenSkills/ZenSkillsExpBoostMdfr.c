@@ -66,7 +66,7 @@ class ZenSkillsExpBoostMdfr: ModifierBase
 		ZenSkillsPrint("Deactivate ZenSkillsExpBoostMdfr - send RPC!");
 		#endif
 		
-		GetGame().RPCSingleParam(player, ZenSkillConstants.RPC_ZenExpBoostNotify, new Param2<bool, int>(false, 0), true, player.GetIdentity());
+		g_Game.RPCSingleParam(player, ZenSkillConstants.RPC_ZenExpBoostNotify, new Param2<bool, int>(false, 0), true, player.GetIdentity());
 	}
 	
 	override bool DeactivateCondition(PlayerBase player)
@@ -92,6 +92,6 @@ class ZenSkillsExpBoostMdfr: ModifierBase
 		if (!player || !player.GetIdentity())
 			return;
 		
-		GetGame().RPCSingleParam(player, ZenSkillConstants.RPC_ZenExpBoostNotify, new Param2<bool, int>(true, ZenGetRemainingSeconds()), true, player.GetIdentity());
+		g_Game.RPCSingleParam(player, ZenSkillConstants.RPC_ZenExpBoostNotify, new Param2<bool, int>(true, ZenGetRemainingSeconds()), true, player.GetIdentity());
 	}
 }

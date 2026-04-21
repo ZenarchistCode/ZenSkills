@@ -6,8 +6,8 @@ class ZenSkillsPlayerDB
 	// Config location
 	const static string ModFolder			= "$profile:\\Zenarchist\\";
 	const static string NestedFolder		= "Skills\\";
-	const static string DBFolder			= "PlayerDB";
-	const static string CURRENT_VERSION		= "1"; // Change this to force structure update. WARNING: THIS WILL WIPE ALL PLAYER PERKS & EXP!
+	const static string DBFolder			= "DB";
+	const static string CURRENT_VERSION		= "1.29.1"; // Change this to force structure update. WARNING: THIS WILL WIPE ALL PLAYER PERKS & EXP!
 	string CONFIG_VERSION;
 
 	string PlayerName;
@@ -23,7 +23,7 @@ class ZenSkillsPlayerDB
 	// Config data
 	void Load(string configName)
 	{
-		if (GetGame().IsClient())
+		if (g_Game.IsClient())
 		{
 			return;
 		}
@@ -120,7 +120,7 @@ class ZenSkillsPlayerDB
 
 	void Save(string playerID, string playerName)
 	{
-		if (GetGame().IsClient())
+		if (g_Game.IsClient())
 		{
 			return;
 		}
@@ -367,7 +367,7 @@ class ZenSkillsPlayerDB
 	// Removes from unused EXP first, then from highest-tier perk levels.
 	// If a remainder (< EXP_Per_Perk) remains, it deactivates one more highest-tier perk level
 	// and refunds the overshoot back to unused EXP so the net loss equals the exact target.
-	void ApplyDeathExpPenalty(float percent01)
+	void ApplyDeathExpPenalty(float percent01, bool saveToDisk = true)
 	{
 		#ifdef ZENSKILLSDEBUG
 		ZenSkillsPrint("[ApplyDeathExpPenalty] Triggered");
@@ -568,7 +568,8 @@ class ZenSkillsPlayerDB
 	        ZenSkillsPrint(debugMsg);
 	        #endif
 
-			Save(PlayerUID, PlayerName);
+			if (saveToDisk)
+				Save(PlayerUID, PlayerName);
 	    }
 	}
 }

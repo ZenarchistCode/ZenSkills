@@ -39,25 +39,33 @@ modded class WolfSteakMeat
         return description;
     }
 	
-	//! PERSISTENCE NOTE:
-	// I tried to stay away from onstoreload/save in this mod to make it easy to add/remove without wiping server,
-	// but couldn't think of a way around this one. I made an exception because hardly anyone would keep wolf/bear steak in storage
-	// since it's got a 60% chance of being poisonous and even if it's corrupted during OnStoreLoad, it shouldn't break anything important.
-	override void OnStoreSave(ParamsWriteContext ctx)
+	//! PERSISTENCE:
+	// Use CF_Load/Save because this will NOT break server persistence if the mod is added/removed mid-wipe. 
+	// NOTE: storage[] must refer to this mod's CfgMods classname EXACTLY or this won't work.
+	
+	override void CF_OnStoreSave(CF_ModStorageMap storage)
 	{
-		super.OnStoreSave(ctx);
+		super.CF_OnStoreSave(storage);
+
+		auto ctx = storage["ZenSkills"];
+		if (!ctx) return;
 		
 		ctx.Write(m_ZenSkillsNoSalmonella);
 	}
-	
-	override bool OnStoreLoad(ParamsWriteContext ctx, int version)
+
+	override bool CF_OnStoreLoad(CF_ModStorageMap storage)
 	{
-		if (!super.OnStoreLoad(ctx, version))
+		if (!super.CF_OnStoreLoad(storage)) return false;
+
+		auto ctx = storage["ZenSkills"];
+		if (!ctx) return true;
+
+		if (ctx.GetVersion() >= 1)
+		{
+			if (!ctx.Read(m_ZenSkillsNoSalmonella))
 			return false;
-		
-		if (!ctx.Read(m_ZenSkillsNoSalmonella))
-			return false;
-			
+		}
+
 		return true;
 	}
 }

@@ -98,13 +98,13 @@ modded class SharpWoodenStick
 	{
 		super.OnInventoryExit(player);
 
-		if (!GetGame().IsDedicatedServer())
+		if (!g_Game.IsDedicatedServer())
 			return;
 		
 		if (m_ZenSkillsFireplaceActionTrigger && player != NULL)
 		{
 			m_ZenSkillsFireplaceActionTrigger = false;
-			GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).CallLater(ZenSkillsStandUpByFire, 50, false);
+			g_Game.GetCallQueue(CALL_CATEGORY_SYSTEM).CallLater(ZenSkillsStandUpByFire, 50, false);
 		}
 	}
 
@@ -112,7 +112,7 @@ modded class SharpWoodenStick
 	{
 		super.EEItemLocationChanged(oldLoc, newLoc);
 
-		if (!GetGame().IsDedicatedServer())
+		if (!g_Game.IsDedicatedServer())
 			return;
 
 		if (oldLoc.GetParent() != NULL)

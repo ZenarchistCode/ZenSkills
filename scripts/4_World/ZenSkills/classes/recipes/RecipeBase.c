@@ -10,7 +10,7 @@ modded class RecipeBase
 
 	void AwardZenCraftingEXP(ItemBase ingredients[], PlayerBase player, array<ItemBase> spawned_objects)
 	{
-		if (!GetGame().IsDedicatedServer())
+		if (!g_Game.IsDedicatedServer())
 			return;
 		
 		string recipeName = ClassName();

@@ -1,70 +1,92 @@
-// This stores overall broad mod config for skill definitions, server config and sync'ed client config
-class ZenSkillsConfig
+ref ZenSkillsConfig g_ZenSkillsConfig;
+
+static ZenSkillsConfig GetZenSkillsConfig()
 {
-	// Config location
-	private const static string ModFolder		= "$profile:\\Zenarchist\\";
-	private const static string NestedFolder	= "Skills";
-	private const static string ConfigName		= "ZenSkillsConfig.json";
-	private const static string CURRENT_VERSION	= "1"; // Change this to force structure update.
-	string CONFIG_VERSION;
+	if (!g_ZenSkillsConfig) GetZenConfigRegister().RegisterConfig(ZenSkillsConfig);
+	return g_ZenSkillsConfig;
+}
+
+modded class ZenConfigRegister
+{
+	override void RegisterPreload()
+	{
+		super.RegisterPreload(); 
+		RegisterType(ZenSkillsConfig);
+	}
+}
+
+class ZenSkillsConfig_SyncPayload
+{
+	ref ZenSkillsSharedConfig SharedConfig;
 	
+	void ZenSkillsConfig_SyncPayload()
+	{
+		SharedConfig = new ZenSkillsSharedConfig();
+	}
+}
+
+// This stores overall broad mod config for skill definitions, server config and sync'ed client config
+class ZenSkillsConfig: ZenConfigBase
+{
+	// -------------------------
+	// CONFIG SETTINGS
+	// -------------------------
+	override void OnRegistered()
+	{
+		g_ZenSkillsConfig = this;
+	}
+	
+	override string 	GetFolderName()       		{ return "Skills"; }
+	override string    	GetCurrentVersion()   		{ return "1.29.1"; }
+	override bool		ShouldLoadOnServer() 		{ return true; }
+	override bool		ShouldSyncToClient()		{ return true; }
+	
+	override bool ReadJson(string path, out string err)
+	{
+		return JsonFileLoader<ZenSkillsConfig>.LoadFile(path, this, err);
+	}
+
+	override bool WriteJson(string path, out string err)
+	{
+		return JsonFileLoader<ZenSkillsConfig>.SaveFile(path, this, err);
+	}
+
+	override bool BuildSyncPayload(out string payload, out string err)
+	{
+		ZenSkillsConfig_SyncPayload snap = new ZenSkillsConfig_SyncPayload();
+
+		snap.SharedConfig = SharedConfig;
+
+		// Serialize payload only (NOT the whole config)
+		return JsonFileLoader<ZenSkillsConfig_SyncPayload>.MakeData(snap, payload, err, false);
+	}
+
+	override bool ApplySyncPayload(string payload, out string err)
+	{
+		// Create default containers in case an error happens on read
+		SharedConfig = new ZenSkillsSharedConfig();
+
+		ZenSkillsConfig_SyncPayload snap = new ZenSkillsConfig_SyncPayload();
+		if (!JsonFileLoader<ZenSkillsConfig_SyncPayload>.LoadData(payload, snap, err))
+		{
+			return false;
+		}
+
+		SharedConfig = snap.SharedConfig;
+		
+		return true;
+	}
+	
+	// -------------------------
+	// CONFIG VARIABLES
+	// -------------------------
 	ref ZenSkillsServerConfig ServerConfig;
 	ref ZenSkillsSharedConfig SharedConfig;
 	ref map<string, ref ZenSkillDef> SkillDefs;
 	
 	ref map<string, int> Analytics_AvgTotalExpGainedPerSession;
 
-	// Config data
-	void Load()
-	{
-		SetDefaultValues();
-		
-		if (GetGame().IsClient())
-		{
-			return;
-		}
-
-		if (FileExist(ModFolder + NestedFolder + "\\" + ConfigName))
-		{
-			// If config exists, load file
-			JsonFileLoader<ZenSkillsConfig>.JsonLoadFile(ModFolder + NestedFolder + "\\" + ConfigName, this);
-			
-			#ifdef ZENSKILLS 
-			Print("[ZenSkills::SERVER] #define ZENSKILLS found");
-			#endif
-
-			#ifdef ZENSKILLSDEBUG
-			SharedConfig.DebugMode = true;
-			#endif
-
-			ZEN_SKILLS_DEBUG_ON = SharedConfig.DebugMode;
-			ZenSkillsPrint("[ZenSkills] DEBUG MODE ENABLED: " + ZEN_SKILLS_DEBUG_ON);
-
-			#ifdef ZENSKILLSDEBUG 
-			ZenSkillsPrint("#define ZENSKILLSDEBUG found");
-			#endif
-
-			GetZenSkillsEXP();
-
-			// If version mismatch, backup old version of json before replacing it
-			if (CONFIG_VERSION != CURRENT_VERSION)
-			{
-				JsonFileLoader<ZenSkillsConfig>.JsonSaveFile(ModFolder + NestedFolder + "\\" + ConfigName + "_old", this);
-			}
-			else
-			{
-				// Config file exists, was loaded successfully, and version matches - stop here.
-				Save();
-				return;
-			}
-		}
-
-		CONFIG_VERSION = CURRENT_VERSION;
-
-		Save();
-	}
-
-	void SetDefaultValues()
+	override void SetDefaults()
 	{
 		Analytics_AvgTotalExpGainedPerSession = new map<string, int>();
 		
@@ -129,25 +151,21 @@ class ZenSkillsConfig
 		gathering.Perks.Insert("4_2", new ZenPerkDef("#STR_ZenSkills_Perk_Gathering_Name10", "#STR_ZenSkills_Perk_Gathering_Desc10",  "%", 	20, 40, 60));
 		SkillDefs.Insert("gathering", gathering);
 	}
-
-	void Save()
+	
+	override void AfterLoad()
 	{
-		if (GetGame().IsClient())
-		{
-			return;
-		}
+		super.AfterLoad();
 		
-		if (!FileExist(ModFolder))
-		{
-			MakeDirectory(ModFolder);
-		}
+		#ifdef ZENSKILLSDEBUG
+		SharedConfig.DebugMode = true;
+		#endif
 
-		if (!FileExist(ModFolder + NestedFolder))
-		{
-			MakeDirectory(ModFolder + NestedFolder);
-		}
+		ZEN_SKILLS_DEBUG_ON = SharedConfig.DebugMode;
+		ZenSkillsPrint("[ZenSkills] DEBUG MODE ENABLED: " + ZEN_SKILLS_DEBUG_ON);
 
-		JsonFileLoader<ZenSkillsConfig>.JsonSaveFile(ModFolder + NestedFolder + "\\" + ConfigName, this);
+		#ifdef ZENSKILLSDEBUG 
+		ZenSkillsPrint("#define ZENSKILLSDEBUG found");
+		#endif
 	}
 }
 
@@ -175,17 +193,3 @@ class ZenSkillsSharedConfig
 	float EXP_InjectorBoostTime	= 1800;		// How long the EXP boost injector lasts for (30 mins - repeated injections increase the timer but not the multiplier)
 	float PercentOfExpLostOnDeath = 0.05;	// How much of total % EXP is lost on death (includes perks, which will be refunded where necessary)
 }
-
-static ZenSkillsConfig GetZenSkillsConfig()
-{
-	if (!m_ZenSkillsConfig)
-	{
-		Print("[ZenSkillsConfig] Init");
-		m_ZenSkillsConfig = new ZenSkillsConfig();
-		m_ZenSkillsConfig.Load();
-	}
-
-	return m_ZenSkillsConfig;
-}
-
-ref ZenSkillsConfig m_ZenSkillsConfig;

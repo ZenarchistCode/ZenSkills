@@ -10,7 +10,7 @@ modded class ActionBase
 {
 	void ZenSkillsCheckEXP(ActionData action_data)
 	{
-		if (!GetGame().IsDedicatedServer())
+		if (!g_Game.IsDedicatedServer())
 			return;
 		
 		CAContinuousTime cat = CAContinuousTime.Cast(action_data.m_ActionComponent);

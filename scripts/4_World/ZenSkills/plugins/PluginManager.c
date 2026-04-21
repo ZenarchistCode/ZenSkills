@@ -8,7 +8,7 @@ modded class PluginManager
 		RegisterPlugin("PluginZenSkills", true, true);
 		
 		// Server-side only plugins
-		if (GetGame().IsDedicatedServer())
+		if (g_Game.IsDedicatedServer())
 		{
 			if (GetZenSkillsConfig().ServerConfig.EnableAnalytics)
 			{

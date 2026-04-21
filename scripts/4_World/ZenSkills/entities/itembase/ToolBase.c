@@ -4,7 +4,7 @@ modded class ToolBase
     {
         super.EEHealthLevelChanged(oldLevel, newLevel, zone);
 		
-		if (GetGame().IsDedicatedServer() && IsInitialized())
+		if (g_Game.IsDedicatedServer() && IsInitialized())
 		{
 			ZenSkillFunctions.HandleZenSkillsDurabilityPerk(this, true, oldLevel, newLevel, zone, "crafting", ZenPerks.CRAFTING_TOOL_DURABILITY);
 		}
@@ -18,7 +18,7 @@ modded class Pickaxe
     {
         super.EEHealthLevelChanged(oldLevel, newLevel, zone);
 		
-		if (GetGame().IsDedicatedServer() && IsInitialized())
+		if (g_Game.IsDedicatedServer() && IsInitialized())
 		{
 			ZenSkillFunctions.HandleZenSkillsDurabilityPerk(this, true, oldLevel, newLevel, zone, "crafting", ZenPerks.CRAFTING_TOOL_DURABILITY);
 		}
@@ -31,7 +31,7 @@ modded class SledgeHammer
     {
         super.EEHealthLevelChanged(oldLevel, newLevel, zone);
 		
-		if (GetGame().IsDedicatedServer() && IsInitialized())
+		if (g_Game.IsDedicatedServer() && IsInitialized())
 		{
 			ZenSkillFunctions.HandleZenSkillsDurabilityPerk(this, true, oldLevel, newLevel, zone, "crafting", ZenPerks.CRAFTING_TOOL_DURABILITY);
 		}
@@ -44,7 +44,7 @@ modded class Iceaxe
     {
         super.EEHealthLevelChanged(oldLevel, newLevel, zone);
 		
-		if (GetGame().IsDedicatedServer() && IsInitialized())
+		if (g_Game.IsDedicatedServer() && IsInitialized())
 		{
 			ZenSkillFunctions.HandleZenSkillsDurabilityPerk(this, true, oldLevel, newLevel, zone, "crafting", ZenPerks.CRAFTING_TOOL_DURABILITY);
 		}
@@ -57,7 +57,7 @@ modded class CanOpener
     {
         super.EEHealthLevelChanged(oldLevel, newLevel, zone);
 		
-		if (GetGame().IsDedicatedServer() && IsInitialized())
+		if (g_Game.IsDedicatedServer() && IsInitialized())
 		{
 			ZenSkillFunctions.HandleZenSkillsDurabilityPerk(this, true, oldLevel, newLevel, zone, "crafting", ZenPerks.CRAFTING_TOOL_DURABILITY);
 		}

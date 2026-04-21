@@ -41,13 +41,13 @@ class ActionZenSkillsAttachStickToFire: ActionContinuousBase
 		vector stickOri;
 		vector stickPos = GetZenSkillsAttachedProjectedStickPos(player, fireplace_target, stickOri);
 
-		GetGame().SurfaceGetType(stickPos[0], stickPos[2], surfaceType);
-		if (!GetGame().IsSurfaceDigable(surfaceType))
+		g_Game.SurfaceGetType(stickPos[0], stickPos[2], surfaceType);
+		if (!g_Game.IsSurfaceDigable(surfaceType))
 		{
 			return false;
 		}
 
-		if (GetGame().IsDedicatedServer())
+		if (g_Game.IsDedicatedServer())
 		{
 			return true; // no need to scan for nearby objects on server, let client do that work.
 		}
@@ -117,7 +117,7 @@ class ActionZenSkillsAttachStickToFire: ActionContinuousBase
 		stickProjectedPos[1] = 0;
 		vector otherStickPos;
 		array<Object> nearest_objects = new array<Object>;
-		GetGame().GetObjectsAtPosition3D(firePos, 2, nearest_objects, NULL);
+		g_Game.GetObjectsAtPosition3D(firePos, 2, nearest_objects, NULL);
 
 		foreach (Object obj : nearest_objects)
 		{

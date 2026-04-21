@@ -34,6 +34,7 @@ modded class AnimalBase
     // Breadcrumbs (chronological: oldest -> newest)
     static const int ZEN_ANIMAL_TRACKING_MAX_CRUMBS = 200;				// max number of positions saved
     protected ref array<vector> m_ZenAnimalTrackBreadcrumbs;			// vector breadcrumbs of animal's movement
+	protected static ref map<string, int> m_ZenSurfacePidCache = new map<string, int>();
 	
 	// FPS throttling
 	protected float m_ZenAnimalTrackOuterTickAccum;						// throttle delta
@@ -52,8 +53,8 @@ modded class AnimalBase
         super.EEInit();
 		
 		#ifdef ZENSKILLSDEBUG
-		if (GetGame().GetPlayer())
-			ZenSkillsPrint("INIT ANIMAL TRACKER: " + GetType() + " @ " + GetPosition() + " dist=" + vector.Distance(GetPosition(), GetGame().GetPlayer().GetPosition()));
+		if (g_Game.GetPlayer())
+			ZenSkillsPrint("INIT ANIMAL TRACKER: " + GetType() + " @ " + GetPosition() + " dist=" + vector.Distance(GetPosition(), g_Game.GetPlayer().GetPosition()));
 		#endif 
 		
         m_ZenAnimalTrackBreadcrumbs = new array<vector>();
@@ -83,11 +84,11 @@ modded class AnimalBase
 	
 	void UpdateZenSkillTrackingPerk()
 	{
-		PlayerBase player = PlayerBase.Cast(GetGame().GetPlayer());
+		PlayerBase player = PlayerBase.Cast(g_Game.GetPlayer());
         if (!player) 
 			return;
 
-		m_ZenAnimalTrackLastPerkCheck = GetGame().GetTime();
+		m_ZenAnimalTrackLastPerkCheck = g_Game.GetTime();
 		m_ZenAnimalTrackMaxRangeMeters = player.GetZenPerkReward("hunting", ZenPerks.HUNTING_ANIMAL_TRACKING);
 		
 		#ifdef ZENSKILLSDEBUG
@@ -114,8 +115,8 @@ modded class AnimalBase
         if (!m_ZenAnimalTrackInitDone) 
 			return;
 
-        PlayerBase player = PlayerBase.Cast(GetGame().GetPlayer());
-        if (!player || !player.IsAlive()) 
+        PlayerBase player = PlayerBase.Cast(g_Game.GetPlayer());
+        if (!player || !player.IsAlive() || player.IsUnconscious()) 
 			return;
 		
 		vector playerPos = player.GetPosition();
@@ -147,7 +148,7 @@ modded class AnimalBase
 		#endif
 
 		bool holdingBreath = player.IsTryingHoldBreath();
-		int  timeTick = GetGame().GetTime();
+		int  timeTick = g_Game.GetTime();
 		
 		// refresh perk only while actually holding
 		if (holdingBreath && (timeTick - m_ZenAnimalTrackLastPerkCheck) >= 60000)
@@ -320,7 +321,7 @@ modded class AnimalBase
 	        int idx = chosen[c];
 	        vector pos = m_ZenAnimalTrackBreadcrumbs[idx];
 	        Param3<AnimalBase, vector, int> payload = new Param3<AnimalBase, vector, int>(this, pos, ticket);
-	        GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).CallLater(AnimalBase.Zen_PlayTrailAt, c * stepMs, false, payload);
+	        g_Game.GetCallQueue(CALL_CATEGORY_SYSTEM).CallLater(AnimalBase.Zen_PlayTrailAt, c * stepMs, false, payload);
 	    }
 	}
 
@@ -339,7 +340,12 @@ modded class AnimalBase
 			return; // canceled/stale burst
 
         vector pos = data.param2;
-        ParticleManager.GetInstance().PlayInWorld(animal.GetZenSkillsTrackerParticleType(pos), pos);
+		int particleID = GetSurfaceParticleType(pos);
+		ParticleManager.GetInstance().PlayInWorld(particleID, pos);
+		
+		#ifdef ZENSKILLSDEBUG 
+		Print("[ZenSkillsDebug] Particle id = " + particleID);
+		#endif
     }
 
     protected void CullExcessZenTrackerParticles()
@@ -355,19 +361,28 @@ modded class AnimalBase
 		}
     }
 
-	protected ref map<string, int> m_ZenSurfacePidCache = new map<string, int>();
-
-	int GetZenSkillsTrackerParticleType(vector worldPos)
+    protected void SpawnZenBreadcrumb(vector worldPos)
+    {
+        // Avoid duplicates if the same exact vector lands twice
+        if (m_ZenAnimalTrackBreadcrumbs.Find(worldPos) == -1)
+            m_ZenAnimalTrackBreadcrumbs.Insert(worldPos);
+		
+        CullExcessZenTrackerParticles();
+    }
+	
+	// Get surface particle type @ world position & cache the surface type's particle ID for future reference.
+	static int GetSurfaceParticleType(vector worldPos)
 	{
 	    string surf;
-	    GetGame().SurfaceGetType(worldPos[0], worldPos[2], surf);
+	    g_Game.SurfaceGetType(worldPos[0], worldPos[2], surf);
 	    surf.ToLower();
-	
+		
 	    int pid;
 	    if (m_ZenSurfacePidCache.Find(surf, pid))
+		{
 	        return pid;
+		}
 	
-	    // Heuristics: adjust/add as you like
 	    if (surf.Contains("snow"))       
 			pid = ParticleList.IMPACT_SNOW_ENTER;
 	    else if (surf.Contains("ice"))   
@@ -390,15 +405,6 @@ modded class AnimalBase
 	    m_ZenSurfacePidCache.Insert(surf, pid);
 	    return pid;
 	}
-
-    protected void SpawnZenBreadcrumb(vector worldPos)
-    {
-        // Avoid duplicates if the same exact vector lands twice
-        if (m_ZenAnimalTrackBreadcrumbs.Find(worldPos) == -1)
-            m_ZenAnimalTrackBreadcrumbs.Insert(worldPos);
-		
-        CullExcessZenTrackerParticles();
-    }
     #endif
 	
 	//! SHARED CODE
@@ -408,40 +414,11 @@ modded class AnimalBase
 	    return d[0]*d[0] + d[1]*d[1] + d[2]*d[2];
 	}
 	
-	//override void EEKilled(Object killer)
-	//{
-		//super.EEKilled(killer);
-		
-		//ZenSkillFunctions.HandleEntityKilledEXP(this, killer);
-	//}
-	
-	// For some reason, EEKilled() doesn't reliably register the killer for AnimalBase. 
-	// Sometimes it will pass the animal as its own killer? Possible game engine bug?
-	// This is the only method I could come up with which reliably works.
-	protected bool m_ZenSkillsWasAlive = false;
-	
-	override bool EEOnDamageCalculated(TotalDamageResult damageResult, int damageType, EntityAI source, int component, string dmgZone, string ammo, vector modelPos, float speedCoef)
+	// ZenModCore has a more robust method of detecting killer entity.
+	override void EEKilledZen(notnull Object killer)
 	{
-		m_ZenSkillsWasAlive = IsAlive();
+		super.EEKilledZen(killer);
 		
-		return super.EEOnDamageCalculated(damageResult, damageType, source, component, dmgZone, ammo, modelPos, speedCoef);
-	}
-	
-	override void EEHitBy(TotalDamageResult damageResult, int damageType, EntityAI source, int component, string dmgZone, string ammo, vector modelPos, float speedCoef)
-	{
-		super.EEHitBy(damageResult, damageType, source, component, dmgZone, ammo, modelPos, speedCoef);
-		
-		if (!source)
-			return;
-		
-		if (GetGame().IsDedicatedServer() && !IsAlive() && m_ZenSkillsWasAlive)
-		{
-			PlayerBase player = PlayerBase.Cast(source.GetHierarchyRootPlayer());
-			if (!player)
-				return;
-			
-			ZenSkillFunctions.HandleEntityKilledEXP(this, player);
-			m_ZenSkillsWasAlive = false; // failsafe - should be set on EEOnDamageCalculated on dead bodies when hit, but can't hurt.
-		}
+		ZenSkillFunctions.HandleEntityKilledEXP(this, killer);
 	}
 }

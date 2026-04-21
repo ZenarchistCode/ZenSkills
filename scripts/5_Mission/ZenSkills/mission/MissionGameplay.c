@@ -19,7 +19,7 @@ modded class MissionGameplay
 	{
 		super.OnUpdate(timeslice); 
 
-		if (!GetGame())
+		if (!g_Game)
 			return;
 
 		UpdateZenSkillsInput();
@@ -38,7 +38,7 @@ modded class MissionGameplay
 			return;
 		}
 
-		if (!GetGame().GetPlayer() || !GetGame().GetPlayer().IsAlive() || GetGame().GetPlayer().IsUnconscious())
+		if (!g_Game.GetPlayer() || !g_Game.GetPlayer().IsAlive() || g_Game.GetPlayer().IsUnconscious())
 		{
 			m_Hud.GetZenSkillsHUD().HideAll();
 			return;
@@ -54,7 +54,7 @@ modded class MissionGameplay
 			return;
 		}
 
-		if (GetGame().GetUIManager().GetMenu() != NULL) 
+		if (g_Game.GetUIManager().GetMenu() != NULL) 
 		{
 			if (m_Hud.GetZenSkillsHUD())
 			{
@@ -71,13 +71,13 @@ modded class MissionGameplay
 		
 		if (key == 25) // p key
 		{
-			ZenSkillsHighscores hs = ZenSkillsHighscores.Cast(GetGame().GetUIManager().EnterScriptedMenu(ZenSkillConstants.SKILL_HIGHSCORES, NULL));
+			ZenSkillsHighscores hs = ZenSkillsHighscores.Cast(g_Game.GetUIManager().EnterScriptedMenu(ZenSkillConstants.SKILL_HIGHSCORES, NULL));
 		}
 	}*/
 
 	void UpdateZenSkillsInput()
 	{
-		PlayerBase player = PlayerBase.Cast(GetGame().GetPlayer());
+		PlayerBase player = PlayerBase.Cast(g_Game.GetPlayer());
 
         if (!player)
 			return;
@@ -87,9 +87,9 @@ modded class MissionGameplay
 
 		if (ZenSkills_CheckInput(ZenSkillConstants.KEY_INPUT_OPEN_SKILLS_GUI))
         {
-            if (GetGame().GetUIManager() != NULL)
+            if (g_Game.GetUIManager() != NULL)
             {
-                ZenSkillsGUI gui = ZenSkillsGUI.Cast(GetGame().GetUIManager().EnterScriptedMenu(ZenSkillConstants.SKILL_GUI, NULL));
+                ZenSkillsGUI gui = ZenSkillsGUI.Cast(g_Game.GetUIManager().EnterScriptedMenu(ZenSkillConstants.SKILL_GUI, NULL));
             }
         }
 	}

@@ -8,10 +8,13 @@ class ZenSkillsBerryBase extends MushroomBase
 class ZenSkills_SambucusBerry extends ZenSkillsBerryBase {};
 class ZenSkills_CaninaBerry extends ZenSkillsBerryBase {};
 
+// This class handles spawning a new fruit if the perk is enabled and the dice roll succeeds
 class ZenSkillsFruitManager 
 {
-	static void HandleFruitSpawnChance(EntityAI fruitShroom, EntityAI potentialPlayer)
+	static void HandleFruitSpawnChance(EntityAI fruitShroomEAI, EntityAI potentialPlayer)
 	{
+		ItemBase fruitShroom = ItemBase.Cast(fruitShroomEAI);
+
 		if (!potentialPlayer || !fruitShroom || fruitShroom.IsRuined())
 			return;
 		
@@ -36,195 +39,67 @@ class ZenSkillsFruitManager
 		
 		if (diceRoll < extraSpawnChance)
 		{
-			EntityAI extraItem = EntityAI.Cast(GetGame().CreateObjectEx(fruitShroom.GetType(), fruitShroom.GetPosition(), ECE_PLACE_ON_SURFACE));
+			vector pos = ZenFunctions.GetRandomPointInCircle(fruitShroom.GetPosition(), 1, 0.5);
+			Edible_Base extraItem = Edible_Base.Cast(g_Game.CreateObjectEx(fruitShroom.GetType(), pos, ECE_SETUP));
+			if (!extraItem)
+			{
+				Error("Failed to spawn " + fruitShroom.GetType());
+				return;
+			}
+			
+			extraItem.TriggerZenParticleDust();
 		}
 	}
 }
 
 modded class MushroomBase
 {
-	bool m_ZenSkillsIsVirgin = false;
-	
-	override void EEOnCECreate()
-	{
-		super.EEOnCECreate();
-
-		if (GetParent() != null)
-			return;
-		
-		m_ZenSkillsIsVirgin = true;
-	}
-	
 	override void OnItemLocationChanged(EntityAI old_owner, EntityAI new_owner)
 	{
 		super.OnItemLocationChanged(old_owner, new_owner);
 		
-		if (!m_ZenSkillsIsVirgin || !GetGame().IsDedicatedServer() || !new_owner)
+		if (!IsZenVirgin() || !g_Game.IsDedicatedServer() || !new_owner)
 			return;
 		
 		ZenSkillsFruitManager.HandleFruitSpawnChance(this, new_owner);
-	}
-	
-	//! PERSISTENCE NOTE:
-	// I tried to stay away from onstoreload/save in this mod to make it easy to add/remove without wiping server,
-	// but couldn't think of a way around this one. I made an exception because hardly anyone would keep fruit in storage
-	// and even if it's corrupted during OnStoreLoad, it shouldn't break anything important.
-	override void OnStoreSave(ParamsWriteContext ctx)
-	{
-		super.OnStoreSave(ctx);
-		
-		ctx.Write(m_ZenSkillsIsVirgin);
-	}
-	
-	override bool OnStoreLoad(ParamsWriteContext ctx, int version)
-	{
-		if (!super.OnStoreLoad(ctx, version))
-			return false;
-		
-		if (!ctx.Read(m_ZenSkillsIsVirgin))
-			return false;
-			
-		return true;
 	}
 }
 
 modded class Pear
 {
-	bool m_ZenSkillsIsVirgin = false;
-	
-	override void EEOnCECreate()
-	{
-		super.EEOnCECreate();
-
-		if (GetParent() != null)
-			return;
-		
-		m_ZenSkillsIsVirgin = true;
-	}
-	
 	override void OnItemLocationChanged(EntityAI old_owner, EntityAI new_owner)
 	{
 		super.OnItemLocationChanged(old_owner, new_owner);
 		
-		if (!m_ZenSkillsIsVirgin || !GetGame().IsDedicatedServer() || !new_owner)
+		if (!IsZenVirgin() || !g_Game.IsDedicatedServer() || !new_owner)
 			return;
 		
 		ZenSkillsFruitManager.HandleFruitSpawnChance(this, new_owner);
-	}
-	
-	//! PERSISTENCE NOTE:
-	// I tried to stay away from onstoreload/save in this mod to make it easy to add/remove without wiping server,
-	// but couldn't think of a way around this one. I made an exception because hardly anyone would keep fruit in storage
-	// and even if it's corrupted during OnStoreLoad, it shouldn't break anything important.
-	override void OnStoreSave(ParamsWriteContext ctx)
-	{
-		super.OnStoreSave(ctx);
-		
-		ctx.Write(m_ZenSkillsIsVirgin);
-	}
-	
-	override bool OnStoreLoad(ParamsWriteContext ctx, int version)
-	{
-		if (!super.OnStoreLoad(ctx, version))
-			return false;
-		
-		if (!ctx.Read(m_ZenSkillsIsVirgin))
-			return false;
-			
-		return true;
 	}
 }
 
 modded class Apple
 {
-	bool m_ZenSkillsIsVirgin = false;
-	
-	override void EEOnCECreate()
-	{
-		super.EEOnCECreate();
-
-		if (GetParent() != null)
-			return;
-		
-		m_ZenSkillsIsVirgin = true;
-	}
-	
 	override void OnItemLocationChanged(EntityAI old_owner, EntityAI new_owner)
 	{
 		super.OnItemLocationChanged(old_owner, new_owner);
 		
-		if (!m_ZenSkillsIsVirgin || !GetGame().IsDedicatedServer() || !new_owner)
+		if (!IsZenVirgin() || !g_Game.IsDedicatedServer() || !new_owner)
 			return;
 		
 		ZenSkillsFruitManager.HandleFruitSpawnChance(this, new_owner);
-	}
-	
-	//! PERSISTENCE NOTE:
-	// I tried to stay away from onstoreload/save in this mod to make it easy to add/remove without wiping server,
-	// but couldn't think of a way around this one. I made an exception because hardly anyone would keep fruit in storage
-	// and even if it's corrupted during OnStoreLoad, it shouldn't break anything important.
-	override void OnStoreSave(ParamsWriteContext ctx)
-	{
-		super.OnStoreSave(ctx);
-		
-		ctx.Write(m_ZenSkillsIsVirgin);
-	}
-	
-	override bool OnStoreLoad(ParamsWriteContext ctx, int version)
-	{
-		if (!super.OnStoreLoad(ctx, version))
-			return false;
-		
-		if (!ctx.Read(m_ZenSkillsIsVirgin))
-			return false;
-			
-		return true;
 	}
 }
 
 modded class Plum
 {
-	bool m_ZenSkillsIsVirgin = false;
-	
-	override void EEOnCECreate()
-	{
-		super.EEOnCECreate();
-
-		if (GetParent() != null)
-			return;
-		
-		m_ZenSkillsIsVirgin = true;
-	}
-	
 	override void OnItemLocationChanged(EntityAI old_owner, EntityAI new_owner)
 	{
 		super.OnItemLocationChanged(old_owner, new_owner);
 		
-		if (!m_ZenSkillsIsVirgin || !GetGame().IsDedicatedServer() || !new_owner)
+		if (!IsZenVirgin() || !g_Game.IsDedicatedServer() || !new_owner)
 			return;
 		
 		ZenSkillsFruitManager.HandleFruitSpawnChance(this, new_owner);
-	}
-	
-	//! PERSISTENCE NOTE:
-	// I tried to stay away from onstoreload/save in this mod to make it easy to add/remove without wiping server,
-	// but couldn't think of a way around this one. I made an exception because hardly anyone would keep fruit in storage
-	// and even if it's corrupted during OnStoreLoad, it shouldn't break anything important.
-	override void OnStoreSave(ParamsWriteContext ctx)
-	{
-		super.OnStoreSave(ctx);
-		
-		ctx.Write(m_ZenSkillsIsVirgin);
-	}
-	
-	override bool OnStoreLoad(ParamsWriteContext ctx, int version)
-	{
-		if (!super.OnStoreLoad(ctx, version))
-			return false;
-		
-		if (!ctx.Read(m_ZenSkillsIsVirgin))
-			return false;
-			
-		return true;
 	}
 }

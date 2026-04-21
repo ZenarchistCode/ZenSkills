@@ -4,7 +4,7 @@ modded class CarchingResultFishingAction : CatchingResultBase
 	{
 		EntityAI catch = super.SpawnAndSetup(yItemIdx, v);
 		
-		if (catch != null && m_Owner != null && GetGame().IsDedicatedServer())
+		if (catch != null && m_Owner != null && g_Game.IsDedicatedServer())
 		{
 			Edible_Base food = Edible_Base.Cast(catch);
 			if (food)

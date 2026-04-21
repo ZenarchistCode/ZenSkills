@@ -1,51 +1,54 @@
-// This manages action-based EXP gains and nerfs config (server-side only)
-class ZenSkillsEXP
+ref ZenSkillsEXP g_ZenSkillsEXP;
+
+static ZenSkillsEXP GetZenSkillsEXP()
 {
-	// Config location
-	private const static string ModFolder		= "$profile:\\Zenarchist\\";
-	private const static string NestedFolder	= "Skills";
-	private const static string ConfigName		= "ZenSkillsEXP.json";
-	private const static string CURRENT_VERSION	= "1"; // Change this to force structure update.
-	string CONFIG_VERSION;
+	if (!g_ZenSkillsEXP) GetZenConfigRegister().RegisterConfig(ZenSkillsEXP);
+	return g_ZenSkillsEXP;
+}
+
+modded class ZenConfigRegister
+{
+	override void RegisterPreload()
+	{
+		super.RegisterPreload(); 
+		RegisterType(ZenSkillsEXP);
+	}
+}
+
+// This manages action-based EXP gains and nerfs config (server-side only)
+class ZenSkillsEXP: ZenConfigBase
+{
+	// -------------------------
+	// CONFIG SETTINGS
+	// -------------------------
+	override void OnRegistered()
+	{
+		g_ZenSkillsEXP = this;
+	}
 	
+	override string 	GetFolderName()       		{ return "Skills"; }
+	override string    	GetCurrentVersion()   		{ return "1.29.1"; }
+	override bool		ShouldLoadOnServer() 		{ return true; }
+	
+	override bool ReadJson(string path, out string err)
+	{
+		return JsonFileLoader<ZenSkillsEXP>.LoadFile(path, this, err);
+	}
+
+	override bool WriteJson(string path, out string err)
+	{
+		return JsonFileLoader<ZenSkillsEXP>.SaveFile(path, this, err);
+	}
+
+	// -------------------------
+	// CONFIG VARIABLES
+	// -------------------------
 	ref ZenSkillsEXPNerfDef ExpNerfConfig;
 	
 	// map: skill, ZenSkillsEXPDef
 	ref map<string, ref ZenSkillsEXPDefHolder> ExpDefs;
 
-	// Config data
-	void Load()
-	{
-		SetDefaultValues();
-		
-		if (GetGame().IsClient())
-		{
-			return;
-		}
-
-		if (FileExist(ModFolder + NestedFolder + "\\" + ConfigName))
-		{
-			// If config exists, load file
-			JsonFileLoader<ZenSkillsEXP>.JsonLoadFile(ModFolder + NestedFolder + "\\" + ConfigName, this);
-
-			// If version mismatch, backup old version of json before replacing it
-			if (CONFIG_VERSION != CURRENT_VERSION)
-			{
-				JsonFileLoader<ZenSkillsEXP>.JsonSaveFile(ModFolder + NestedFolder + "\\" + ConfigName + "_old", this);
-			}
-			else
-			{
-				// Config file exists, was loaded successfully, and version matches - stop here.
-				return;
-			}
-		}
-
-		CONFIG_VERSION = CURRENT_VERSION;
-
-		Save();
-	}
-
-	void SetDefaultValues()
+	override void SetDefaults()
 	{
 		// Nerfs
 		ExpNerfConfig = new ZenSkillsEXPNerfDef();
@@ -133,26 +136,6 @@ class ZenSkillsEXP
 		gathering.ExpDefs.Insert("ActionDigWorms", new ZenSkillsEXPDef(5));
 		ExpDefs.Insert("gathering", gathering);
 	}
-
-	void Save()
-	{
-		if (GetGame().IsClient())
-		{
-			return;
-		}
-		
-		if (!FileExist(ModFolder))
-		{
-			MakeDirectory(ModFolder);
-		}
-
-		if (!FileExist(ModFolder + NestedFolder))
-		{
-			MakeDirectory(ModFolder + NestedFolder);
-		}
-
-		JsonFileLoader<ZenSkillsEXP>.JsonSaveFile(ModFolder + NestedFolder + "\\" + ConfigName, this);
-	}
 }
 
 //! Purely for organizing the actions in JSON structure under a category based on skill key.
@@ -194,17 +177,3 @@ class ZenSkillsEXPDef
 		ApplyBoosts = p_boosts;
 	}
 }
-
-static ZenSkillsEXP GetZenSkillsEXP()
-{
-	if (!m_ZenSkillsEXP)
-	{
-		Print("[ZenSkillsEXP] Init");
-		m_ZenSkillsEXP = new ZenSkillsEXP();
-		m_ZenSkillsEXP.Load();
-	}
-
-	return m_ZenSkillsEXP;
-}
-
-ref ZenSkillsEXP m_ZenSkillsEXP;

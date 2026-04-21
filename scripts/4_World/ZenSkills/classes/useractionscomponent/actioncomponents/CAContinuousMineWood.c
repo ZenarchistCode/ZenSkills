@@ -81,7 +81,7 @@ modded class CAContinuousMineWood extends CAContinuousBase
 	
 	void ZenCreateExtraItems(ActionData action_data)
 	{
-		if (!GetGame().IsDedicatedServer())
+		if (!g_Game.IsDedicatedServer())
 			return;
 
 		if (!action_data || !action_data.m_Player)
@@ -135,7 +135,7 @@ modded class CAContinuousMineWood extends CAContinuousBase
 					{
 						if (mined.IsFullQuantity())
 						{
-							ItemBase extraA = ItemBase.Cast(GetGame().CreateObjectEx(dropType, action_data.m_Player.GetPosition(), ECE_PLACE_ON_SURFACE));
+							ItemBase extraA = ItemBase.Cast(g_Game.CreateObjectEx(dropType, action_data.m_Player.GetPosition(), ECE_PLACE_ON_SURFACE));
 							if (extraA && extraA.HasQuantity())
 							{
 								qty = 1;
@@ -152,7 +152,7 @@ modded class CAContinuousMineWood extends CAContinuousBase
 					}
 					else
 					{
-						ItemBase extraB = ItemBase.Cast(GetGame().CreateObjectEx(dropType, action_data.m_Player.GetPosition(), ECE_PLACE_ON_SURFACE));
+						ItemBase extraB = ItemBase.Cast(g_Game.CreateObjectEx(dropType, action_data.m_Player.GetPosition(), ECE_PLACE_ON_SURFACE));
 
 						qty = 1;
 						if (extraB.CanDecay())
@@ -163,7 +163,7 @@ modded class CAContinuousMineWood extends CAContinuousBase
 				}
 				else
 				{
-					ItemBase extraC = ItemBase.Cast(GetGame().CreateObjectEx(dropType, action_data.m_Player.GetPosition(), ECE_PLACE_ON_SURFACE));
+					ItemBase extraC = ItemBase.Cast(g_Game.CreateObjectEx(dropType, action_data.m_Player.GetPosition(), ECE_PLACE_ON_SURFACE));
 					if (extraC && extraC.HasQuantity())
 					{
 						qty = 1;
@@ -182,7 +182,7 @@ modded class CAContinuousMineWood extends CAContinuousBase
 	
 				vector pos = action_data.m_Player.GetPosition();
 	
-				EntityAI spawned = EntityAI.Cast(GetGame().CreateObjectEx(dropType, pos, ECE_PLACE_ON_SURFACE));
+				EntityAI spawned = EntityAI.Cast(g_Game.CreateObjectEx(dropType, pos, ECE_PLACE_ON_SURFACE));
 				if (spawned)
 				{
 					ItemBase ib = ItemBase.Cast(spawned);

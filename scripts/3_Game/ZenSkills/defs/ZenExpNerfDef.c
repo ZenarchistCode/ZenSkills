@@ -46,7 +46,7 @@ class ZenSkillsExpNerf
 	// Call once per XP event BEFORE computing nerf
 	void Update(vector pos, string actionKey)
 	{
-		int now = GetGame().GetTime();
+		int now = g_Game.GetTime();
 		EnsureAnchor(pos);
 
 		float dist = vector.Distance(pos, m_AnchorPos);

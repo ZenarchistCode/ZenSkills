@@ -17,7 +17,7 @@ modded class TrapSpawnBase
 	{
 		super.OnPlacementComplete(player, position, orientation);
 		
-		if (GetGame().IsDedicatedServer())
+		if (g_Game.IsDedicatedServer())
 		{
 			ZenSkillsDeployTrap(PlayerBase.Cast(player));
 		}

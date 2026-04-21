@@ -6,7 +6,7 @@ modded class PlayerBase
 	void StartZenSkillsSaveTimer()
 	{
 		// I do this here instead of mass-saving all DBs in the plugin so it staggers the file-writing.
-		if (GetGame().IsDedicatedServer() && !m_ZenSkillsTimer)
+		if (g_Game.IsDedicatedServer() && !m_ZenSkillsTimer)
 		{
 			m_ZenSkillsTimer = new Timer();
 			m_ZenSkillsTimer.Run(GetZenSkillsConfig().ServerConfig.AutoSaveTimerSecs, this, "SaveZenSkillsDB", null, true);
@@ -15,7 +15,7 @@ modded class PlayerBase
 	
 	void SaveZenSkillsDB()
 	{
-		if (GetGame().IsDedicatedServer() && GetIdentity() && !GetZenSkillsConfig().ServerConfig.I_AM_USING_MAPLINK)
+		if (g_Game.IsDedicatedServer() && GetIdentity() && !GetZenSkillsConfig().ServerConfig.I_AM_USING_MAPLINK)
 		{
 			GetZenSkillsDB().Save(GetIdentity().GetId(), GetZenSkillsName());
 		}
@@ -80,7 +80,7 @@ modded class PlayerBase
 			{
 				ZenSkillsGUI.m_ZenSkillsExpBoostActive = data.param1;
 				ZenSkillsGUI.m_ZenSkillsExpBoostLeftSecs = data.param2;
-				ZenSkillsGUI.m_ZenSkillsExpReceivedTimestamp = GetGame().GetTime();
+				ZenSkillsGUI.m_ZenSkillsExpReceivedTimestamp = g_Game.GetTime();
 			}
 			
 			#ifdef ZENSKILLSDEBUG 
@@ -93,7 +93,7 @@ modded class PlayerBase
 	{
 		super.OnDisconnect();
 		
-		if (GetGame().IsClient())
+		if (g_Game.IsClient())
 			return;
 		
 		Print("[ZenSkills] Saving skill DB to file for player: " + GetCachedID());
@@ -231,7 +231,7 @@ modded class PlayerBase
 		if (!ZEN_SKILLS_DEBUG_ON)
 			return;
 		
-		if (!GetGame().IsDedicatedServer())
+		if (!g_Game.IsDedicatedServer())
 			return;
 
 		AddZenSkillEXP(GetZenSkillsConfig().SkillDefs.GetKeyArray().GetRandomElement(), GetZenSkillsConfig().ServerConfig.DebugJumpEXP);
@@ -244,9 +244,10 @@ modded class PlayerBase
 		AddAction(ActionZenSkillsNurturePlant);
 	}
 	
-	override void EEKilled(Object killer)
+	// ZenModCore has a more robust method of detecting killer entity.
+	override void EEKilledZen(notnull Object killer)
 	{
-		super.EEKilled(killer);
+		super.EEKilledZen(killer);
 		
 		ZenSkillFunctions.HandleEntityKilledEXP(this, killer);
 	}

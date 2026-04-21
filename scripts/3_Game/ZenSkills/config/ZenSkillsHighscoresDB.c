@@ -1,92 +1,75 @@
-// This stores the highscores data (server-side read/write, client-side sync read only)
-class ZenSkillsHighscoresDB
+ref ZenSkillsHighscoresDB g_ZenSkillsHighscoresDB;
+
+static ZenSkillsHighscoresDB GetZenSkillsHighscoresDB()
 {
-	// Config location
-	private const static string ModFolder		= "$profile:\\Zenarchist\\";
-	private const static string NestedFolder	= "Skills";
-	private const static string ConfigName		= "ZenSkillsHighscoresDB.json";
-	private const static string CURRENT_VERSION	= "1"; // Change this to force structure update.
-	string CONFIG_VERSION;
-	
-	int MaxEntries;
-	ref array<string> HighscoresIgnoreList; 	// A list of player IDs to ignore from the highscores (useful to keep your admin/test accounts off the list)
+	if (!g_ZenSkillsHighscoresDB) GetZenConfigRegister().RegisterConfig(ZenSkillsHighscoresDB);
+	return g_ZenSkillsHighscoresDB;
+}
 
-	// skillKey, highscores holder
-	ref map<string, ref array<ref ZenSkillsHighscoreDef>> Highscores;
-	
-	// Config data
-	void Load()
+modded class ZenConfigRegister
+{
+	override void RegisterPreload()
 	{
-		SetDefaultValues();
+		super.RegisterPreload(); 
+		RegisterType(ZenSkillsHighscoresDB);
+	}
+}
 
-		if (GetGame().IsClient())
-		{
-			return;
-		}
-
-		if (GetZenSkillsConfig().ServerConfig.I_AM_USING_MAPLINK)
-		{
-			return; // handled by MapLink in this case
-		}
-
-		if (FileExist(ModFolder + NestedFolder + "\\" + ConfigName))
-		{
-			// If config exists, load file
-			JsonFileLoader<ZenSkillsHighscoresDB>.JsonLoadFile(ModFolder + NestedFolder + "\\" + ConfigName, this);
-
-			// If version mismatch, backup old version of json before replacing it
-			if (CONFIG_VERSION != CURRENT_VERSION)
-			{
-				JsonFileLoader<ZenSkillsHighscoresDB>.JsonSaveFile(ModFolder + NestedFolder + "\\" + ConfigName + "_old", this);
-			}
-			else
-			{
-				// Config file exists, was loaded successfully, and version matches - stop here.
-				SortArrays();
-				return;
-			}
-		}
-
-		CONFIG_VERSION = CURRENT_VERSION;
-
-		Save();
+// This stores the highscores data (server-side read/write, client-side sync read only)
+class ZenSkillsHighscoresDB: ZenConfigBase
+{
+	// -------------------------
+	// CONFIG SETTINGS
+	// -------------------------
+	override void OnRegistered()
+	{
+		g_ZenSkillsHighscoresDB = this;
+	}
+	
+	override string 	GetFolderName()       		{ return "Skills\\DB\\"; }
+	override string    	GetCurrentVersion()   		{ return "1.29.1"; }
+	override bool		ShouldLoadOnServer() 		{ return !GetZenSkillsConfig().ServerConfig.I_AM_USING_MAPLINK; }
+	
+	override bool ReadJson(string path, out string err)
+	{
+		return JsonFileLoader<ZenSkillsHighscoresDB>.LoadFile(path, this, err);
 	}
 
-	void SetDefaultValues()
+	override bool WriteJson(string path, out string err)
+	{
+		return JsonFileLoader<ZenSkillsHighscoresDB>.SaveFile(path, this, err);
+	}
+
+	// -------------------------
+	// CONFIG VARIABLES
+	// -------------------------
+	int MaxEntries;
+	ref array<string> HighscoresIgnoreList = new array<string>; 	// A list of player IDs to ignore from the highscores (useful to keep your admin/test accounts off the list)
+
+	// skillKey, highscores holder
+	ref map<string, ref array<ref ZenSkillsHighscoreDef>> Highscores = new map<string, ref array<ref ZenSkillsHighscoreDef>>;
+
+	override void SetDefaults()
 	{
 		MaxEntries = 50;
-		Highscores = new map<string, ref array<ref ZenSkillsHighscoreDef>>();
+		Highscores = new map<string, ref array<ref ZenSkillsHighscoreDef>>;
 		HighscoresIgnoreList = new array<string>();
 		HighscoresIgnoreList.Insert("");
 	}
-
-	void Save()
-	{
-		if (GetGame().IsClient())
-		{
-			return;
-		}
-
-		if (!FileExist(ModFolder))
-		{
-			MakeDirectory(ModFolder);
-		}
-
-		if (!FileExist(ModFolder + NestedFolder))
-		{
-			MakeDirectory(ModFolder + NestedFolder);
-		}
-
-		JsonFileLoader<ZenSkillsHighscoresDB>.JsonSaveFile(ModFolder + NestedFolder + "\\" + ConfigName, this);
-		
-		#ifdef ZENSKILLSDEBUG 
-		ZenSkillsPrint("Saved Highscores");
-		#endif
-	}
 	
+	override void AfterLoad()
+	{
+		super.AfterLoad();
+		
+		SortArrays();
+	}
+
 	void UpdateHighscores(string playerID, string playerName, map<string, ref ZenSkill> skills)
 	{
 		if ((HighscoresIgnoreList && HighscoresIgnoreList.Find(playerID) != -1) || playerID.Contains(".json"))
+			return;
+		
+		if (GetZenModCoreConfig().IsAdmin(playerID))
 			return;
 
 		if (playerName == "Survivor" || playerName.Contains("Survivor ("))
@@ -249,17 +232,3 @@ class ZenSkillsHighscoreDef
 		PlayerUID = pid;
 	}
 }
-
-static ZenSkillsHighscoresDB GetZenSkillsHighscoresDB()
-{
-	if (!m_ZenSkillsHighscoresDB)
-	{
-		Print("[ZenSkillsHighscoresDB] Init");
-		m_ZenSkillsHighscoresDB = new ZenSkillsHighscoresDB();
-		m_ZenSkillsHighscoresDB.Load();
-	}
-
-	return m_ZenSkillsHighscoresDB;
-}
-
-ref ZenSkillsHighscoresDB m_ZenSkillsHighscoresDB;

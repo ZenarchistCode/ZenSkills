@@ -52,7 +52,7 @@ modded class Clothing
     {
         super.EEHealthLevelChanged(oldLevel, newLevel, zone);
 		
-		if (!GetGame().IsDedicatedServer())
+		if (!g_Game.IsDedicatedServer())
 			return;
 		
 		if (!IsInitialized() || m_ZenSkillsLastDamageWasHuman)

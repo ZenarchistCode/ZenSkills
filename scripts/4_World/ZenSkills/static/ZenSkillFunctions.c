@@ -36,7 +36,7 @@ class ZenSkillFunctions
 	{
 		#ifdef SERVER
 		array<Man> players = new array<Man>;
-		GetGame().GetWorld().GetPlayerList(players);
+		g_Game.GetWorld().GetPlayerList(players);
 		for (int x = 0; x < players.Count(); x++)
 		{
 			PlayerBase pb = PlayerBase.Cast(players.Get(x));
@@ -52,9 +52,9 @@ class ZenSkillFunctions
 	static void ZenClientMessage(string message)
 	{
 #ifndef SERVER
-		if (GetGame().GetPlayer())
+		if (g_Game.GetPlayer())
 		{
-			GetGame().GetMission().OnEvent(ChatMessageEventTypeID, new ChatMessageEventParams(CCDirect, "", message, ""));
+			g_Game.GetMission().OnEvent(ChatMessageEventTypeID, new ChatMessageEventParams(CCDirect, "", message, ""));
 		}
 #endif
 	}
@@ -80,7 +80,7 @@ class ZenSkillFunctions
 		if (m_MessageParam && msg != "")
 		{
 			m_MessageParam.param1 = msg;
-			GetGame().RPCSingleParam(player, ERPCs.RPC_USER_ACTION_MESSAGE, m_MessageParam, true, player.GetIdentity());
+			g_Game.RPCSingleParam(player, ERPCs.RPC_USER_ACTION_MESSAGE, m_MessageParam, true, player.GetIdentity());
 		}
 #endif
 	}
@@ -88,31 +88,31 @@ class ZenSkillFunctions
 	//! Enable/disable player controls - WARNING: This function does not check if controls should be enabled given what the player is doing at the time when it's called, so use carefully and thoughtfully
 	static void SetPlayerControl(bool isEnabled = true, bool hideHud = true)
 	{
-		#ifdef ZENMODPACK
+		#ifdef ZenModPack
 
 		ZenFunctions.SetPlayerControl(isEnabled, hideHud);
 
 		#else
 		
-		if (!GetGame())
+		if (!g_Game)
 			return;
 
-		if (!GetGame().IsClient())
+		if (!g_Game.IsClient())
 			return;
 
 		if (!isEnabled)
 		{
-			GetGame().GetMission().AddActiveInputExcludes({"menu"});
+			g_Game.GetMission().AddActiveInputExcludes({"menu"});
 
 			if (hideHud)
-				GetGame().GetMission().GetHud().Show(false);
+				g_Game.GetMission().GetHud().Show(false);
 		}
 		else
 		{
-			GetGame().GetMission().RemoveActiveInputExcludes({"menu"});
+			g_Game.GetMission().RemoveActiveInputExcludes({"menu"});
 
 			if (hideHud)
-				GetGame().GetMission().GetHud().Show(true);
+				g_Game.GetMission().GetHud().Show(true);
 		}
 
 		#endif
@@ -219,7 +219,7 @@ class ZenSkillFunctions
 			entity.SetSynchDirty();
 			
 			//entity.AddHealth(zone, "", entity.GetMaxHealth() * 0.01);
-			GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).CallLater(ZenSyncItemHealth, 10, false, entity);
+			g_Game.GetCallQueue(CALL_CATEGORY_SYSTEM).CallLater(ZenSyncItemHealth, 10, false, entity);
 		}
 		
 		#ifdef ZENSKILLSDEBUG

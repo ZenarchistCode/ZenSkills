@@ -22,11 +22,11 @@ class ZenSkillsHighscores extends UIScriptedMenu
 
 	override Widget Init()
 	{
-	    layoutRoot = GetGame().GetWorkspace().CreateWidgets(LAYOUT_FILE);
+	    layoutRoot = g_Game.GetWorkspace().CreateWidgets(LAYOUT_FILE);
 
 		if (!ZenSkillsPlayerDB.RECEIVED_DATA)
 		{
-			GetGame().GetCallQueue(CALL_CATEGORY_GUI).CallLater(Close, 10);
+			g_Game.GetCallQueue(CALL_CATEGORY_GUI).CallLater(Close, 10);
 			return layoutRoot;
 		}
 	
@@ -42,7 +42,7 @@ class ZenSkillsHighscores extends UIScriptedMenu
 		
 		if (!db || !db.Skills)
 		{
-			GetGame().GetCallQueue(CALL_CATEGORY_GUI).CallLater(Close, 10);
+			g_Game.GetCallQueue(CALL_CATEGORY_GUI).CallLater(Close, 10);
 			return layoutRoot;
 		}
 
@@ -177,7 +177,7 @@ class ZenSkillsHighscores extends UIScriptedMenu
 
 		GetRPCManager().SendRPC(ZenSkillConstants.RPC, ZenSkillConstants.RPC_ServerReceive_HighscoreRequest, new Param1<bool>(true), true, null);
 		m_RefreshButton.SetText("#STR_ZenSkills_GUI_Wait");
-		m_LastHighscoreRequest = GetGame().GetTime();
+		m_LastHighscoreRequest = g_Game.GetTime();
 		m_RequestedHighscores = true;
 	}
 	
@@ -260,10 +260,10 @@ class ZenSkillsHighscores extends UIScriptedMenu
 	{
 		super.Update(timeslice);
 		
-		if (!GetGame())
+		if (!g_Game)
 			return;
 		
-		PlayerBase player = PlayerBase.Cast(GetGame().GetPlayer());
+		PlayerBase player = PlayerBase.Cast(g_Game.GetPlayer());
 		if (!player || !player.IsAlive() || player.IsUnconscious())
 		{
 			#ifdef ZENSKILLSDEBUG 
@@ -276,7 +276,7 @@ class ZenSkillsHighscores extends UIScriptedMenu
 
 		if (KeyState(KeyCode.KC_ESCAPE) == 1)
 		{
-			UIManager ui = GetGame().GetUIManager();
+			UIManager ui = g_Game.GetUIManager();
 			if (!ui) 
 				return;
 			
@@ -290,7 +290,7 @@ class ZenSkillsHighscores extends UIScriptedMenu
 		
 		if (m_RequestedHighscores)
 		{
-			int countdown = HIGHSCORE_REQUEST_DELAY - (GetGame().GetTime() - m_LastHighscoreRequest);
+			int countdown = HIGHSCORE_REQUEST_DELAY - (g_Game.GetTime() - m_LastHighscoreRequest);
 			
 			if (countdown <= 0)
 			{
@@ -326,7 +326,7 @@ class ZenSkillsHighscores extends UIScriptedMenu
 		SoundObject soundObject				= soundBuilder.BuildSoundObject();
 		
 		soundObject.SetKind(WaveKind.WAVEUI);
-		m_Sound = GetGame().GetSoundScene().Play2D(soundObject, soundBuilder);
+		m_Sound = g_Game.GetSoundScene().Play2D(soundObject, soundBuilder);
 			
 		if (m_Sound)
 		{

@@ -64,7 +64,7 @@ modded class ActionSkinning
 				vector posHead;
 				MiscGameplayFunctions.GetHeadBonePos(player, posHead);
 				vector posRandom = MiscGameplayFunctions.GetRandomizedPositionVerified(posHead, body_pos, UAItemsSpreadRadius.NARROW, player);
-				GetGame().CreateObjectEx(pelt.GetType(), posRandom, ECE_PLACE_ON_SURFACE);
+				g_Game.CreateObjectEx(pelt.GetType(), posRandom, ECE_PLACE_ON_SURFACE);
 			}
 		}
 

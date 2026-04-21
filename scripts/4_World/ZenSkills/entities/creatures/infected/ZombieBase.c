@@ -1,9 +1,10 @@
 modded class ZombieBase 
 {
-	override void EEKilled(Object killer)
+	// ZenModCore has a more robust method of detecting killer entity.
+	override void EEKilledZen(notnull Object killer)
 	{
-		super.EEKilled(killer);
-
+		super.EEKilledZen(killer);
+		
 		ZenSkillFunctions.HandleEntityKilledEXP(this, killer);
 	}
 }

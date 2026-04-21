@@ -23,12 +23,14 @@ modded class MissionServer
 			GetZenSkillsHighscoresDB();
 		}
 		
-		#ifdef ZENMODPACK
+		/*
+		#ifdef ZenModPack
 		// Just in case someone has my modpack with ZenFireplaceSticks enabled, turn it off as this mod overrides it.
 		GetZenModPackConfig().ModEnabled.Set("ZenFireplaceStick", false);
 		GetZenModPackConfig().Save();
-		Print("[ZenSKills] DISABLE ZENMODPACK FIREPLACE STICK!");
+		Print("[ZenSKills] DISABLE ZenModPack FIREPLACE STICK!");
 		#endif
+		*/
 	}
 
 	override void InvokeOnConnect(PlayerBase player, PlayerIdentity identity) 
@@ -63,7 +65,7 @@ modded class MissionServer
 
 	void ApplyZenSkillsNewPlayer(PlayerBase pb)
 	{
-		if (GetGame().IsDedicatedServer() && pb != null && pb.GetIdentity())
+		if (g_Game.IsDedicatedServer() && pb != null && pb.GetIdentity())
 		{
 			float expLostPercentage = GetZenSkillsConfig().SharedConfig.PercentOfExpLostOnDeath;
 			if (pb.GetZenSkillsDB() && expLostPercentage > 0)
@@ -73,13 +75,6 @@ modded class MissionServer
 				GetZenSkillsPlugin().ResyncToClientDB(pb.GetIdentity(), pb.GetZenSkillsDB());
 			}
 		}
-	}
-	
-	override void OnMissionFinish()
-	{
-		super.OnMissionFinish();
-		
-		delete m_ZenSkillsConfig;
 	}
 	
 	// If a player just logged out and they were the LAST player to logout, save all DBs.

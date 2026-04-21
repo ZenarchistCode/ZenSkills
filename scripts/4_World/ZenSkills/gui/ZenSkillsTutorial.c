@@ -11,18 +11,18 @@ class ZenSkillsTutorial extends UIScriptedMenu
 
 	override Widget Init()
 	{
-	    layoutRoot = GetGame().GetWorkspace().CreateWidgets(LAYOUT_FILE);
+	    layoutRoot = g_Game.GetWorkspace().CreateWidgets(LAYOUT_FILE);
 
 		if (!ZenSkillsPlayerDB.RECEIVED_DATA)
 		{
-			GetGame().GetCallQueue(CALL_CATEGORY_GUI).CallLater(Close, 10);
+			g_Game.GetCallQueue(CALL_CATEGORY_GUI).CallLater(Close, 10);
 			return layoutRoot;
 		}
 		
-		PlayerBase pb = PlayerBase.Cast(GetGame().GetPlayer());
+		PlayerBase pb = PlayerBase.Cast(g_Game.GetPlayer());
 		if (!pb || !pb.GetIdentity())
 		{
-			GetGame().GetCallQueue(CALL_CATEGORY_GUI).CallLater(Close, 10);
+			g_Game.GetCallQueue(CALL_CATEGORY_GUI).CallLater(Close, 10);
 			return layoutRoot;
 		}
 		
@@ -55,7 +55,7 @@ class ZenSkillsTutorial extends UIScriptedMenu
 	{
 		super.OnHide();
 		
-		if (!GetGame())
+		if (!g_Game)
 			return;
 
 		ZenSkillFunctions.SetPlayerControl(true);
@@ -95,7 +95,7 @@ class ZenSkillsTutorial extends UIScriptedMenu
 		SoundObject soundObject				= soundBuilder.BuildSoundObject();
 		
 		soundObject.SetKind(WaveKind.WAVEUI);
-		m_Sound = GetGame().GetSoundScene().Play2D(soundObject, soundBuilder);
+		m_Sound = g_Game.GetSoundScene().Play2D(soundObject, soundBuilder);
 			
 		if (m_Sound)
 		{
