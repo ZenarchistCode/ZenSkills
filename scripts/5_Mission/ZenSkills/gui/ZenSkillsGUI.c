@@ -1,4 +1,4 @@
-class ZenSkillsGUI extends UIScriptedMenu
+class ZenSkillsGUI extends ZenSkillsGUIBase
 {
 	static const string LAYOUT_FILE = "ZenSkills/data/gui/layouts/zen_skills_menu.layout";
 	
@@ -26,10 +26,6 @@ class ZenSkillsGUI extends UIScriptedMenu
 	int m_LastClickTime;
 	string m_LastClickWidget;
 	int m_LastConfirmDialog;
-	
-	static bool m_ZenSkillsExpBoostActive;
-	static int m_ZenSkillsExpBoostLeftSecs;
-	static int m_ZenSkillsExpReceivedTimestamp;
 
 	// Main widgets
 	ref TextWidget m_TitleWidget;
@@ -267,7 +263,7 @@ class ZenSkillsGUI extends UIScriptedMenu
 			return;
 		}
 		
-		ZenSkillFunctions.SetPlayerControl(false);
+		ZenMissionFunctions.FreezePlayerControls();
 	}
 
 	override void OnHide()
@@ -277,7 +273,7 @@ class ZenSkillsGUI extends UIScriptedMenu
 		if (!g_Game)
 			return;
 
-		ZenSkillFunctions.SetPlayerControl(true);
+		ZenMissionFunctions.UnfreezePlayerControls();
 	}
 	
 	void RequestUnlockPerk()
@@ -928,7 +924,7 @@ class ZenSkillsGUI extends UIScriptedMenu
 		GetRPCManager().SendRPC(ZenSkillConstants.RPC, ZenSkillConstants.RPC_ServerReceive_PerkReset, new Param1<string>(m_SelectedSkill), true, null);
 	}
 	
-	void ForceUpdateFromServer(int playSound)
+	override void ForceUpdateFromServer(int playSound)
 	{
 		if (m_SelectedSkill != "")
 		{

@@ -142,7 +142,7 @@ class ZenSkillsHUD extends ZenSkillsHUDBase
 	// =========================
 
 	// Call this from PluginZenSkills with: (selectedSkill, difference, skill.ProgressToNextPerk())
-	void SetExpGainedStack(string skillKey, int addAmount, float progress)
+	override void SetExpGainedStack(string skillKey, int addAmount, float progress)
 	{
 		if (!GetZenSkillsClientConfig().ShowEXP) 
 			return;
@@ -198,7 +198,7 @@ class ZenSkillsHUD extends ZenSkillsHUDBase
 		SetExpGainedStack(text, ZS_ParseLastSignedNumber(text), progress);
 	}
 
-	void SetPerkUnlockedLabel(string skillKey, int perkCount, string text)
+	override void SetPerkUnlockedLabel(string skillKey, int perkCount, string text)
 	{
 		if (!GetZenSkillsClientConfig().ShowEXP) 
 			return;

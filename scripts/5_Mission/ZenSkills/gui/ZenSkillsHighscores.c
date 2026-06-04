@@ -1,4 +1,4 @@
-class ZenSkillsHighscores extends UIScriptedMenu
+class ZenSkillsHighscores extends ZenSkillsHighscoresBase
 {
 	static const string LAYOUT_FILE = "ZenSkills/data/gui/layouts/zen_skills_highscores.layout";
 	
@@ -109,14 +109,14 @@ class ZenSkillsHighscores extends UIScriptedMenu
 			return;
 		}
 		
-		ZenSkillFunctions.SetPlayerControl(false);
+		ZenMissionFunctions.FreezePlayerControls();
 	}
 
 	override void OnHide()
 	{
 		super.OnHide();
 
-		ZenSkillFunctions.SetPlayerControl(true);
+		ZenMissionFunctions.UnfreezePlayerControls();
 	}
 	
 	override bool OnClick(Widget w, int x, int y, int button)
@@ -181,7 +181,7 @@ class ZenSkillsHighscores extends UIScriptedMenu
 		m_RequestedHighscores = true;
 	}
 	
-	void ForceUpdateFromServer()
+	override void ForceUpdateFromServer()
 	{
 		SelectSkill(m_SelectedSkill, false);
 	}

@@ -78,9 +78,9 @@ modded class PlayerBase
 			Param2<bool, int> data = new Param2<bool, int>(false, 0); 
 			if (ctx.Read(data))
 			{
-				ZenSkillsGUI.m_ZenSkillsExpBoostActive = data.param1;
-				ZenSkillsGUI.m_ZenSkillsExpBoostLeftSecs = data.param2;
-				ZenSkillsGUI.m_ZenSkillsExpReceivedTimestamp = g_Game.GetTime();
+				ZenSkillsGUIBase.m_ZenSkillsExpBoostActive = data.param1;
+				ZenSkillsGUIBase.m_ZenSkillsExpBoostLeftSecs = data.param2;
+				ZenSkillsGUIBase.m_ZenSkillsExpReceivedTimestamp = g_Game.GetTime();
 			}
 			
 			#ifdef ZENSKILLSDEBUG 

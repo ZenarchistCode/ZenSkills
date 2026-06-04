@@ -480,7 +480,7 @@ class PluginZenSkills extends PluginBase
 		if (!g_Game.GetUIManager().GetMenu())
 			return;
 		
-		ZenSkillsGUI gui = ZenSkillsGUI.Cast(g_Game.GetUIManager().GetMenu());
+		ZenSkillsGUIBase gui = ZenSkillsGUIBase.Cast(g_Game.GetUIManager().GetMenu());
 		if (gui)
 		{
 			gui.ForceUpdateFromServer(soundID);
@@ -653,7 +653,7 @@ class PluginZenSkills extends PluginBase
 
 		if (hud && hud.GetZenSkillsHUD())
 		{
-			ZenSkillsHUD skillHUD = ZenSkillsHUD.Cast(hud.GetZenSkillsHUD());
+			ZenSkillsHUDBase skillHUD = ZenSkillsHUDBase.Cast(hud.GetZenSkillsHUD());
 			string skillString = "#STR_ZenSkills_Name_" + ZenSkillFunctions.FirstLetterUppercase(selectedSkill);
 			
 			skillHUD.SetExpGainedStack(selectedSkill, difference, skill.ProgressToNextPerk());
@@ -769,7 +769,7 @@ class PluginZenSkills extends PluginBase
 		ZenSkillsPrint("Received " + GetZenSkillsHighscoresDB().Highscores.Count() + " total highscores entries.");
 		#endif
 		
-		ZenSkillsHighscores gui = ZenSkillsHighscores.Cast(g_Game.GetUIManager().GetMenu());
+		ZenSkillsHighscoresBase gui = ZenSkillsHighscoresBase.Cast(g_Game.GetUIManager().GetMenu());
 		if (gui)
 		{
 			gui.ForceUpdateFromServer();

@@ -48,7 +48,7 @@ class ZenSkillsTutorial extends UIScriptedMenu
 	{
 		super.OnShow();
 
-		ZenSkillFunctions.SetPlayerControl(false);
+		ZenMissionFunctions.FreezePlayerControls();
 	}
 
 	override void OnHide()
@@ -58,7 +58,7 @@ class ZenSkillsTutorial extends UIScriptedMenu
 		if (!g_Game)
 			return;
 
-		ZenSkillFunctions.SetPlayerControl(true);
+		ZenMissionFunctions.UnfreezePlayerControls();
 	}
 	
 	override bool OnClick(Widget w, int x, int y, int button)

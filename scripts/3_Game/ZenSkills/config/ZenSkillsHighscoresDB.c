@@ -69,7 +69,7 @@ class ZenSkillsHighscoresDB: ZenConfigBase
 		if ((HighscoresIgnoreList && HighscoresIgnoreList.Find(playerID) != -1) || playerID.Contains(".json"))
 			return;
 		
-		if (GetZenModCoreConfig().IsAdmin(playerID))
+		if (GetZenCoreConfig().IsAdmin(playerID))
 			return;
 
 		if (playerName == "Survivor" || playerName.Contains("Survivor ("))
